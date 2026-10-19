@@ -1,0 +1,278 @@
+{
+  "exercise": "build_an_interactive_dashboard",
+  "version": 4,
+  "source_doc": "Exercises/Build_an_Interactive_Dashboard.docx > Instructions, Parts 1 to 6 (steps 1 to 20) (merged with dashboard_20261008_full_take02/generated.json)",
+  "audience": "public",
+  "variables": {
+    "repo": "<YOUR_GITHUB_ACCOUNT>/my-agentic-workshop",
+    "codespace_name": "<CODESPACE_NAME>",
+    "codespace_display": "<CODESPACE_DISPLAY_NAME>",
+    "feedback_prompt": "In the Date range filter, I clicked Last 24 mo. The two boxes at the ends of the slider show 45 and 68, which look like month numbers. I expected dates, such as Oct 2023 and Sep 2025. Then restart the dashboard so I can check it.",
+    "repo_id": "<GITHUB_REPO_ID>",
+    "feedback_prompt_2": "I reloaded the page and clicked Last 24 mo again. The two boxes at the ends of the date slider still show 45 and 68 instead of dates. Then restart the dashboard so I can check it."
+  },
+  "parts": {
+    "0": "Opening",
+    "1": "Find your data",
+    "2": "Open Claude Code and interact",
+    "3": "Give direction, not instructions",
+    "4": "Let Claude build",
+    "5": "Explore and iterate",
+    "6": "Save your work to GitHub",
+    "7": "Recap"
+  },
+  "about": "The CSC13 test cut (R98): p2.10a to p2.10f of full_take02 in David's clone (R94). Planned against runs/csc13_test_20261012 (a copy of full_take02's recording).",
+  "voice_file": "voice_clone.json",
+  "excerpt": true,
+  "opens_on_graphic": true,
+  "steps": [
+    {
+      "id": "p2.10a",
+      "manual_step": 10,
+      "part": 2,
+      "segment": "scripted",
+      "action": {
+        "type": "type",
+        "typing_mode": "full",
+        "target": {
+          "tab": "ide",
+          "frame": "claude_panel",
+          "locator": "[contenteditable][aria-label=\"Message input\"]"
+        },
+        "text": "I have a CSV of U.S. flight data. Build me a single interactive dashboard for an aviation operations team. Use data visualization best practices. Create calculated fields, filters, and parameters where they make sense. Don't limit yourself to just what's in the data; apply what you know about the airline industry and current trends to decide what's useful. Visuals should interact with each other where appropriate. Before you start building, tell me what options we have and ask any questions you need answered. Note that I want the dashboard to run here in my Codespace so I can open it in my browser. The file is at: data/monthlysummary.csv"
+      },
+      "expect": {
+        "kind": "text_in_frame",
+        "tab": "ide",
+        "frame": "claude_panel",
+        "value": "is at: data/monthlysummary.csv",
+        "timeout_s": 5
+      },
+      "narration": {
+        "line_id": "csc13.p2.10a",
+        "text": "Now let's ask for the dashboard. I'll enter the dashboard prompt.",
+        "cue_word": "enter",
+        "click_word": null,
+        "status": "approved",
+        "source": "clone"
+      },
+      "zoom": {
+        "max": 2
+      },
+      "dwell": {
+        "reading_words": 20
+      },
+      "notes": "Typed at natural speed, not pasted (R67): the edit speeds the typing up or cuts its middle, so the line plays over the finished prompt. The description carries every prompt."
+    },
+    {
+      "id": "p2.10a2",
+      "part": 2,
+      "segment": "scripted",
+      "after": "p2.10a",
+      "during": true,
+      "action": {
+        "type": "none"
+      },
+      "expect": {
+        "kind": "none"
+      },
+      "narration": {
+        "line_id": "csc13.p2.10a2",
+        "status": "draft",
+        "source": "clone",
+        "cue_word": null,
+        "click_word": null,
+        "text": "Let's study this prompt in an overlay, so we can see the important instructions clearly."
+      },
+      "notes": "David, 2026-10-12: fills the 3.3 s of silence over the typing (R25). A line-only step during p2.10a, so only this line is voiced (R99)."
+    },
+    {
+      "id": "p2.10b",
+      "manual_step": 10,
+      "part": 2,
+      "segment": "scripted",
+      "action": {
+        "type": "none"
+      },
+      "expect": {
+        "kind": "none"
+      },
+      "narration": {
+        "line_id": "csc13.p2.10b",
+        "text": "Notice what the prompt describes: the audience, an aviation operations team, and the quality bar, data visualization best practices.",
+        "cue_word": null,
+        "click_word": null,
+        "status": "approved",
+        "source": "clone"
+      },
+      "zoom": {
+        "max": 2
+      },
+      "marks": [
+        {
+          "kind": "rect",
+          "at_word": "aviation",
+          "until_word": "team",
+          "target": {
+            "overlay": "dashboard_prompt",
+            "match": "aviation operations team"
+          }
+        },
+        {
+          "kind": "rect",
+          "at_word": "data",
+          "target": {
+            "overlay": "dashboard_prompt",
+            "match": "data visualization best practices"
+          }
+        }
+      ],
+      "overlay": {
+        "id": "dashboard_prompt",
+        "layout": "text",
+        "title": "The dashboard prompt",
+        "text": "I have a CSV of U.S. flight data. Build me a single interactive dashboard for an aviation operations team. Use data visualization best practices. Create calculated fields, filters, and parameters where they make sense. Don't limit yourself to just what's in the data; apply what you know about the airline industry and current trends to decide what's useful. Visuals should interact with each other where appropriate. Before you start building, tell me what options we have and ask any questions you need answered. Note that I want the dashboard to run here in my Codespace so I can open it in my browser. The file is at: data/monthlysummary.csv",
+        "edge": "left",
+        "until_step": "p2.10d"
+      },
+      "notes": "The long prompt scrolls inside the message box (take06, 2:26), so the whole prompt is shown on an overlay and the highlights go on it (R77). The overlay stays up through p2.10d."
+    },
+    {
+      "id": "p2.10c",
+      "manual_step": 10,
+      "part": 2,
+      "segment": "scripted",
+      "action": {
+        "type": "none"
+      },
+      "expect": {
+        "kind": "none"
+      },
+      "narration": {
+        "line_id": "csc13.p2.10c",
+        "text": "It doesn't name a chart type, a column, or a framework. It also tells Claude to look beyond the data, and apply what it knows about the airline industry.",
+        "cue_word": null,
+        "click_word": null,
+        "status": "approved",
+        "source": "clone"
+      },
+      "zoom": {
+        "max": 2
+      },
+      "marks": [
+        {
+          "kind": "rect",
+          "at_word": "beyond",
+          "target": {
+            "overlay": "dashboard_prompt",
+            "match": "Don't limit yourself to just what's in the data; apply what you know about the airline industry"
+          }
+        }
+      ]
+    },
+    {
+      "id": "p2.10d",
+      "manual_step": 10,
+      "part": 2,
+      "segment": "scripted",
+      "action": {
+        "type": "none"
+      },
+      "expect": {
+        "kind": "none"
+      },
+      "narration": {
+        "line_id": "csc13.p2.10d",
+        "text": "Note that we ask for options before Claude builds anything. This is a best practice. Claude lays out the choices, and we make the decisions that matter.",
+        "cue_word": null,
+        "click_word": null,
+        "status": "approved",
+        "source": "clone"
+      },
+      "zoom": {
+        "max": 2
+      },
+      "marks": [
+        {
+          "kind": "rect",
+          "at_word": "options",
+          "target": {
+            "overlay": "dashboard_prompt",
+            "match": "Before you start building, tell me what options we have and ask any questions you need answered"
+          }
+        }
+      ]
+    },
+    {
+      "id": "p2.10e",
+      "manual_step": 10,
+      "part": 2,
+      "segment": "scripted",
+      "action": {
+        "type": "click",
+        "target": {
+          "tab": "ide",
+          "frame": "claude_panel",
+          "locator": "button[aria-label=\"Send message\"]"
+        }
+      },
+      "expect": {
+        "kind": "text_in_frame",
+        "tab": "ide",
+        "frame": "claude_panel",
+        "value": "Queue another message",
+        "timeout_s": 10
+      },
+      "narration": {
+        "line_id": "csc13.p2.10e",
+        "text": "I'll click the send arrow. Claude starts by reading the data.",
+        "cue_word": "click",
+        "click_word": "send",
+        "status": "approved",
+        "source": "clone"
+      },
+      "zoom": {
+        "max": 2
+      },
+      "notes": "Send arrow confirmed in take06 (2026-10-07). The busy panel shows 'Queue another message'."
+    },
+    {
+      "id": "p2.10f",
+      "manual_step": 10,
+      "part": 2,
+      "segment": "live",
+      "action": {
+        "type": "wait_claude",
+        "max_wait_s": 240
+      },
+      "expect": {
+        "kind": "claude_idle",
+        "tab": "ide",
+        "timeout_s": 240
+      },
+      "narration": {
+        "line_id": "csc13.p2.10f",
+        "text": "In this case, it counts the rows, reads the columns, and checks the other files in the data folder before it proposes anything. Then it writes up what it found.",
+        "cue_word": null,
+        "click_word": null,
+        "status": "approved",
+        "source": "clone",
+        "points": [
+          "Claude reads the CSV first, to learn the columns, before it proposes anything."
+        ]
+      },
+      "zoom": {
+        "max": 2
+      },
+      "timelapse": {
+        "mode": "auto",
+        "keep_events": [
+          "prompt_seen",
+          "prompt_approved"
+        ],
+        "realtime_max_s": 10.0
+      },
+      "notes": "p2.10e already says Claude starts by reading the data (take06 had both, 3:00 and 3:03). The 20 s of tool calls are time-lapsed under this line (realtime_max_s 10 for this step) instead of cut, so the viewer sees the reading happen (R75)."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+ "about": "R242: the series card's and the subscribe animation's timing and placement, one copy for remotion/src/overlays (SeriesCard.tsx, SubscribeCta.tsx) and tools/remotion_ctas.py (and the stage, when it places them). Seconds; frame px at 1920 x 1080.",
+ "subscribe": {
+  "original": {
+   "leadS": 1.32,
+   "bellS": 1.9,
+   "thumbS": 2.867,
+   "lengthS": 7.52,
+   "note": "the Motion Array clip's own moments (research/backgrounds/refs_ep03/ep03_cta.json): it starts 1.32 s before 'subscribe', its bell is clicked 1.9 s in (as the word ends), its thumb 2.867 s in, it lasts 7.52 s"
+  },
+  "thumbAfterWordS": 0.14,
+  "minBellToThumbS": 0.75,
+  "afterThumbS": 4.65,
+  "whooshAtS": {
+   "classic": 0.467,
+   "brand": 0.467,
+   "pill": 0.08,
+   "soft": 0.12
+  },
+  "whooshNote": "from t0: when each variation's entrance starts moving (the classic's and the brand's on the bell's first frame, as round 7 placed the original's)",
+  "handRisePx": 14,
+  "handRiseNote": "the hand fades in this far below the bell and fades out this far below the thumb (the original fades it in and out near the icons); its body stays inside title-safe (y 980)"
+ },
+ "series": {
+  "spanS": 5.78,
+  "settledS": 1.52,
+  "goneS": 0.34,
+  "t0S": 0.5,
+  "box": {
+   "x": 1004,
+   "y": 640,
+   "w": 821,
+   "h": 230
+  },
+  "lines": [
+   "QS Journey 1: First dashboard"
+  ],
+  "note": "spanS: t1 - t0 as QuickArch03; t0S: the intro's moment proposed for Section A (QuickArch03: 0.52 s); whooshAtS: its sound cue (S9, R158), the library's whoosh as the title starts; box: Section A's place (inside title-safe, above the overlay lint's caption band at y 870 and 19 px above the bottom-centre caption, 12 px from the beard on round 7's render)",
+  "whooshAtS": 0.3,
+  "drawnFromS": 0.18,
+  "drawnNote": "the card draws anything (its plain black base, then the title) from this after t0 to this before t1; goneS is the title's own"
+ }
+}

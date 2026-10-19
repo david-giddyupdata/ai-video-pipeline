@@ -1,0 +1,57 @@
+{
+  "exercise": "build_an_interactive_dashboard",
+  "version": 4,
+  "variables": {
+    "repo": "<YOUR_GITHUB_ACCOUNT>/my-agentic-workshop",
+    "codespace_name": "<CODESPACE_NAME>",
+    "codespace_display": "<CODESPACE_DISPLAY_NAME>",
+    "feedback_prompt": "In the Date range filter, I clicked Last 24 mo. The two boxes at the ends of the slider show 45 and 68, which look like month numbers. I expected dates, such as Oct 2023 and Sep 2025. Then restart the dashboard so I can check it.",
+    "repo_id": "<GITHUB_REPO_ID>",
+    "feedback_prompt_2": "I reloaded the page and clicked Last 24 mo again. The two boxes at the ends of the date slider still show 45 and 68 instead of dates. Then restart the dashboard so I can check it."
+  },
+  "about": "The avatar's intro and outro for the CSC13 test cut (R98, R57, R97), voiced in the clone; HeyGen lip-syncs to these clips. Not planned: they become graphics/opening.mp4 and graphics/recap.mp4.",
+  "voice_file": "voice_clone.json",
+  "standalone_lines": true,
+  "heygen": {
+    "look": "<HEYGEN_LOOK_ID>",
+    "look_name": "David Baldwin (Eye Contact Correction)",
+    "engine": "avatar_iii",
+    "resolution": "1080p"
+  },
+  "steps": [
+    {
+      "id": "intro",
+      "part": 0,
+      "segment": "scripted",
+      "action": {
+        "type": "none"
+      },
+      "narration": {
+        "line_id": "csc13.intro",
+        "status": "draft",
+        "source": "clone",
+        "cue_word": null,
+        "click_word": null,
+        "text": "Hi, I'm David Baldwin with GiddyUp Data. Let's give Claude Code one prompt for a flight dashboard, and see why it works."
+      },
+      "graphics": "opening"
+    },
+    {
+      "id": "outro",
+      "part": 7,
+      "segment": "scripted",
+      "action": {
+        "type": "none"
+      },
+      "narration": {
+        "line_id": "csc13.outro",
+        "status": "draft",
+        "source": "clone",
+        "cue_word": null,
+        "click_word": null,
+        "text": "That's the direction prompt: set the goal and the audience, and let Claude propose the build. Thanks for watching."
+      },
+      "graphics": "recap"
+    }
+  ]
+}

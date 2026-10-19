@@ -1,0 +1,287 @@
+{
+  "about": "On-screen text for the opening and the recap (R69). Each slide plays over its narration lines; each item appears as its at_word is spoken (first occurrence in that line unless occurrence says otherwise). Rendered by pipeline.edit.slides over a still of the finished dashboard.",
+  "sequences": {
+    "opening": [
+      "p0.01",
+      "p0.02",
+      "p0.03",
+      "p0.04",
+      "p0.05",
+      "p0.06"
+    ],
+    "recap": [
+      "p7.01",
+      "p7.02"
+    ]
+  },
+  "slides": [
+    {
+      "id": "title",
+      "layout": "title",
+      "lines": [
+        "p0.01"
+      ],
+      "kicker": "Claude Code in a GitHub codespace",
+      "title": "Build an Interactive Dashboard",
+      "items": [
+        {
+          "text": "From a CSV of U.S. flight data",
+          "line": "p0.01",
+          "at_word": "flight"
+        },
+        {
+          "text": "No code written by hand",
+          "line": "p0.01",
+          "at_word": "won't"
+        }
+      ]
+    },
+    {
+      "id": "what",
+      "layout": "list",
+      "lines": [
+        "p0.02"
+      ],
+      "title": "Claude Code can",
+      "items": [
+        {
+          "text": "Discover the data",
+          "line": "p0.02",
+          "at_word": "discover"
+        },
+        {
+          "text": "Propose options",
+          "line": "p0.02",
+          "at_word": "propose"
+        },
+        {
+          "text": "Build the whole solution",
+          "line": "p0.02",
+          "at_word": "build"
+        },
+        {
+          "text": "Your job: direct it",
+          "line": "p0.02",
+          "at_word": "direct",
+          "style": "callout"
+        }
+      ]
+    },
+    {
+      "id": "prompts",
+      "layout": "compare",
+      "lines": [
+        "p0.03",
+        "p0.04"
+      ],
+      "columns": [
+        {
+          "title": "Direction prompt",
+          "line": "p0.03",
+          "at_word": "direction",
+          "items": [
+            {
+              "text": "The goal",
+              "line": "p0.03",
+              "at_word": "goal"
+            },
+            {
+              "text": "The audience",
+              "line": "p0.03",
+              "at_word": "audience"
+            },
+            {
+              "text": "The quality you expect",
+              "line": "p0.03",
+              "at_word": "quality"
+            },
+            {
+              "text": "Technical decisions: the AI",
+              "line": "p0.03",
+              "at_word": "technical"
+            },
+            {
+              "text": "Use when: you know the goal, not the path",
+              "line": "p0.04",
+              "at_word": "goal",
+              "style": "use"
+            }
+          ]
+        },
+        {
+          "title": "Construction prompt",
+          "line": "p0.04",
+          "at_word": "construction",
+          "items": [
+            {
+              "text": "Exactly what to build",
+              "line": "p0.04",
+              "at_word": "spells"
+            },
+            {
+              "text": "\"Create a bar chart of flights by region using matplotlib.\"",
+              "line": "p0.04",
+              "at_word": "bar",
+              "style": "quote"
+            },
+            {
+              "text": "Use when: you know exactly what you want",
+              "line": "p0.04",
+              "at_word": "exactly",
+              "occurrence": 2,
+              "style": "use"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roadmap",
+      "layout": "roadmap",
+      "lines": [
+        "p0.05"
+      ],
+      "title": "The exercise in six parts",
+      "items": [
+        {
+          "text": "Find the data",
+          "line": "p0.05",
+          "at_word": "find"
+        },
+        {
+          "text": "Open Claude Code and ask for the dashboard",
+          "line": "p0.05",
+          "at_word": "open"
+        },
+        {
+          "text": "Choose from Claude's options",
+          "line": "p0.05",
+          "at_word": "choose"
+        },
+        {
+          "text": "Let Claude build",
+          "line": "p0.05",
+          "at_word": "build"
+        },
+        {
+          "text": "Explore and request a fix",
+          "line": "p0.05",
+          "at_word": "explore",
+          "variants": {
+            "improvement": "Explore and request a change"
+          }
+        },
+        {
+          "text": "Save your work to GitHub",
+          "line": "p0.05",
+          "at_word": "save"
+        }
+      ]
+    },
+    {
+      "id": "before",
+      "layout": "list",
+      "lines": [
+        "p0.06"
+      ],
+      "title": "Before you start",
+      "items": [
+        {
+          "text": "A codespace with the starter files",
+          "line": "p0.06",
+          "at_word": "codespace"
+        },
+        {
+          "text": "Your Anthropic API key",
+          "line": "p0.06",
+          "at_word": "Anthropic"
+        },
+        {
+          "text": "Setup video: link in the description",
+          "line": "p0.06",
+          "at_word": "Setup"
+        },
+        {
+          "text": "About 30 minutes",
+          "line": "p0.06",
+          "at_word": "thirty"
+        }
+      ]
+    },
+    {
+      "id": "pattern",
+      "layout": "list",
+      "lines": [
+        "p7.01"
+      ],
+      "title": "The pattern, for your own work",
+      "items": [
+        {
+          "text": "Set the goal, the audience and the quality bar",
+          "line": "p7.01",
+          "at_word": "Set"
+        },
+        {
+          "text": "Make the decisions that matter",
+          "line": "p7.01",
+          "at_word": "Make"
+        },
+        {
+          "text": "Check the result yourself",
+          "line": "p7.01",
+          "at_word": "check"
+        },
+        {
+          "text": "Claude can't see what it built",
+          "line": "p7.01",
+          "at_word": "see",
+          "style": "callout"
+        }
+      ]
+    },
+    {
+      "id": "recap",
+      "layout": "roadmap",
+      "lines": [
+        "p7.02"
+      ],
+      "title": "Recap",
+      "checks": true,
+      "items": [
+        {
+          "text": "Find the data",
+          "line": "p7.02",
+          "at_word": "found"
+        },
+        {
+          "text": "Open Claude Code and ask for the dashboard",
+          "line": "p7.02",
+          "at_word": "opened"
+        },
+        {
+          "text": "Choose from Claude's options",
+          "line": "p7.02",
+          "at_word": "chose"
+        },
+        {
+          "text": "Let Claude build",
+          "line": "p7.02",
+          "at_word": "build"
+        },
+        {
+          "text": "Explore and request a fix",
+          "line": "p7.02",
+          "at_word": "explored",
+          "variants": {
+            "improvement": "Explore and request a change"
+          }
+        },
+        {
+          "text": "Save your work to GitHub",
+          "line": "p7.02",
+          "at_word": "saved"
+        }
+      ]
+    }
+  ]
+}

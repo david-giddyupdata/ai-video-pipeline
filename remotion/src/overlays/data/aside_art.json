@@ -1,0 +1,75 @@
+{
+ "about": "Aside (Aside.tsx): each art file's own size and the box its opaque pixels fill (alpha above 16, 2 px margin), so a PNG with wide transparent margins is drawn at its content size. Keyed by the file name in the public dir. A file missing here is drawn whole. Measured from research/overlay_ideas/qs1a/art/ on 2026-10-15. The _k files (2026-10-15, note 11) have the white the edge flood fill missed keyed too (tools/key_enclosed.py).",
+ "art": {
+  "padlock_closed_gemini-nano-banana-2.1_alpha.png": {
+   "w": 1024,
+   "h": 1024,
+   "content": {
+    "x": 193,
+    "y": 74,
+    "w": 638,
+    "h": 862
+   }
+  },
+  "padlock_open_gemini-nano-banana-2.1_alpha.png": {
+   "w": 1024,
+   "h": 1024,
+   "content": {
+    "x": 192,
+    "y": 74,
+    "w": 640,
+    "h": 862
+   }
+  },
+  "spice_jars_gemini-3.1-flash-image_alpha.png": {
+   "w": 1024,
+   "h": 1024,
+   "content": {
+    "x": 76,
+    "y": 278,
+    "w": 872,
+    "h": 515
+   }
+  },
+  "spice_jars_gemini-nano-banana-2.1_alpha.png": {
+   "w": 1024,
+   "h": 1024,
+   "content": {
+    "x": 85,
+    "y": 251,
+    "w": 854,
+    "h": 523
+   }
+  },
+  "padlock_closed_gemini-nano-banana-2.1_alpha_k.png": {
+   "w": 1024,
+   "h": 1024,
+   "content": {
+    "x": 193,
+    "y": 74,
+    "w": 638,
+    "h": 862
+   }
+  },
+  "padlock_open_gemini-nano-banana-2.1_alpha_k.png": {
+   "w": 1024,
+   "h": 1024,
+   "content": {
+    "x": 192,
+    "y": 74,
+    "w": 640,
+    "h": 862
+   }
+  },
+  "padlock_closed_gemini-3.1-flash-image_alpha_k.png": {
+   "w": 1024,
+   "h": 1024,
+   "content": {
+    "x": 0,
+    "y": 0,
+    "w": 1024,
+    "h": 1024
+   }
+  }
+ }
+}

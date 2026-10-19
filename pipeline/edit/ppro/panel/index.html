@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AIDV</title>
+<style>
+  body { background: #232323; color: #d8d8d8; font: 12px "Segoe UI", sans-serif; margin: 10px; }
+  button { background: #3a3a3a; color: #eee; border: 1px solid #555; border-radius: 3px; padding: 6px 10px;
+           margin: 0 0 8px; width: 100%; cursor: pointer; }
+  button:hover { background: #474747; }
+  #status { white-space: pre-wrap; color: #aaa; }
+</style>
+</head>
+<body>
+<button id="titles">Add caption titles to this sequence...</button>
+<div id="status">Pick the export folder's caption_titles.json.</div>
+<script src="bridge.js"></script>
+<script>
+  // R102: one editable title per caption cue, from the job file the export wrote next to the XML.
+  document.getElementById("titles").onclick = function () {
+    var status = document.getElementById("status");
+    status.textContent = "Working...";
+    window.aidvEval("aidvCaptionTitlesDialog()", function (out) {
+      var r;
+      try { r = JSON.parse(out); } catch (e) { r = { ok: false, error: out }; }
+      status.textContent = r.ok ? (r.result && r.result.message) || "Done." : "Error: " + r.error;
+    });
+  };
+</script>
+</body>
+</html>

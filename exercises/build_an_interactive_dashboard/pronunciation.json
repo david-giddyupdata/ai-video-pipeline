@@ -1,0 +1,110 @@
+{
+  "terms": [
+    {
+      "display": "github.com/codespaces",
+      "spoken": "GitHub dot com slash codespaces",
+      "tried": []
+    },
+    {
+      "display": "my-agentic-workshop",
+      "spoken": "my agentic workshop",
+      "tried": []
+    },
+    {
+      "display": "CLAUDE.md",
+      "spoken": "Claude dot M D",
+      "tried": [],
+      "candidates": [
+        "Claude dot MD",
+        "Claude M D"
+      ]
+    },
+    {
+      "display": "Codespaces",
+      "spoken": "Code spaces",
+      "tried": [],
+      "candidates": [
+        "Codespaces"
+      ]
+    },
+    {
+      "display": "codespace",
+      "spoken": "code space",
+      "tried": [],
+      "candidates": [
+        "codespace"
+      ]
+    },
+    {
+      "display": "Plotly Dash",
+      "spoken": "Plot-lee Dash",
+      "tried": [],
+      "candidates": [
+        "Plotly Dash",
+        "Plot lee Dash"
+      ]
+    },
+    {
+      "display": "monthlysummary.csv",
+      "spoken": "monthly summary dot C S V",
+      "tried": [],
+      "candidates": [
+        "monthly summary C S V"
+      ]
+    },
+    {
+      "display": "Trust Folder & Continue",
+      "spoken": "Trust Folder and Continue",
+      "tried": []
+    },
+    {
+      "display": "8050",
+      "spoken": "eighty fifty",
+      "tried": [],
+      "candidates": [
+        "eight oh five oh"
+      ]
+    },
+    {
+      "display": "8050.app.github.dev",
+      "spoken": "eighty fifty dot app dot GitHub dot dev",
+      "tried": []
+    },
+    {
+      "display": "docs/dashboard.md",
+      "spoken": "docs slash dashboard dot M D",
+      "tried": []
+    },
+    {
+      "display": "matplotlib",
+      "spoken": "mat plot lib",
+      "tried": [],
+      "candidates": [
+        "matplotlib"
+      ]
+    },
+    {
+      "display": "GiddyUpData.com",
+      "spoken": "Giddy Up Data dot com",
+      "tried": []
+    },
+    {
+      "display": "dataviz",
+      "spoken": "data viz",
+      "tried": []
+    },
+    {
+      "display": "app.py",
+      "spoken": "app dot P Y",
+      "tried": [],
+      "candidates": [
+        "app dot pie"
+      ]
+    },
+    {
+      "display": "Last 24 mo",
+      "spoken": "Last 24 months",
+      "tried": []
+    }
+  ]
+}

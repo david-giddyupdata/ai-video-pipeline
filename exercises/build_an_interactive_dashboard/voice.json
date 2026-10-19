@@ -1,0 +1,11 @@
+{
+  "engine": "edge-tts",
+  "voice": "en-US-AndrewNeural",
+  "rate": "-15%",
+  "word_timing": "engine",
+  "word_timing_note": "R227: edge-tts's own word boundaries, so this exercise's lines.json (shared with the CSC13 test) stays as it is. A new exercise leaves word_timing out: its word times come from the forced aligner (pipeline.narration.timing). With the aligner, the run-on check's floor is sentence_pause_min_aligner_s (0.24 s unless set); sentence_pause_min_s is the engine's own.",
+  "label_pause": " - ",
+  "label_pause_note": "Andrew at -15%, measured gap before the label: none 0.01 s, comma 0.28 s, hyphen 0.43 s, ellipsis 0.50 s (2026-10-06). ElevenLabs: use <break time=\"0.4s\" />",
+  "sentence_pause_min_s": 0.25,
+  "sentence_pause_note": "Andrew at -15% pauses 0.485 s at every sentence end; under 0.25 s means edge-tts read the stop as an abbreviation ('dev.', 'lib.'): the build re-voices with an ellipsis (R85)"
+}

@@ -1,0 +1,71 @@
+# Never commit keys or local settings
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.json
+client_secret*.json
+*_token.json
+token.json
+.claude/settings.local.json
+.claude/skills/
+
+# Python and Node
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+node_modules/
+
+# Run output and caches the pipeline creates
+runs/
+audio_cache/
+recordings/
+remotion/out/
+remotion/build/
+remotion/dist/
+remotion/review/
+
+# Web-app page dumps and screenshots (they hold account emails and billing)
+research/heygen_plan/
+research/abacus/
+
+# Media and editor projects: this repository ships none
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.avi
+*.m4v
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+*.ogg
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.tif
+*.tiff
+*.bmp
+*.webp
+*.psd
+*.ai
+*.aep
+*.prproj
+*.mogrt
+
+# Office files
+*.docx
+*.xlsx
+*.pptx
+
+# Operating system clutter
+Thumbs.db
+.DS_Store
+desktop.ini

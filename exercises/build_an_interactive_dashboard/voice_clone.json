@@ -1,0 +1,10 @@
+{
+  "engine": "elevenlabs",
+  "voice": "<ELEVENLABS_VOICE_ID>",
+  "model": "eleven_multilingual_v2",
+  "word_timing": "engine",
+  "word_timing_note": "R227: ElevenLabs' own logged word times, so the CSC13 test (its regression gate, tools/regress_csc13.py) plans as it did. A new exercise leaves word_timing out: its word times come from the forced aligner (pipeline.narration.timing). With the aligner, the run-on check's floor is sentence_pause_min_aligner_s (0.24 s unless set); sentence_pause_min_s is the engine's own.",
+  "label_pause": " - ",
+  "sentence_pause_min_s": 0.15,
+  "sentence_pause_note": "ElevenLabs' character times give part of each pause to the last character: the measured gap is about 0.2 s shorter than the silence (csc13.intro, 2026-10-12: 0.13 s measured, 0.22 s heard; with the ellipsis 0.21 s measured, 0.44 s heard)"
+}

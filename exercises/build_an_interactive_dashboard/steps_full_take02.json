@@ -1,0 +1,3435 @@
+{
+ "exercise": "build_an_interactive_dashboard",
+ "version": 4,
+ "source_doc": "Exercises/Build_an_Interactive_Dashboard.docx > Instructions, Parts 1 to 6 (steps 1 to 20) (merged with dashboard_20261008_full_take02/generated.json)",
+ "audience": "public",
+ "variables": {
+  "repo": "<YOUR_GITHUB_ACCOUNT>/my-agentic-workshop",
+  "codespace_name": "<CODESPACE_NAME>",
+  "codespace_display": "<CODESPACE_DISPLAY_NAME>",
+  "feedback_prompt": "In the Date range filter, I clicked Last 24 mo. The two boxes at the ends of the slider show 45 and 68, which look like month numbers. I expected dates, such as Oct 2023 and Sep 2025. Then restart the dashboard so I can check it.",
+  "repo_id": "<GITHUB_REPO_ID>",
+  "feedback_prompt_2": "I reloaded the page and clicked Last 24 mo again. The two boxes at the ends of the date slider still show 45 and 68 instead of dates. Then restart the dashboard so I can check it."
+ },
+ "parts": {
+  "0": "Opening",
+  "1": "Find your data",
+  "2": "Open Claude Code and interact",
+  "3": "Give direction, not instructions",
+  "4": "Let Claude build",
+  "5": "Explore and iterate",
+  "6": "Save your work to GitHub",
+  "7": "Recap"
+ },
+ "steps": [
+  {
+   "id": "p0.01",
+   "manual_step": null,
+   "part": 0,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p0.01",
+    "text": "In this video, we'll build an interactive dashboard from a file of U.S. flight data, using Claude Code in a GitHub codespace. We won't write any code ourselves.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "notes": "Episode frame (R30). Motion graphics on screen (R69): text slides over a still of the finished dashboard, rendered in Remotion; see remotion/ OpeningRecap. The take itself starts at p1.01."
+  },
+  {
+   "id": "p0.02",
+   "manual_step": null,
+   "part": 0,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p0.02",
+    "text": "Claude Code can discover the data, propose options, and build the whole solution. That's powerful, but it's also easy to get a result you didn't want if you don't know how to direct it.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   }
+  },
+  {
+   "id": "p0.03",
+   "manual_step": null,
+   "part": 0,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p0.03",
+    "text": "This exercise uses a direction prompt. A direction prompt describes the goal, the audience, and the quality you expect, and leaves the technical decisions to the AI. It's how a manager gives direction to an analyst.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   }
+  },
+  {
+   "id": "p0.04",
+   "manual_step": null,
+   "part": 0,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p0.04",
+    "text": "A construction prompt is the opposite. It spells out exactly what to build, such as a bar chart of flights by region, using matplotlib. Use a construction prompt when you know exactly what you want. Use a direction prompt when you know the goal, but not the path.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   }
+  },
+  {
+   "id": "p0.05",
+   "manual_step": null,
+   "part": 0,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p0.05",
+    "text": "We'll work through the exercise in order. First, we'll find the data and open Claude Code. Then we'll ask for the dashboard, choose from Claude's options, and let it build. Finally, we'll explore the dashboard, request a fix, and save our work to GitHub.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone",
+    "variants": {
+     "improvement": "We'll work through the exercise in order. First, we'll find the data and open Claude Code. Then we'll ask for the dashboard, choose from Claude's options, and let it build. Finally, we'll explore the dashboard, request a change, and save our work to GitHub."
+    }
+   }
+  },
+  {
+   "id": "p0.06",
+   "manual_step": null,
+   "part": 0,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p0.06",
+    "text": "To follow along, you'll need a codespace with the starter files and your Anthropic API key. The Setup video covers that, and you can access it via the description. Plan on about thirty minutes. So, let's get started.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   }
+  },
+  {
+   "id": "p1.01",
+   "manual_step": 1,
+   "part": 1,
+   "segment": "scripted",
+   "action": {
+    "type": "navigate",
+    "url": "https://github.com/codespaces"
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "github",
+    "frame": "main",
+    "locator": "text=Your codespaces",
+    "timeout_s": 20
+   },
+   "narration": {
+    "line_id": "dash.p1.01",
+    "text": "I'll start at github.com/codespaces. A codespace is a complete development workspace that runs in your browser, so there's nothing to install.",
+    "cue_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "dwell": {
+    "min_s": 2.0
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "github.com/codespaces",
+     "target": {
+      "chrome": "address_bar",
+      "match": "github.com/codespaces"
+     }
+    }
+   ]
+  },
+  {
+   "id": "p1.02",
+   "manual_step": 2,
+   "part": 1,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "github",
+     "frame": "main",
+     "locator": "a[href='/codespaces?repository_id={repo_id}']",
+     "fallback": [
+      "a[href^='/codespaces?repository_id=']:has-text('{repo}')"
+     ]
+    }
+   },
+   "expect": {
+    "kind": "url_contains",
+    "tab": "github",
+    "value": "repository_id={repo_id}",
+    "timeout_s": 15
+   },
+   "narration": {
+    "line_id": "dash.p1.02",
+    "text": "On the left, under By repository, I'll click my repository, my-agentic-workshop. As you can see, the list narrows to that repository's codespaces.",
+    "cue_word": "click",
+    "click_word": "my-agentic-workshop",
+    "status": "approved",
+    "source": "clone",
+    "labels": [
+     "By repository"
+    ]
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "my-agentic-workshop",
+     "target": {
+      "of": "action"
+     }
+    }
+   ],
+   "notes": "Matched by repository id: by name, my-agentic-workshop is a prefix of every take repo (take02 of S6 clicked take06's link, 2026-10-07)."
+  },
+  {
+   "id": "p1.03",
+   "manual_step": 3,
+   "part": 1,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "github",
+     "frame": "main",
+     "locator": "a[href='/codespaces/{codespace_name}']"
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "main",
+    "locator": ".explorer-folders-view .monaco-list-row[aria-label='data']",
+    "timeout_s": 90
+   },
+   "narration": {
+    "line_id": "dash.p1.03",
+    "text": "Then I'll click my codespace. GitHub gives every codespace a random name. This one is called {codespace_display}. Yours will have a different name.",
+    "cue_word": "click",
+    "click_word": "codespace",
+    "status": "draft",
+    "source": "clone"
+   },
+   "dwell": {
+    "min_s": 3.0
+   },
+   "notes": "Opens in a new tab (the link has target=_blank). Codespaces occasionally stalls on 'Setting up your codespace'; the runner reloads once after 90 s. A stopped codespace takes about a minute to start; that wait is cut in the edit. Changed 2026-10-08: \"a random two-word name\" became \"a random name\", since the full take's codespace is \"<CODESPACE_DISPLAY_NAME>\" (three words); draft until David approves.",
+   "on_fail": "retry_once",
+   "marks": [
+    {
+     "kind": "arrow",
+     "at_word": "codespace",
+     "target": {
+      "of": "action"
+     }
+    },
+    {
+     "kind": "arrow",
+     "at_word": "{codespace_display}",
+     "target": {
+      "tab": "ide",
+      "frame": "main",
+      "locator": "#status\\.host",
+      "match": "{codespace_display}",
+      "ocr_band": [
+       0.9,
+       1.0
+      ]
+     },
+     "until_word": "name"
+    }
+   ]
+  },
+  {
+   "id": "p1.04",
+   "manual_step": 4,
+   "part": 1,
+   "segment": "scripted",
+   "only_if": {
+    "tab": "ide",
+    "locator": ".monaco-dialog-box:has-text('trust the authors')",
+    "state": "visible",
+    "timeout_s": 2,
+    "otherwise": "skip"
+   },
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": ".monaco-dialog-box .monaco-button:has-text('Trust Folder')",
+     "fallback": [
+      "text=Trust Folder & Continue"
+     ]
+    }
+   },
+   "expect": {
+    "kind": "hidden",
+    "tab": "ide",
+    "frame": "main",
+    "locator": ".monaco-dialog-box",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p1.04",
+    "text": "A box asks whether I trust the authors of the files in this folder. It's my own repository, so I'll click Trust Folder & Continue.",
+    "cue_word": "click",
+    "click_word": "Trust",
+    "status": "approved",
+    "source": "clone",
+    "labels": [
+     "Trust Folder & Continue"
+    ]
+   },
+   "notes": "Appears only on a codespace's first open. The take's existing codespace is already trusted, so this step is skipped there; a fresh take repo shows it."
+  },
+  {
+   "id": "p1.05",
+   "manual_step": 5,
+   "part": 1,
+   "segment": "scripted",
+   "only_if": {
+    "tab": "ide",
+    "locator": ".explorer-folders-view",
+    "state": "hidden",
+    "timeout_s": 1,
+    "otherwise": "skip"
+   },
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": ".activitybar a[aria-label^='Explorer']"
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "main",
+    "locator": ".explorer-folders-view .monaco-list-row[aria-label='data']",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p1.05",
+    "text": "The file list isn't showing, so I'll click the Explorer icon at the top of the bar on the far left.",
+    "cue_word": "click",
+    "click_word": "Explorer",
+    "status": "approved",
+    "source": "clone"
+   },
+   "notes": "Clicking Explorer while it is open would close it, so the step runs only when the file list is hidden."
+  },
+  {
+   "id": "p1.06a",
+   "manual_step": 6,
+   "part": 1,
+   "segment": "scripted",
+   "only_if": {
+    "tab": "ide",
+    "locator": ".explorer-folders-view .monaco-list-row[aria-label='data'][aria-expanded='false']",
+    "state": "visible",
+    "timeout_s": 2,
+    "otherwise": "stop_take"
+   },
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": ".explorer-folders-view .monaco-list-row[aria-label='data']"
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "main",
+    "locator": ".explorer-folders-view .monaco-list-row[aria-label='monthlysummary.csv']",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p1.06a",
+    "text": "The Explorer, on the left, lists the files in the repository. I'll open the data folder,",
+    "cue_word": "open",
+    "click_word": "data",
+    "status": "approved",
+    "source": "clone"
+   },
+   "notes": "A click on an expanded folder collapses it, so the take stops if data is already open (prepare resets it)."
+  },
+  {
+   "id": "p1.06b",
+   "manual_step": 6,
+   "part": 1,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": ".explorer-folders-view .monaco-list-row[aria-label='monthlysummary.csv']"
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "main",
+    "locator": ".tabs-container .tab:has-text('monthlysummary.csv')",
+    "timeout_s": 15
+   },
+   "narration": {
+    "line_id": "dash.p1.06b",
+    "text": "and select monthlysummary.csv. The first line lists the columns, from location and airport code to delays, cancellations and taxi times. Each row after that is one airport in one month, about twenty-four thousand rows in all.",
+    "cue_word": "select",
+    "click_word": "monthlysummary.csv",
+    "status": "approved",
+    "source": "clone"
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "first",
+     "target": {
+      "tab": "ide",
+      "frame": "main",
+      "locator": ".monaco-editor .view-lines .view-line",
+      "pick": "topmost"
+     }
+    }
+   ],
+   "dwell": {
+    "min_s": 3.0
+   }
+  },
+  {
+   "id": "p1.06c",
+   "manual_step": 6,
+   "part": 1,
+   "segment": "scripted",
+   "only_if": {
+    "tab": "ide",
+    "locator": ".notifications-toasts .notification-toast:has-text('Rainbow CSV')",
+    "state": "visible",
+    "timeout_s": 1,
+    "otherwise": "skip"
+   },
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": ".notifications-toasts .notification-toast:has-text('Rainbow CSV') .codicon-notifications-clear",
+     "fallback": [
+      ".notifications-toasts .notification-toast:has-text('Rainbow CSV') a[aria-label^='Clear']"
+     ]
+    }
+   },
+   "expect": {
+    "kind": "hidden",
+    "tab": "ide",
+    "frame": "main",
+    "locator": ".notifications-toasts .notification-toast:has-text('Rainbow CSV')",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p1.06c",
+    "text": "A notice offers to install the Rainbow CSV extension. We won't need it, so I'll close it with the X.",
+    "cue_word": "close",
+    "click_word": "X",
+    "status": "approved",
+    "source": "clone"
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "notice",
+     "target": {
+      "of": "subject"
+     }
+    }
+   ]
+  },
+  {
+   "id": "p2.07a",
+   "manual_step": 7,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": ".part.auxiliarybar .composite-bar a[aria-label=\"Claude Code\"]"
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "locator": "[contenteditable][aria-label=\"Message input\"]",
+    "timeout_s": 15
+   },
+   "narration": {
+    "line_id": "dash.p2.07a",
+    "text": "Claude Code lives in the panel on the right-hand side of the screen. I'll click the Claude Code tab.",
+    "cue_word": "click",
+    "click_word": "tab",
+    "status": "approved",
+    "source": "clone"
+   },
+   "only_if": {
+    "tab": "ide",
+    "locator": ".part.auxiliarybar .composite-bar a[aria-label=\"Claude Code\"]",
+    "state": "visible",
+    "timeout_s": 2,
+    "otherwise": "skip"
+   },
+   "notes": "When the codespace already shows a Claude Code tab next to Chat: after a restart it does (take06, 2026-10-07). On a codespace's very first open it doesn't, so p2.07b and c run instead."
+  },
+  {
+   "id": "p2.07b",
+   "manual_step": 7,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": ".part.auxiliarybar [aria-label=\"Additional Views\"]"
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "main",
+    "locator": ".context-view >> text=\"Claude Code\"",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p2.07b",
+    "text": "Claude Code lives in the panel on the right-hand side of the screen. As of this writing, a new codespace doesn't show a Claude Code tab, so I'll click the three dots next to Chat,",
+    "cue_word": "click",
+    "click_word": "three",
+    "status": "approved",
+    "source": "clone",
+    "labels": [
+     "Chat"
+    ]
+   },
+   "only_if": {
+    "tab": "ide",
+    "locator": ".part.auxiliarybar .composite-bar a[aria-label=\"Claude Code\"]",
+    "state": "hidden",
+    "timeout_s": 2,
+    "otherwise": "skip"
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "three",
+     "target": {
+      "of": "action"
+     }
+    }
+   ]
+  },
+  {
+   "id": "p2.07c",
+   "manual_step": 7,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": ".context-view >> text=\"Claude Code\"",
+     "fallback": [
+      "role=menuitem[name=\"Claude Code\"]",
+      "text=Claude Code"
+     ]
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "locator": "[contenteditable][aria-label=\"Message input\"]",
+    "timeout_s": 15
+   },
+   "narration": {
+    "line_id": "dash.p2.07c",
+    "text": "and choose Claude Code. Notice that the Chat tab next to it is GitHub Copilot, a different assistant. We're using Claude Code in this video.",
+    "cue_word": "choose",
+    "click_word": "Claude",
+    "status": "approved",
+    "source": "clone",
+    "labels": [
+     "Chat"
+    ]
+   },
+   "only_if": {
+    "tab": "ide",
+    "locator": ".context-view >> text=\"Claude Code\"",
+    "state": "visible",
+    "timeout_s": 2,
+    "otherwise": "skip"
+   },
+   "dwell": {
+    "min_s": 1.5
+   }
+  },
+  {
+   "id": "p2.07d",
+   "manual_step": 7,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "button[aria-label=\"Hide onboarding\"]"
+    }
+   },
+   "expect": {
+    "kind": "hidden",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "locator": "button[aria-label=\"Hide onboarding\"]",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p2.07d",
+    "text": "Claude Code opens with two welcome cards. We won't need them, so I'll close Learn Claude Code with its X,",
+    "cue_word": "close",
+    "click_word": "X",
+    "status": "approved",
+    "source": "clone",
+    "labels": [
+     "Learn Claude Code"
+    ]
+   },
+   "zoom": {
+    "max": 2
+   },
+   "only_if": {
+    "tab": "ide",
+    "frame": "claude_panel",
+    "locator": "button[aria-label=\"Hide onboarding\"]",
+    "state": "visible",
+    "timeout_s": 4,
+    "otherwise": "skip"
+   },
+   "notes": "The doc's welcome cards, shown once Claude Code is logged in (take06, 2026-10-07): 'Learn Claude Code' closes with its Hide onboarding X; 'Auto mode is now Claude Code's default permission mode.' with its Close X."
+  },
+  {
+   "id": "p2.07e",
+   "manual_step": 7,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "button[aria-label=\"Close\"]"
+    }
+   },
+   "expect": {
+    "kind": "hidden",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "locator": "text=/Auto mode is now/",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p2.07e",
+    "text": "and then Auto mode.",
+    "cue_word": "then",
+    "click_word": "Auto",
+    "status": "approved",
+    "source": "clone",
+    "labels": [
+     "Auto mode"
+    ]
+   },
+   "zoom": {
+    "max": 2
+   },
+   "only_if": {
+    "tab": "ide",
+    "frame": "claude_panel",
+    "locator": "text=/Auto mode is now/",
+    "state": "visible",
+    "timeout_s": 4,
+    "otherwise": "skip"
+   },
+   "notes": "The doc's welcome cards, shown once Claude Code is logged in (take06, 2026-10-07): 'Learn Claude Code' closes with its Hide onboarding X; 'Auto mode is now Claude Code's default permission mode.' with its Close X."
+  },
+  {
+   "id": "p2.07f",
+   "manual_step": 7,
+   "part": 2,
+   "segment": "scripted",
+   "only_if": {
+    "tab": "ide",
+    "frame": "claude_panel",
+    "locator": "[aria-label=\"Claude Code conversation\"]",
+    "state": "visible",
+    "timeout_s": 3,
+    "otherwise": "skip"
+   },
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "button[aria-label=\"New session\"]"
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "locator": "[contenteditable][aria-label=\"Message input\"]",
+    "timeout_s": 15
+   },
+   "narration": {
+    "line_id": "dash.p2.07f",
+    "status": "draft",
+    "source": "clone",
+    "cue_word": "click",
+    "click_word": "New",
+    "text": "This codespace already has an earlier conversation, so I'll click New session to start fresh."
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Only in a reused codespace: the panel reopens its last conversation (with any open question form) after a reconnect, and an off-camera New session does not survive it (s7_take05). A fresh repo skips this step."
+  },
+  {
+   "id": "p2.08a",
+   "manual_step": 8,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "type",
+    "typing_mode": "full",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "[contenteditable][aria-label=\"Message input\"]"
+    },
+    "text": "Before we build anything, add two rules to CLAUDE.md:\n- Keep this file short. When we finish a piece of work, write notes about it in a file in the docs folder, and add a one-line pointer to that file here.\n- When I ask you to commit, commit to the main branch and push it to GitHub. Don't create other branches."
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": ". Don't create other branches.",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p2.08a",
+    "text": "Before we build anything, I'll give Claude two standing rules. I'll enter this prompt. Every prompt in this video is available via the description.",
+    "cue_word": "enter",
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Typed at natural speed, not pasted (R67): the edit speeds the typing up or cuts its middle, so the line plays over the finished prompt. The description carries every prompt."
+  },
+  {
+   "id": "p2.08b",
+   "manual_step": 8,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p2.08b",
+    "text": "These rules go in CLAUDE.md, a file that Claude reads at the start of every session, so they apply from now on.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "CLAUDE.md",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "locator": "[contenteditable][aria-label=\"Message input\"]",
+      "match": "CLAUDE.md"
+     }
+    }
+   ]
+  },
+  {
+   "id": "p2.08c",
+   "manual_step": 8,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p2.08c",
+    "text": "The first rule keeps that file short. On a long project, notes pile up, and Claude would read all of them every time.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "short",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "locator": "[contenteditable][aria-label=\"Message input\"]",
+      "match": "Keep this file short."
+     }
+    }
+   ]
+  },
+  {
+   "id": "p2.08d",
+   "manual_step": 8,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p2.08d",
+    "text": "The second rule keeps our work on the main branch, which GitHub shows on the repository's front page. Without it, Claude may save the work on a separate branch.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "main",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "locator": "[contenteditable][aria-label=\"Message input\"]",
+      "match": "commit to the main branch"
+     }
+    }
+   ]
+  },
+  {
+   "id": "p2.08e",
+   "manual_step": 8,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "button[aria-label=\"Send message\"]"
+    }
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "Queue another message",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p2.08e",
+    "text": "I'll click the send arrow. As you can see, the prompt moves into the conversation.",
+    "cue_word": "click",
+    "click_word": "send",
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Send arrow confirmed in take06 (2026-10-07). The busy panel shows 'Queue another message'."
+  },
+  {
+   "id": "p2.09",
+   "manual_step": 9,
+   "part": 2,
+   "segment": "live",
+   "action": {
+    "type": "wait_claude",
+    "max_wait_s": 240
+   },
+   "expect": {
+    "kind": "claude_idle",
+    "tab": "ide",
+    "timeout_s": 240
+   },
+   "narration": {
+    "line_id": "dash.p2.09",
+    "text": "Claude reads CLAUDE.md, then edits it. In this run, it adds both rules under a new Rules heading, and says it hasn't committed the change.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "Claude's reply: it added both rules to CLAUDE.md (doc step 9).",
+     "If the reply shows the edit, point at the two new lines."
+    ],
+    "labels": [
+     "Rules"
+    ]
+   },
+   "zoom": {
+    "max": 2
+   },
+   "timelapse": {
+    "mode": "auto",
+    "keep_events": [
+     "prompt_seen",
+     "prompt_approved"
+    ]
+   },
+   "notes": "Usually under 20 s: real time with the cut rules (R39). Auto mode edits CLAUDE.md without a prompt. Marks (R75): the Read row and the reply's first sentence, by OCR of the panel; the reply is on screen before the wait ends (take06).",
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "reads",
+     "until_word": "edits",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "match": "Read CLAUDE.md",
+      "ocr_band": [
+       0.1,
+       0.6
+      ]
+     }
+    },
+    {
+     "kind": "rect",
+     "at_word": "adds",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "match": "I added both rules",
+      "ocr_band": [
+       0.1,
+       0.6
+      ],
+      "whole_line": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "p2.10a",
+   "manual_step": 10,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "type",
+    "typing_mode": "full",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "[contenteditable][aria-label=\"Message input\"]"
+    },
+    "text": "I have a CSV of U.S. flight data. Build me a single interactive dashboard for an aviation operations team. Use data visualization best practices. Create calculated fields, filters, and parameters where they make sense. Don't limit yourself to just what's in the data; apply what you know about the airline industry and current trends to decide what's useful. Visuals should interact with each other where appropriate. Before you start building, tell me what options we have and ask any questions you need answered. Note that I want the dashboard to run here in my Codespace so I can open it in my browser. The file is at: data/monthlysummary.csv"
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "is at: data/monthlysummary.csv",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p2.10a",
+    "text": "Now let's ask for the dashboard. I'll enter the dashboard prompt.",
+    "cue_word": "enter",
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "dwell": {
+    "reading_words": 20
+   },
+   "notes": "Typed at natural speed, not pasted (R67): the edit speeds the typing up or cuts its middle, so the line plays over the finished prompt. The description carries every prompt."
+  },
+  {
+   "id": "p2.10b",
+   "manual_step": 10,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p2.10b",
+    "text": "Notice what the prompt describes: the audience, an aviation operations team, and the quality bar, data visualization best practices.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "aviation",
+     "until_word": "team",
+     "target": {
+      "overlay": "dashboard_prompt",
+      "match": "aviation operations team"
+     }
+    },
+    {
+     "kind": "rect",
+     "at_word": "data",
+     "target": {
+      "overlay": "dashboard_prompt",
+      "match": "data visualization best practices"
+     }
+    }
+   ],
+   "overlay": {
+    "id": "dashboard_prompt",
+    "layout": "text",
+    "title": "The dashboard prompt",
+    "text": "I have a CSV of U.S. flight data. Build me a single interactive dashboard for an aviation operations team. Use data visualization best practices. Create calculated fields, filters, and parameters where they make sense. Don't limit yourself to just what's in the data; apply what you know about the airline industry and current trends to decide what's useful. Visuals should interact with each other where appropriate. Before you start building, tell me what options we have and ask any questions you need answered. Note that I want the dashboard to run here in my Codespace so I can open it in my browser. The file is at: data/monthlysummary.csv",
+    "edge": "left",
+    "until_step": "p2.10d"
+   },
+   "notes": "The long prompt scrolls inside the message box (take06, 2:26), so the whole prompt is shown on an overlay and the highlights go on it (R77). The overlay stays up through p2.10d."
+  },
+  {
+   "id": "p2.10c",
+   "manual_step": 10,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p2.10c",
+    "text": "It doesn't name a chart type, a column, or a framework. It also tells Claude to look beyond the data, and apply what it knows about the airline industry.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "beyond",
+     "target": {
+      "overlay": "dashboard_prompt",
+      "match": "Don't limit yourself to just what's in the data; apply what you know about the airline industry"
+     }
+    }
+   ]
+  },
+  {
+   "id": "p2.10d",
+   "manual_step": 10,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p2.10d",
+    "text": "Note that we ask for options before Claude builds anything. This is a best practice. Claude lays out the choices, and we make the decisions that matter.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "options",
+     "target": {
+      "overlay": "dashboard_prompt",
+      "match": "Before you start building, tell me what options we have and ask any questions you need answered"
+     }
+    }
+   ]
+  },
+  {
+   "id": "p2.10e",
+   "manual_step": 10,
+   "part": 2,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "button[aria-label=\"Send message\"]"
+    }
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "Queue another message",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p2.10e",
+    "text": "I'll click the send arrow. Claude starts by reading the data.",
+    "cue_word": "click",
+    "click_word": "send",
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Send arrow confirmed in take06 (2026-10-07). The busy panel shows 'Queue another message'."
+  },
+  {
+   "id": "p2.10f",
+   "manual_step": 10,
+   "part": 2,
+   "segment": "live",
+   "action": {
+    "type": "wait_claude",
+    "max_wait_s": 240
+   },
+   "expect": {
+    "kind": "claude_idle",
+    "tab": "ide",
+    "timeout_s": 240
+   },
+   "narration": {
+    "line_id": "dash.p2.10f",
+    "text": "In this case, it counts the rows, reads the columns, and checks the other files in the data folder before it proposes anything. Then it writes up what it found.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone",
+    "points": [
+     "Claude reads the CSV first, to learn the columns, before it proposes anything."
+    ]
+   },
+   "zoom": {
+    "max": 2
+   },
+   "timelapse": {
+    "mode": "auto",
+    "keep_events": [
+     "prompt_seen",
+     "prompt_approved"
+    ],
+    "realtime_max_s": 10.0
+   },
+   "notes": "p2.10e already says Claude starts by reading the data (take06 had both, 3:00 and 3:03). The 20 s of tool calls are time-lapsed under this line (realtime_max_s 10 for this step) instead of cut, so the viewer sees the reading happen (R75)."
+  },
+  {
+   "id": "p3.11a",
+   "manual_step": 11,
+   "part": 3,
+   "segment": "live",
+   "action": {
+    "type": "scroll",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "[aria-label=\"Claude Code conversation\"]"
+    }
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p3.11a",
+    "text": "Claude lays out its findings, and what it could build. In this run, it offers three layouts, and recommends an executive overview. The overview puts key numbers across the top, then a map, a trend line with events marked, and a ranking. For the technology, it recommends Plotly Dash, which is already installed. It also notes what the data can't answer, such as which airline or route a flight was. Treat findings like these as things to check, not facts. Another run may suggest different charts, but the shape of the reply is what to expect: findings, options, and questions.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "Claude laid out the options: name the frameworks it offered and the one it recommends.",
+     "Its plan for the page (charts, filters, parameters) in one sentence.",
+     "Arrive on its questions (\"Questions for you\" in the doc's run); read one or two aloud, e.g. cancellations or alert thresholds.",
+     "Any data quirks it found on its own (doc's run: missing coordinates, territories): findings to verify, not facts."
+    ]
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Reading a reply on camera (S7): the runner jumps the conversation to the start of Claude's last reply, below the pinned prompt, holds, then scrolls through it at a steady reading pace (runner READ_PX_S) and holds. The narration is written after the run (R33); the edit fits the scroll to it. The narrow panel at 2x shows too little of the reply to follow (take06, 3:17), so its main points go on an overlay, worded as what Claude may suggest (R76, R77); the scroll keeps playing beside it. Round 2 (David, 2026-10-07): the last item said the questions, one level below its sentence; it now sums up the shape of the reply and appears on 'findings' (R80; his Premiere edit moved it there).",
+   "overlay": {
+    "id": "reply_points",
+    "layout": "list",
+    "title": "What Claude may suggest",
+    "edge": "left",
+    "items": [
+     {
+      "text": "Findings: 23,878 rows, 378 airports, Jan 2020 to Sep 2025",
+      "at_word": "findings"
+     },
+     {
+      "text": "Three layouts: an executive overview (its pick), an operations watchlist, an analyst explorer",
+      "at_word": "three layouts"
+     },
+     {
+      "text": "The overview: key numbers, a map, a trend with events, a ranking",
+      "at_word": "overview puts"
+     },
+     {
+      "text": "Technology: Plotly Dash (its pick), a static web page, or Streamlit",
+      "at_word": "technology"
+     },
+     {
+      "text": "What the data can't answer: airline, origin airport, route, delay cause",
+      "at_word": "what the data"
+     },
+     {
+      "text": "Shape of the reply: findings, options, and questions",
+      "at_word": "findings, options"
+     }
+    ]
+   }
+  },
+  {
+   "id": "p3.11e",
+   "manual_step": 11,
+   "part": 3,
+   "segment": "scripted",
+   "only_if": {
+    "tab": "ide",
+    "frame": "claude_panel",
+    "locator": "text=Esc to cancel",
+    "state": "visible",
+    "timeout_s": 2,
+    "otherwise": "skip"
+   },
+   "action": {
+    "type": "key",
+    "key": "Escape",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "role=button[name=/Submit answers/]",
+     "fallback": [
+      "text=Submit answers"
+     ]
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "locator": "[contenteditable][aria-label=\"Message input\"]",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p3.11e",
+    "status": "approved",
+    "source": "clone",
+    "cue_word": "Escape",
+    "click_word": null,
+    "text": "This time, Claude asks its questions in a form, starting with the layout. I could answer each one here, but instead I'll press Escape to close the form, and answer in my own words."
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Runs between p3.11a and p3.11b (lettered e because the others were taken). Only when Claude asks with its question form (s7_take04) instead of plain text (s7_take01, take02). Escape closes the form ('Tool interrupted') and the message box takes the scripted answer (p3.11b). Checked off camera on take08, 2026-10-07. Mark (R75): the whole form, from its first question to 'Esc to cancel' (OCR span). R78: the questions clause is said before Escape. Round 2 (David, 2026-10-07): only the layout question is readable; the others sit behind tabs cut to 'La… E… C… Aud…', so the line no longer names them (R81).",
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "form",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "match": "should the dashboard",
+      "match_to": "Esc to cancel",
+      "ocr_band": [
+       0.3,
+       1.0
+      ],
+      "include": [
+       "Aud"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p3.11b",
+   "manual_step": 11,
+   "part": 3,
+   "segment": "scripted",
+   "action": {
+    "type": "type",
+    "typing_mode": "full",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "[contenteditable][aria-label=\"Message input\"]"
+    },
+    "text": "Let's use Plotly Dash. Go with your defaults for everything else."
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "everything else",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p3.11b",
+    "text": "In the box at the bottom, I'll type my answer. We'll use Plotly Dash, a Python framework for interactive web dashboards, and let Claude go with its defaults for everything else.",
+    "cue_word": "In",
+    "click_word": "box",
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Edited 2026-10-07 after David's review of s7_take06 (docs/S7_FIX_PLAN.md): R78, the form is closed by now, so 'I could answer each of Claude's questions' moved into p3.11e. Was approved; needs David's OK."
+  },
+  {
+   "id": "p3.11c",
+   "manual_step": 11,
+   "part": 3,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "button[aria-label=\"Send message\"]"
+    }
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "Queue another message",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p3.11c",
+    "text": "I'll click the send arrow, and Claude starts building.",
+    "cue_word": "click",
+    "click_word": "send",
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Send arrow confirmed in take06 (2026-10-07). The busy panel shows 'Queue another message'."
+  },
+  {
+   "id": "p3.11d",
+   "manual_step": 11,
+   "part": 3,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p3.11d",
+    "text": "That's the direction prompt at work. We set the goal and made the decision that mattered most, and Claude handles the implementation.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "notes": "Plays over the first seconds of the build (live footage). Calls back to the opening (p0.03)."
+  },
+  {
+   "id": "p4.12",
+   "manual_step": 12,
+   "part": 4,
+   "segment": "live",
+   "action": {
+    "type": "wait_claude",
+    "max_wait_s": 1500
+   },
+   "expect": {
+    "kind": "claude_idle",
+    "tab": "ide",
+    "timeout_s": 1500
+   },
+   "narration": {
+    "line_id": "dash.p4.12",
+    "text": "Claude starts the build. From here, Claude may load skills, install tools, or write and run code, to do its work. We don't tell it how; it decides what the task needs. Each row in the panel is one step it takes. This build took about six minutes, so we'll speed through it. Keep an eye on the Explorer, on the left.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "Title card \"Claude is building: about N minutes\", then a 6 to 10 s time-lapse (R39).",
+     "If Claude loads a skill (such as dataviz): a skill is a packaged set of instructions that Claude loads only when a task calls for it. You didn't ask for it; Claude judged it relevant.",
+     "If it hits an error, it explains it and fixes it on its own (at 1x only if David picks the moment, R39).",
+     "New files, such as app.py and an assets folder, appear in the Explorer. The U means new, and not yet saved to GitHub.",
+     "Dash, Plotly and pandas were already installed in the codespace, so Claude didn't need to install them.",
+     "\"Allow this bash command?\" to restart the dashboard with pkill: routine, click Yes (1x, a visible click, R39, R47). Auto mode lets Claude edit and run commands, and asks before it stops a program.",
+     "Claude's summary says it ran and tested the code but couldn't see the page: sets up Part 5."
+    ]
+   },
+   "zoom": {
+    "max": 2
+   },
+   "timelapse": {
+    "mode": "auto",
+    "keep_events": [
+     "prompt_seen",
+     "prompt_approved",
+     "error_fixed",
+     "file_created"
+    ],
+    "card_text": "Claude is building: about {minutes} minutes",
+    "before_card_s": 10.5
+   },
+   "notes": "About 7 min in the workshop walk-through; 3.8 min in take06. The dataviz skill row is on screen as the build starts (take06, 4:28), so it is named and marked during 9 s at 1x before the card (before_card_s). The rest of the build is the card and the lapse. app.py and the summary are p4.12b, after the result. Autopilot: routine prompts approved, RISKY ones stop the take. full_take02: the dataviz skill row scrolled out of the panel during p3.11d's line, before this one starts, so this take's line speaks of skills in general (R78)."
+  },
+  {
+   "id": "p4.12b",
+   "manual_step": 12,
+   "part": 4,
+   "segment": "live",
+   "after": "p4.12",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p4.12b",
+    "text": "When Claude is done, two new folders appear in the Explorer: dashboard, which holds the program, and docs, which holds its notes. The dot means they contain new files, not yet saved to GitHub. The M beside CLAUDE.md means Claude modified it. But in our case, the dashboard didn't open in the browser.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "draft",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 1.35
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "dashboard",
+     "until_word": "docs",
+     "target": {
+      "tab": "ide",
+      "frame": "main",
+      "match": "dashboard",
+      "ocr_band": [
+       0.19,
+       0.24
+      ],
+      "ocr_xband": [
+       0.03,
+       0.22
+      ]
+     }
+    },
+    {
+     "kind": "rect",
+     "at_word": "docs",
+     "target": {
+      "tab": "ide",
+      "frame": "main",
+      "match": "docs",
+      "ocr_band": [
+       0.31,
+       0.36
+      ],
+      "ocr_xband": [
+       0.03,
+       0.22
+      ]
+     }
+    },
+    {
+     "kind": "rect",
+     "at_word": "M",
+     "target": {
+      "tab": "ide",
+      "frame": "main",
+      "match": "CLAUDE.md",
+      "ocr_band": [
+       0.375,
+       0.42
+      ],
+      "ocr_xband": [
+       0.03,
+       0.3
+      ],
+      "whole_line": true
+     }
+    }
+   ],
+   "notes": "A line-only step (after: p4.12): it rides on the footage after the build's result, consuming no footage of its own; the next step's bridge shows the picture under it. 'tests it' dropped (not visible, R75); 'in our case' (R76); David's wording for the lead-in to Ports. Round 3 (2026-10-07): 'Claude also reports that the dashboard is running' dropped: the report had scrolled out of the panel and the camera was on the Explorer (R81); back to draft for David's OK."
+  },
+  {
+   "id": "p4.13a",
+   "manual_step": 13,
+   "part": 4,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": "role=tab[name=\"Ports\"]",
+     "fallback": [
+      ".part.panel [aria-label^=\"Ports\"]"
+     ]
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "main",
+    "locator": ".monaco-list-row:has-text(\"8050\")",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p4.13a",
+    "text": "If it looks like Claude is done and you don't see the dashboard, check the browser tabs. If it isn't there, it's still running inside the codespace, on port 8050, and you can open it from the panel below the editor. Next to Terminal, I'll click the Ports tab.",
+    "cue_word": "Next",
+    "click_word": "Ports",
+    "status": "approved",
+    "source": "clone",
+    "labels": [
+     "Ports"
+    ]
+   },
+   "notes": "R74: Codespaces opens the dashboard on its own (the template's onAutoForward: openBrowser) or not; the runner closes any tab that opens by itself, so the take always shows the Ports route. The bottom panel must be open for the Ports tab to show. Edited 2026-10-07 after David's review of s7_take06 (docs/S7_FIX_PLAN.md): David's wording ('check the browser tabs, or click the Ports tab next to the Terminal tab'); the tab strip is marked (full frame while it shows, R40). Was approved; needs David's OK.",
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "browser tabs",
+     "target": {
+      "chrome": "tab_strip",
+      "match": "Codespaces",
+      "match_to": "monthlysummary.csv"
+     }
+    }
+   ]
+  },
+  {
+   "id": "p4.13b",
+   "manual_step": 13,
+   "part": 4,
+   "segment": "scripted",
+   "action": {
+    "type": "hover",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": ".monaco-list-row:has-text(\"8050\")",
+     "point": {
+      "x": 0.06,
+      "y": 0.5
+     }
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "main",
+    "locator": ".monaco-list-row:has-text(\"8050\") a[aria-label=\"Open in Browser\"]",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p4.13b",
+    "text": "Port 8050 is listed here. I'll hover over its row,",
+    "cue_word": "hover",
+    "click_word": "row",
+    "status": "approved",
+    "source": "clone"
+   },
+   "notes": "Hover on the port's name (the row's centre is Running Process, which shows a tooltip). The globe is a.codicon-ports-open-browser-icon, aria-label 'Open in Browser' (s7_take02, 2026-10-07)."
+  },
+  {
+   "id": "p4.13c",
+   "manual_step": 13,
+   "part": 4,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": ".monaco-list-row:has-text(\"8050\") a[aria-label=\"Open in Browser\"]",
+     "fallback": [
+      ".monaco-list-row:has-text(\"8050\") a.codicon-ports-open-browser-icon"
+     ]
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "dashboard",
+    "frame": "main",
+    "locator": "#react-entry-point .js-plotly-plot",
+    "timeout_s": 45
+   },
+   "narration": {
+    "line_id": "dash.p4.13c",
+    "text": "and click the globe icon. As you can see, the dashboard opens in a new tab.",
+    "cue_word": "click",
+    "click_word": "globe",
+    "status": "approved",
+    "source": "clone"
+   },
+   "marks": [
+    {
+     "kind": "arrow",
+     "at_word": "globe",
+     "target": {
+      "of": "action"
+     }
+    }
+   ],
+   "notes": "Opens the -8050.app.github.dev tab; the camera zooms out on the cut (R44) and holds full frame on the address (R40)."
+  },
+  {
+   "id": "p4.13d",
+   "manual_step": 13,
+   "part": 4,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p4.13d",
+    "text": "Note the address, which ends in 8050.app.github.dev. Codespaces checks that you're signed in to GitHub before it shows the page, so by default, only you can open it.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "8050.app.github.dev",
+     "target": {
+      "chrome": "address_bar",
+      "match": "8050.app.github.dev"
+     }
+    }
+   ],
+   "notes": "From the doc's Technical Details, Port forwarding in Codespaces."
+  },
+  {
+   "id": "p5.14a",
+   "manual_step": 14,
+   "part": 5,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p5.14a",
+    "text": "Now let's explore the dashboard Claude built. Your dashboard won't look exactly like this one, because Claude makes different choices each time.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "mode": "none"
+   },
+   "notes": "Recording resumes here after the off-camera exploration (R70)."
+  },
+  {
+   "id": "p5.14b",
+   "manual_step": 14,
+   "part": 5,
+   "segment": "generated",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p5.14b",
+    "text": "At the top are the date range and the filters. Below them are five summary tiles. The Ops strain index is a calculated field Claude added. It combines delays, cancellations, and taxi times into one score, so it isn't in the raw data. The trend chart also labels industry events, such as the CrowdStrike outage. Those come from Claude's general knowledge, not from our data file.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "A one-sentence tour, top down, with overview marks on each region (R48 fade marks; doc's run: filters, parameters, KPI tiles, map, ranking).",
+     "One calculated field Claude added that isn't in the raw data (e.g. cancellation rate, a prior-year comparison).",
+     "If it added outside context, such as known disruptions labelled as outside the data: that's the prompt's \"don't limit yourself to just what's in the data\" at work."
+    ],
+    "labels": [
+     "Ops strain index"
+    ]
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "style": "fade",
+     "at_word": "date",
+     "target": {
+      "tab": "dashboard",
+      "frame": "main",
+      "locator": ".card.controls",
+      "whole_element": true
+     }
+    },
+    {
+     "kind": "rect",
+     "style": "fade",
+     "at_word": "tiles",
+     "target": {
+      "tab": "dashboard",
+      "frame": "main",
+      "locator": "#kpis",
+      "whole_element": true
+     }
+    },
+    {
+     "kind": "rect",
+     "style": "fade",
+     "at_word": "Ops",
+     "target": {
+      "tab": "dashboard",
+      "frame": "main",
+      "locator": "#kpis > .card:nth-child(5)",
+      "whole_element": true
+     }
+    },
+    {
+     "kind": "rect",
+     "style": "fade",
+     "at_word": "CrowdStrike",
+     "target": {
+      "tab": "dashboard",
+      "frame": "main",
+      "match": "IT outage",
+      "ocr_band": [
+       0.64,
+       0.68
+      ],
+      "whole_line": true
+     }
+    }
+   ],
+   "zoom": {
+    "mode": "none"
+   }
+  },
+  {
+   "id": "p5.14c",
+   "manual_step": 14,
+   "part": 5,
+   "segment": "generated",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "dashboard",
+     "frame": "main",
+     "locator": "#p24"
+    }
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "dashboard",
+    "frame": "main",
+    "value": "Oct 2023",
+    "timeout_s": 15
+   },
+   "narration": {
+    "line_id": "dash.p5.14c",
+    "text": "First, a filter. Under Date range, I'll click Last 24 mo. The range now runs from October 2023 to September 2025, and the tiles and the trend update.",
+    "cue_word": "Under",
+    "click_word": "Last",
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "A filter: a date range or a region (e.g. a preset such as Last 12 months). Announce, act, and say what changed (R23, R24)."
+    ],
+    "labels": [
+     "Date range",
+     "Last 24 mo"
+    ]
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "October",
+     "target": {
+      "tab": "dashboard",
+      "frame": "main",
+      "box": [
+       45,
+       211,
+       241,
+       224
+      ]
+     }
+    }
+   ],
+   "notes": "The October mark frames the whole range readout (R84), its OCR line box in this take."
+  },
+  {
+   "id": "p5.14d",
+   "manual_step": 14,
+   "part": 5,
+   "segment": "generated",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "dashboard",
+     "frame": "main",
+     "locator": "#metric"
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "dashboard",
+    "frame": "main",
+    "locator": ".dash-dropdown-option:has-text(\"Cancellation rate\")",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p5.14d",
+    "text": "Next, a parameter. Under Metric, I'll open the list,",
+    "cue_word": "Under",
+    "click_word": "list",
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "A parameter: the metric, an alert threshold, or the number of airports in the ranking."
+    ],
+    "labels": [
+     "Metric"
+    ]
+   }
+  },
+  {
+   "id": "p5.14f",
+   "manual_step": 14,
+   "part": 5,
+   "segment": "generated",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "dashboard",
+     "frame": "main",
+     "locator": ".dash-dropdown-option:has-text(\"Cancellation rate\")"
+    }
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "dashboard",
+    "frame": "main",
+    "value": "Cancellation rate over time",
+    "timeout_s": 15
+   },
+   "narration": {
+    "line_id": "dash.p5.14f",
+    "text": "and choose Cancellation rate. The trend chart now shows the cancellation rate over time, instead of the delay.",
+    "cue_word": "choose",
+    "click_word": "Cancellation",
+    "status": "draft",
+    "source": "clone",
+    "labels": [
+     "Cancellation rate"
+    ]
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "trend",
+     "target": {
+      "tab": "dashboard",
+      "frame": "main",
+      "locator": "#trend-title",
+      "match": "Cancellation rate over time"
+     }
+    }
+   ],
+   "notes": "The metric dropdown's second click (generated, after p5.14d opens the list)."
+  },
+  {
+   "id": "p5.14e",
+   "manual_step": 14,
+   "part": 5,
+   "segment": "generated",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "dashboard",
+     "frame": "main",
+     "locator": "#focus"
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "dashboard",
+    "frame": "main",
+    "locator": ".dash-dropdown-option:has-text(\"ABQ\")",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p5.14e",
+    "text": "Now let's focus on one airport. Under Airport focus, I'll open the list,",
+    "cue_word": "Under",
+    "click_word": "list",
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "Cross-filtering: click an airport (a bar, bubble or table row) to drill in, and every chart updates.",
+     "Why it works, in one sentence: each click goes to the Python program, which filters the data and redraws the charts (the doc's Callbacks in depth)."
+    ],
+    "labels": [
+     "Airport focus"
+    ]
+   }
+  },
+  {
+   "id": "p5.14g",
+   "manual_step": 14,
+   "part": 5,
+   "segment": "generated",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "dashboard",
+     "frame": "main",
+     "locator": ".dash-dropdown-option:has-text(\"ABQ\")"
+    }
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "dashboard",
+    "frame": "main",
+    "value": "ABQ · Albuquerque",
+    "timeout_s": 15
+   },
+   "narration": {
+    "line_id": "dash.p5.14g",
+    "text": "and choose Albuquerque. The tiles now show just that airport, and the trend adds its line. As the label says, clicking an airport in the charts further down does the same. Each choice goes to the Python program, which filters the data and redraws the charts.",
+    "cue_word": "choose",
+    "click_word": "Albuquerque",
+    "status": "draft",
+    "source": "clone"
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "tiles",
+     "target": {
+      "tab": "dashboard",
+      "frame": "main",
+      "locator": "#kpis",
+      "whole_element": true
+     }
+    }
+   ],
+   "notes": "The focus dropdown's second click: R70's drill-in. The map and the ranking are below the first screen, so the take picks the airport from the list (the runner's scroll into view would jump the page)."
+  },
+  {
+   "id": "p5.15a",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "generated",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p5.15a",
+    "text": "But notice the two boxes at the ends of the date slider. After I clicked Last 24 mo, they read 45 and 68, not dates. Claude tested its code, but it can't see the page, so we need to tell it.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "The real defect found while exploring, marked on screen. Earlier runs: the period boxes read 57 and 68 instead of dates; the map zoomed in until it was almost blank (the doc's example).",
+     "Pattern: \"Notice that <defect>. Claude tested its code, but it can't see the page, so we need to tell it.\"",
+     "With no defect, an improvement in the doc's style instead, e.g. \"Add a comparison of taxi-in and taxi-out times.\""
+    ],
+    "labels": [
+     "Last 24 mo"
+    ]
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "45",
+     "until_word": "68",
+     "target": {
+      "tab": "dashboard",
+      "frame": "main",
+      "locator": "#win .dash-range-slider-min-input",
+      "whole_element": true
+     }
+    },
+    {
+     "kind": "rect",
+     "at_word": "68",
+     "target": {
+      "tab": "dashboard",
+      "frame": "main",
+      "locator": "#win .dash-range-slider-max-input",
+      "whole_element": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "p5.15b",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "scripted",
+   "action": {
+    "type": "switch_tab",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": "chrome:tab_strip"
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "locator": "[contenteditable][aria-label=\"Message input\"]",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p5.15b",
+    "text": "I'll switch back to the codespace tab,",
+    "cue_word": "switch",
+    "click_word": "codespace",
+    "status": "approved",
+    "source": "clone"
+   },
+   "notes": "The runner reads the tab's place in the strip from the screen and the edit draws the move and click (switch_tab)."
+  },
+  {
+   "id": "p5.15c",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "scripted",
+   "action": {
+    "type": "type",
+    "typing_mode": "full",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "[contenteditable][aria-label=\"Message input\"]"
+    },
+    "text": "{feedback_prompt}"
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "{feedback_prompt}",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p5.15c",
+    "text": "and describe the problem in the message box: what I clicked, what I saw, and what I expected. The more precisely we describe a problem, the faster Claude can fix it.",
+    "cue_word": "describe",
+    "click_word": null,
+    "status": "approved",
+    "source": "clone",
+    "variants": {
+     "improvement": "and describe the change I want in the message box: what I'd like to see, and where. The more precisely we describe a change, the faster Claude can make it."
+    }
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "The prompt text is generated with the defect (variable feedback_prompt), in the doc's pattern: say what you saw, where, and what you expected. Typed at natural speed, not pasted (R67): the edit speeds the typing up or cuts its middle, so the line plays over the finished prompt. The description carries every prompt.",
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "clicked",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "locator": "[contenteditable][aria-label=\"Message input\"]",
+      "match": "I clicked Last 24 mo"
+     }
+    },
+    {
+     "kind": "rect",
+     "at_word": "saw",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "locator": "[contenteditable][aria-label=\"Message input\"]",
+      "match": "show 45 and 68"
+     }
+    },
+    {
+     "kind": "rect",
+     "at_word": "expected",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "locator": "[contenteditable][aria-label=\"Message input\"]",
+      "match": "I expected dates"
+     }
+    }
+   ]
+  },
+  {
+   "id": "p5.15d",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "button[aria-label=\"Send message\"]"
+    }
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "Queue another message",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p5.15d",
+    "text": "I'll click the send arrow.",
+    "cue_word": "click",
+    "click_word": "send",
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Send arrow confirmed in take06 (2026-10-07). The busy panel shows 'Queue another message'."
+  },
+  {
+   "id": "p5.15e",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "live",
+   "action": {
+    "type": "wait_claude",
+    "max_wait_s": 900
+   },
+   "expect": {
+    "kind": "claude_idle",
+    "tab": "ide",
+    "timeout_s": 900
+   },
+   "narration": {
+    "line_id": "dash.p5.15e",
+    "text": "Claude works on the fix. It asks before it runs a command that writes the change, and I allow it. Then, as we asked, it restarts the dashboard, so the page can load the new version.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "Claude can't reproduce a visual problem on its own: it explains its fix and may ask you to check it.",
+     "A pkill prompt to restart the dashboard is routine (1x, a visible click)."
+    ]
+   },
+   "zoom": {
+    "max": 2
+   },
+   "timelapse": {
+    "mode": "auto",
+    "keep_events": [
+     "prompt_seen",
+     "prompt_approved"
+    ]
+   },
+   "notes": "Time-lapse if over 20 s (R39)."
+  },
+  {
+   "id": "p5.15p",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "live",
+   "after": "p5.15e",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p5.15p",
+    "text": "In this run, Claude reports that the boxes now show month names, and asks me to reload the page to check.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "draft",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "month",
+     "until_word": "names",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "match": "now show month",
+      "ocr_xband": [
+       0.8,
+       1.0
+      ]
+     }
+    },
+    {
+     "kind": "rect",
+     "at_word": "reload",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "match": "Reload",
+      "ocr_xband": [
+       0.8,
+       1.0
+      ]
+     }
+    }
+   ],
+   "notes": "A line-only step on p5.15e's result: Claude's reply, named once it is on screen (R81)."
+  },
+  {
+   "id": "p5.15f",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "scripted",
+   "action": {
+    "type": "switch_tab",
+    "target": {
+     "tab": "dashboard",
+     "frame": "main",
+     "locator": "chrome:tab_strip"
+    }
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p5.15f",
+    "text": "I'll switch back to the dashboard tab,",
+    "cue_word": "switch",
+    "click_word": "dashboard",
+    "status": "draft",
+    "source": "clone",
+    "variants": {
+     "improvement": "Claude reports that the change is made. I'll switch back to the dashboard tab,"
+    }
+   },
+   "notes": "The runner reads the tab's place in the strip from the screen and the edit draws the move and click (switch_tab). full_take02: its first sentence (Claude reports the fix) moved to p5.15p, which names the reply once it is on screen."
+  },
+  {
+   "id": "p5.15g",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "scripted",
+   "action": {
+    "type": "key",
+    "key": "F5"
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "dashboard",
+    "frame": "main",
+    "locator": "#react-entry-point .js-plotly-plot",
+    "timeout_s": 30
+   },
+   "narration": {
+    "line_id": "dash.p5.15g",
+    "text": "and reload the page to load the new version.",
+    "cue_word": "reload",
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   }
+  },
+  {
+   "id": "p5.15h",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "generated",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "dashboard",
+     "frame": "main",
+     "locator": "#p24"
+    }
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "dashboard",
+    "frame": "main",
+    "value": "Oct 2023",
+    "timeout_s": 15
+   },
+   "narration": {
+    "line_id": "dash.p5.15h",
+    "text": "I'll click Last 24 mo again. Now the handles show dates, but the two boxes still read 45 and 68.",
+    "cue_word": "click",
+    "click_word": "Last",
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "Repeat the click that showed the defect, and confirm the fix out loud (R24).",
+     "One round is recorded. \"Each round of feedback refines the dashboard\" (doc) can be said here."
+    ],
+    "labels": [
+     "Last 24 mo"
+    ]
+   },
+   "still": "dashboard_still.png",
+   "notes": "The runner saves the dashboard still here, after the fix, for the opening and recap graphics (R69, R88); a second round's repeat of this click saves it again (pipeline.generated.merge). The 45 mark uses p5.15a's logged box of the min input (OCR can't read the number boxes); the slider hasn't moved.",
+   "dwell": {
+    "min_s": 2.0
+   },
+   "marks": [
+    {
+     "kind": "arrow",
+     "at_word": "dates",
+     "until_word": "boxes",
+     "target": {
+      "tab": "dashboard",
+      "frame": "main",
+      "match": "2023",
+      "ocr_band": [
+       0.245,
+       0.27
+      ],
+      "ocr_xband": [
+       0.4,
+       0.6
+      ]
+     }
+    },
+    {
+     "kind": "rect",
+     "at_word": "45",
+     "target": {
+      "tab": "dashboard",
+      "frame": "main",
+      "box": [
+       45,
+       228,
+       122,
+       262
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p5.15i",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "generated",
+   "only_if": {
+    "tab": "dashboard",
+    "locator": "#react-entry-point",
+    "state": "visible",
+    "eval": "(() => { const b = [...document.querySelectorAll('.dash-range-slider-input')].filter(i => i.offsetParent); return b.some(i => /^\\d+$/.test(i.value.trim())); })()"
+   },
+   "action": {
+    "type": "switch_tab",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": "chrome:tab_strip"
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "locator": "[contenteditable][aria-label=\"Message input\"]",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p5.15i",
+    "text": "The boxes still show numbers, so let's tell Claude again. I'll switch back to the codespace tab,",
+    "cue_word": "switch",
+    "click_word": "codespace",
+    "status": "draft",
+    "source": "clone"
+   },
+   "notes": "R70's second round: runs only while the defect still shows after the reload (only_if eval); p5.15j-o follow its decision."
+  },
+  {
+   "id": "p5.15j",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "generated",
+   "only_if": {
+    "tab": "dashboard",
+    "locator": "#react-entry-point",
+    "state": "visible",
+    "same_as": "p5.15i"
+   },
+   "action": {
+    "type": "type",
+    "typing_mode": "full",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "[contenteditable][aria-label=\"Message input\"]"
+    },
+    "text": "{feedback_prompt_2}"
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "{feedback_prompt_2}",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p5.15j",
+    "text": "and describe what I still see: the boxes still show 45 and 68, instead of dates.",
+    "cue_word": "describe",
+    "status": "draft",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   }
+  },
+  {
+   "id": "p5.15k",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "generated",
+   "only_if": {
+    "tab": "dashboard",
+    "locator": "#react-entry-point",
+    "state": "visible",
+    "same_as": "p5.15i"
+   },
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "button[aria-label=\"Send message\"]"
+    }
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "Queue another message",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p5.15k",
+    "text": "I'll click the send arrow.",
+    "cue_word": "click",
+    "click_word": "send",
+    "status": "draft",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   }
+  },
+  {
+   "id": "p5.15l",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "live",
+   "only_if": {
+    "tab": "dashboard",
+    "locator": "#react-entry-point",
+    "state": "visible",
+    "same_as": "p5.15i"
+   },
+   "action": {
+    "type": "wait_claude",
+    "max_wait_s": 900
+   },
+   "expect": {
+    "kind": "claude_idle",
+    "tab": "ide",
+    "timeout_s": 900
+   },
+   "narration": {
+    "line_id": "dash.p5.15l",
+    "text": "Claude asks twice: once to change the slider, and once to stop the running dashboard so it can restart it. Each time, the prompt shows the exact command, so you can check it before you allow it. Then it checks that the dashboard is running again, and writes up what it changed.",
+    "status": "draft",
+    "source": "clone",
+    "cue_word": null,
+    "click_word": null
+   },
+   "zoom": {
+    "max": 2
+   },
+   "timelapse": {
+    "mode": "auto",
+    "keep_events": [
+     "prompt_seen",
+     "prompt_approved"
+    ]
+   }
+  },
+  {
+   "id": "p5.15q",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "live",
+   "after": "p5.15l",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p5.15q",
+    "text": "This time, it finds what it missed. This version of Dash adds a number box at each end of every slider. Its first fix changed only the labels on the handles. So it turns the boxes off for the date slider.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "draft",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "Dash",
+     "until_word": "first",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "match": "version of Dash",
+      "ocr_xband": [
+       0.8,
+       1.0
+      ]
+     }
+    },
+    {
+     "kind": "rect",
+     "at_word": "off",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "match": "number boxes off",
+      "ocr_xband": [
+       0.8,
+       1.0
+      ]
+     }
+    }
+   ],
+   "notes": "A line-only step on p5.15l's result: Claude's reply, named once it is on screen (R81).",
+   "only_if": {
+    "tab": "dashboard",
+    "locator": "#react-entry-point",
+    "state": "visible",
+    "same_as": "p5.15i"
+   }
+  },
+  {
+   "id": "p5.15m",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "generated",
+   "only_if": {
+    "tab": "dashboard",
+    "locator": "#react-entry-point",
+    "state": "visible",
+    "same_as": "p5.15i"
+   },
+   "action": {
+    "type": "switch_tab",
+    "target": {
+     "tab": "dashboard",
+     "frame": "main",
+     "locator": "chrome:tab_strip"
+    }
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p5.15m",
+    "text": "I'll switch back to the dashboard tab,",
+    "cue_word": "switch",
+    "click_word": "dashboard",
+    "status": "draft",
+    "source": "clone"
+   }
+  },
+  {
+   "id": "p5.15n",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "generated",
+   "only_if": {
+    "tab": "dashboard",
+    "locator": "#react-entry-point",
+    "state": "visible",
+    "same_as": "p5.15i"
+   },
+   "action": {
+    "type": "key",
+    "key": "F5"
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "dashboard",
+    "frame": "main",
+    "locator": "#react-entry-point .js-plotly-plot",
+    "timeout_s": 30
+   },
+   "narration": {
+    "line_id": "dash.p5.15n",
+    "text": "and reload the page.",
+    "cue_word": "reload",
+    "status": "draft",
+    "source": "clone"
+   }
+  },
+  {
+   "id": "p5.15o",
+   "manual_step": 15,
+   "part": 5,
+   "segment": "generated",
+   "only_if": {
+    "tab": "dashboard",
+    "locator": "#react-entry-point",
+    "state": "visible",
+    "same_as": "p5.15i"
+   },
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "dashboard",
+     "frame": "main",
+     "locator": "#p24"
+    }
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "dashboard",
+    "frame": "main",
+    "value": "Oct 2023",
+    "timeout_s": 15
+   },
+   "narration": {
+    "line_id": "dash.p5.15o",
+    "text": "I'll click Last 24 mo again. Now the boxes are gone, and the handles show the dates, from October 2023 to September 2025. Each round of feedback refines the dashboard.",
+    "cue_word": "click",
+    "click_word": "Last",
+    "status": "draft",
+    "source": "clone",
+    "labels": [
+     "Last 24 mo"
+    ]
+   },
+   "dwell": {
+    "min_s": 2.0
+   },
+   "still": "dashboard_still.png",
+   "marks": [
+    {
+     "kind": "arrow",
+     "at_word": "dates",
+     "target": {
+      "tab": "dashboard",
+      "frame": "main",
+      "match": "2023",
+      "ocr_band": [
+       0.245,
+       0.27
+      ],
+      "ocr_xband": [
+       0.45,
+       0.6
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p5.16a",
+   "manual_step": 16,
+   "part": 5,
+   "segment": "scripted",
+   "action": {
+    "type": "switch_tab",
+    "target": {
+     "tab": "ide",
+     "frame": "main",
+     "locator": "chrome:tab_strip"
+    }
+   },
+   "expect": {
+    "kind": "visible",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "locator": "[contenteditable][aria-label=\"Message input\"]",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p5.16a",
+    "text": "When you finish exploring, it's good practice to stop the dashboard. I'll switch back to the codespace tab,",
+    "cue_word": "switch",
+    "click_word": "codespace",
+    "status": "approved",
+    "source": "clone"
+   },
+   "notes": "The runner reads the tab's place in the strip from the screen and the edit draws the move and click (switch_tab).",
+   "only_if": {
+    "tab": "dashboard",
+    "locator": "#react-entry-point",
+    "state": "visible",
+    "otherwise": "stop_take",
+    "eval": "(() => { const b = [...document.querySelectorAll('.dash-range-slider-input')].filter(i => i.offsetParent); return !b.some(i => /^\\d+$/.test(i.value.trim())); })()"
+   }
+  },
+  {
+   "id": "p5.16b",
+   "manual_step": 16,
+   "part": 5,
+   "segment": "scripted",
+   "action": {
+    "type": "type",
+    "typing_mode": "full",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "[contenteditable][aria-label=\"Message input\"]"
+    },
+    "text": "I'm done exploring for now; please stop the dashboard."
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "stop the dashboard",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p5.16b",
+    "text": "and ask Claude to stop the dashboard. The dashboard is a running program, so it keeps running until something stops it.",
+    "cue_word": "ask",
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   }
+  },
+  {
+   "id": "p5.16c",
+   "manual_step": 16,
+   "part": 5,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "button[aria-label=\"Send message\"]"
+    }
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "Queue another message",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p5.16c",
+    "text": "I'll click the send arrow.",
+    "cue_word": "click",
+    "click_word": "send",
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Send arrow confirmed in take06 (2026-10-07). The busy panel shows 'Queue another message'."
+  },
+  {
+   "id": "p5.16d",
+   "manual_step": 16,
+   "part": 5,
+   "segment": "live",
+   "action": {
+    "type": "wait_claude",
+    "max_wait_s": 300
+   },
+   "expect": {
+    "kind": "claude_idle",
+    "tab": "ide",
+    "timeout_s": 300
+   },
+   "narration": {
+    "line_id": "dash.p5.16d",
+    "text": "Claude asks before it stops the dashboard, and I allow it. Its reply says how to start it again, if you need to.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "\"Allow this bash command?\" for the command that stops the dashboard: Claude asks before it stops a program. Routine here: click Yes (1x, a visible click).",
+     "Claude confirms the dashboard has stopped."
+    ]
+   },
+   "zoom": {
+    "max": 2
+   },
+   "timelapse": {
+    "mode": "auto",
+    "keep_events": [
+     "prompt_seen",
+     "prompt_approved"
+    ]
+   },
+   "notes": "Under 20 s in the walk-through."
+  },
+  {
+   "id": "p5.16e",
+   "manual_step": 16,
+   "part": 5,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p5.16e",
+    "text": "In the Ports tab, notice that the dot next to port 8050 is now hollow. That means the dashboard has stopped.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "marks": [
+    {
+     "kind": "arrow",
+     "at_word": "dot",
+     "target": {
+      "tab": "ide",
+      "frame": "main",
+      "locator": ".monaco-list-row[aria-label*=\"localhost:8050\"] .codicon[class*=\"ports-forwarded\"]",
+      "whole_element": true
+     }
+    }
+   ],
+   "notes": "The status icon is codicon-ports-forwarded-with-process-icon (a filled dot) while the app runs; the row's aria-label holds localhost:8050 (take08, 2026-10-07). Measured after Claude stops the app."
+  },
+  {
+   "id": "p5.16f",
+   "manual_step": 16,
+   "part": 5,
+   "segment": "live",
+   "action": {
+    "type": "scroll",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "[aria-label=\"Claude Code conversation\"]"
+    }
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p5.16f",
+    "text": "Claude also points out that nothing is committed yet. The dashboard, its notes, and the CLAUDE.md changes exist only in this codespace, until we save them to GitHub.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "Read Claude's final report: it lists the new files (doc's run: app.py and assets/style.css).",
+     "And side effects, such as a package it installed along the way. The report is where you learn about them."
+    ]
+   },
+   "zoom": {
+    "max": 2
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "committed",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "match": "None of this work",
+      "ocr_band": [
+       0.1,
+       0.95
+      ],
+      "whole_line": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "p6.17a",
+   "manual_step": 17,
+   "part": 6,
+   "segment": "scripted",
+   "action": {
+    "type": "type",
+    "typing_mode": "full",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "[contenteditable][aria-label=\"Message input\"]"
+    },
+    "text": "Let's wrap up. Write notes about the dashboard in docs/dashboard.md: what it does, how to start it, where its files are, and any decisions we made. Then add a one-line pointer to that file in CLAUDE.md, so you can find the notes in future sessions."
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": " the notes in future sessions.",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p6.17a",
+    "text": "Before we finish, I'll ask Claude to wrap up. I'll enter the wrap-up prompt.",
+    "cue_word": "enter",
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Typed at natural speed, not pasted (R67): the edit speeds the typing up or cuts its middle, so the line plays over the finished prompt. The description carries every prompt."
+  },
+  {
+   "id": "p6.17b",
+   "manual_step": 17,
+   "part": 6,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p6.17b",
+    "text": "The prompt asks Claude to write notes about the dashboard in docs/dashboard.md, and to add a one-line pointer to them in CLAUDE.md. That's our first standing rule at work.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "docs/dashboard.md",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "locator": "[contenteditable][aria-label=\"Message input\"]",
+      "match": "docs/dashboard.md"
+     },
+     "until_word": "one-line"
+    },
+    {
+     "kind": "rect",
+     "at_word": "one-line",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "locator": "[contenteditable][aria-label=\"Message input\"]",
+      "match": "one-line pointer"
+     }
+    }
+   ]
+  },
+  {
+   "id": "p6.17c",
+   "manual_step": 17,
+   "part": 6,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p6.17c",
+    "text": "End every working session this way. Claude starts each session with no memory of the last one. It reads CLAUDE.md first, and the pointer leads it to the notes.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   }
+  },
+  {
+   "id": "p6.17d",
+   "manual_step": 17,
+   "part": 6,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "button[aria-label=\"Send message\"]"
+    }
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "Queue another message",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p6.17d",
+    "text": "I'll click the send arrow.",
+    "cue_word": "click",
+    "click_word": "send",
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Send arrow confirmed in take06 (2026-10-07). The busy panel shows 'Queue another message'."
+  },
+  {
+   "id": "p6.18",
+   "manual_step": 18,
+   "part": 6,
+   "segment": "live",
+   "action": {
+    "type": "wait_claude",
+    "max_wait_s": 300
+   },
+   "expect": {
+    "kind": "claude_idle",
+    "tab": "ide",
+    "timeout_s": 300
+   },
+   "narration": {
+    "line_id": "dash.p6.18",
+    "text": "Claude writes the notes to docs/dashboard.md, and points to them from CLAUDE.md with one line. In this case, it had already written a shorter notes file during the build, so it replaced that one, to keep a single copy.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "Claude wrote the notes to docs/dashboard.md and added the one-line pointer to CLAUDE.md (doc step 18)."
+    ]
+   },
+   "zoom": {
+    "max": 2
+   },
+   "timelapse": {
+    "mode": "auto",
+    "keep_events": [
+     "prompt_seen",
+     "prompt_approved"
+    ]
+   },
+   "notes": "Under 20 s expected.",
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "points",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "match": "The dashboard notes are now",
+      "match_to": "points to them",
+      "ocr_xband": [
+       0.8,
+       1.0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p6.19a",
+   "manual_step": 19,
+   "part": 6,
+   "segment": "scripted",
+   "action": {
+    "type": "type",
+    "typing_mode": "full",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "[contenteditable][aria-label=\"Message input\"]"
+    },
+    "text": "Commit all of my changes to the main branch with a short message that describes what we built, and push them to GitHub."
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "uilt, and push them to GitHub.",
+    "timeout_s": 5
+   },
+   "narration": {
+    "line_id": "dash.p6.19a",
+    "text": "Now let's save our work to GitHub. I'll enter the commit prompt.",
+    "cue_word": "enter",
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Typed at natural speed, not pasted (R67): the edit speeds the typing up or cuts its middle, so the line plays over the finished prompt. The description carries every prompt."
+  },
+  {
+   "id": "p6.19b",
+   "manual_step": 19,
+   "part": 6,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p6.19b",
+    "text": "Notice that the prompt names the main branch, which matches our second rule. You can also commit the changes yourself with the Source Control icon on the left edge. I won't do that here, but will instead let Claude handle it.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone",
+    "labels": [
+     "Source Control"
+    ]
+   },
+   "marks": [
+    {
+     "kind": "arrow",
+     "at_word": "Source",
+     "target": {
+      "tab": "ide",
+      "frame": "main",
+      "locator": ".activitybar [aria-label^=\"Source Control\"]"
+     }
+    },
+    {
+     "kind": "rect",
+     "at_word": "main",
+     "target": {
+      "tab": "ide",
+      "frame": "claude_panel",
+      "locator": "[contenteditable][aria-label=\"Message input\"]",
+      "match": "the main branch"
+     }
+    }
+   ]
+  },
+  {
+   "id": "p6.19c",
+   "manual_step": 19,
+   "part": 6,
+   "segment": "scripted",
+   "action": {
+    "type": "click",
+    "target": {
+     "tab": "ide",
+     "frame": "claude_panel",
+     "locator": "button[aria-label=\"Send message\"]"
+    }
+   },
+   "expect": {
+    "kind": "text_in_frame",
+    "tab": "ide",
+    "frame": "claude_panel",
+    "value": "Queue another message",
+    "timeout_s": 10
+   },
+   "narration": {
+    "line_id": "dash.p6.19c",
+    "text": "I'll click the send arrow.",
+    "cue_word": "click",
+    "click_word": "send",
+    "status": "approved",
+    "source": "clone"
+   },
+   "zoom": {
+    "max": 2
+   },
+   "notes": "Send arrow confirmed in take06 (2026-10-07). The busy panel shows 'Queue another message'."
+  },
+  {
+   "id": "p6.20",
+   "manual_step": 20,
+   "part": 6,
+   "segment": "live",
+   "action": {
+    "type": "wait_claude",
+    "max_wait_s": 300,
+    "allow": [
+     "git\\s+push"
+    ]
+   },
+   "expect": {
+    "kind": "claude_idle",
+    "tab": "ide",
+    "timeout_s": 300
+   },
+   "narration": {
+    "line_id": "dash.p6.20",
+    "text": "Claude commits the five files to the main branch, and pushes them to GitHub. In the Explorer, the dots and the M are gone: the files are in the repository now. Committing means the dashboard survives even if the codespace is deleted.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "draft",
+    "source": "clone",
+    "points": [
+     "Claude confirms the work is committed and pushed to GitHub (doc step 20).",
+     "The U markers in the Explorer disappear: the files are in the repository now.",
+     "Committing means the dashboard survives even if the codespace is deleted; files that live only in a codespace disappear with it."
+    ]
+   },
+   "zoom": {
+    "max": 2
+   },
+   "timelapse": {
+    "mode": "auto",
+    "keep_events": [
+     "prompt_seen",
+     "prompt_approved"
+    ]
+   },
+   "notes": "The autopilot's RISKY list holds `git push`; this step allows it (action.allow): the push goes to the take's own repo, the one the codespace was made from.",
+   "marks": [
+    {
+     "kind": "rect",
+     "at_word": "dots",
+     "until_word": "repository",
+     "target": {
+      "tab": "ide",
+      "frame": "main",
+      "match": "dashboard",
+      "match_to": "CLAUDE.md",
+      "ocr_band": [
+       0.18,
+       0.42
+      ],
+      "ocr_xband": [
+       0.03,
+       0.22
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p7.01",
+   "manual_step": null,
+   "part": 7,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p7.01",
+    "text": "We used flight data to teach the mechanics, but the pattern maps directly to your own work. Set the goal, the audience, and the quality bar. Make the decisions that matter, and check the result yourself, because Claude can't see what it built.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone"
+   },
+   "notes": "As ep04 does before its recap: the example maps to the viewer's own work."
+  },
+  {
+   "id": "p7.02",
+   "manual_step": null,
+   "part": 7,
+   "segment": "scripted",
+   "action": {
+    "type": "none"
+   },
+   "expect": {
+    "kind": "none"
+   },
+   "narration": {
+    "line_id": "dash.p7.02",
+    "text": "Let's recap. We found the flight data and opened Claude Code. We gave Claude two standing rules and a direction prompt, chose Plotly Dash from its options, and let it build. We explored the dashboard and asked Claude to fix a problem only we could see. And we saved our work to GitHub.",
+    "cue_word": null,
+    "click_word": null,
+    "status": "approved",
+    "source": "clone",
+    "variants": {
+     "improvement": "Let's recap. We found the flight data and opened Claude Code. We gave Claude two standing rules and a direction prompt, chose Plotly Dash from its options, and let it build. We explored the dashboard, asked Claude for an improvement, and checked the result ourselves. And we saved our work to GitHub."
+    }
+   },
+   "notes": "Mirrors the roadmap (p0.05). Motion graphics on screen (R69): text slides over a still of the finished dashboard, rendered in Remotion; see remotion/ OpeningRecap. No call to action: this video isn't published (R68)."
+  }
+ ],
+ "prepare": {
+  "ide": {
+   "close_editors": true,
+   "collapse_explorer": true,
+   "notes": "Off camera, before OBS starts: VS Code saves open editors and folder expansion in the codespace, so the previous take's state (data expanded, the CSV open) is reset first. The Claude Code panel reopens its last session, so prepare clicks New session (and returns to Chat).",
+   "new_claude_session": true
+  }
+ },
+ "pause": {
+  "before": "p5.14a",
+  "front": "dashboard"
+ },
+ "allow": [
+  "sudo\\s+-n\\s+true",
+  "sudo\\s+(-E\\s+)?(\\S*/)?(npx\\s+|python3?\\s+-m\\s+)?playwright\\s+install-deps(\\s+chromium)?"
+ ],
+ "generated": {
+  "mode": "defect",
+  "defect": "After I click Last 24 mo, the two boxes at the ends of the date slider read 45 and 68 (month numbers) where I expected dates such as Oct 2023 and Sep 2025.",
+  "notes": "Explored off camera on full_take02's dashboard (explore/: inventory, try_01..07). The map and the ranking sit below the first screen (page 2697 px), so every interaction is in the first screen: the Last 24 mo preset (a filter), the Metric dropdown to Cancellation rate (a parameter, two clicks), the Airport focus dropdown to ABQ Albuquerque (the drill-in, two clicks; its label names the map, bar, dot and watchlist clicks). The defect meets R70's four tests: (1) visible at once, the boxes sit at the top left; (2) one sentence: clicked Last 24 mo, saw 45 and 68, expected dates; (3) one round: Dash 4.4's RangeSlider draws these number boxes, which can be hidden or replaced; (4) shown fixed by clicking Last 24 mo again after the reload. The doc's map example does not occur (the map doesn't zoom on a focus). The defect test is by class (.dash-range-slider-input), not the slider's id, so a rebuilt slider can't stop the take by accident. Claude's build reply says it never saw the page in a browser (no browser in the codespace), which p5.15a's line rests on. Another visible flaw, not chosen: the trend's end labels overlap at the right edge (small, and hard to test after a fix)."
+ }
+}

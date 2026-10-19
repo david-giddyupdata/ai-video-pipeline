@@ -1,0 +1,1216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "steps.schema.json",
+  "title": "Exercise step list",
+  "type": "object",
+  "required": [
+    "exercise",
+    "version",
+    "source_doc",
+    "audience",
+    "variables",
+    "steps"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "exercise": {
+      "type": "string",
+      "description": "Slug, e.g. build_an_interactive_dashboard"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Bump on any action change; narration-only edits do not bump it"
+    },
+    "source_doc": {
+      "type": "string"
+    },
+    "audience": {
+      "enum": [
+        "public",
+        "workshop"
+      ]
+    },
+    "variables": {
+      "type": "object",
+      "description": "Resolved at run time and written to the run header. Steps reference them as {name}. '@runtime': set when the take creates it (the codespace, off camera, before the narration is built); '@generated': written by the Part 5 exploration",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "parts": {
+      "type": "object",
+      "description": "Part number -> title, as the exercise doc names it (chapter titles later); 0 is the opening",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/step"
+      }
+    },
+    "prepare": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Off-camera set-up before capture starts (S4)",
+      "properties": {
+        "ide": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "close_editors": {
+              "type": "boolean"
+            },
+            "collapse_explorer": {
+              "type": "boolean"
+            },
+            "new_claude_session": {
+              "type": "boolean",
+              "description": "Click New session in the Claude Code panel, then return to Chat"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "show_explorer": {
+              "type": "boolean"
+            },
+            "claude_tab": {
+              "type": "boolean",
+              "description": "The Claude Code panel shown (not Chat), its last conversation kept"
+            },
+            "ports_view": {
+              "type": "boolean",
+              "description": "The Ports view shown in the bottom panel (as p4.13a leaves it)"
+            },
+            "claude_session": {
+              "type": "string",
+              "description": "Open this session from the Claude Code panel's history (its title, the first prompt's): the build conversation, for a take that starts at Part 5"
+            }
+          }
+        },
+        "tabs": {
+          "type": "array",
+          "description": "A take that starts mid-exercise (Part 5 alone, on an earlier take's codespace): the take window's tabs as the earlier parts leave them, opened off camera, in tab-strip order",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tab",
+              "url"
+            ],
+            "properties": {
+              "tab": {
+                "enum": [
+                  "github",
+                  "ide",
+                  "dashboard",
+                  "quicksight"
+                ]
+              },
+              "url": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "app": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "start",
+            "port"
+          ],
+          "description": "Started in the codespace off camera if the port doesn't answer (the dashboard Part 4 leaves running)",
+          "properties": {
+            "start": {
+              "type": "string"
+            },
+            "port": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "pause": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "before",
+        "front"
+      ],
+      "description": "R70: recording stops before this step; Claude explores off camera (pipeline.generated.explore), writes generated.json, and the take resumes (pipeline.s1 --resume)",
+      "properties": {
+        "before": {
+          "type": "string"
+        },
+        "front": {
+          "enum": [
+            "github",
+            "ide",
+            "dashboard",
+            "quicksight"
+          ],
+          "description": "The tab in front when recording resumes (reloaded first)"
+        }
+      }
+    },
+    "generated": {
+      "type": "object",
+      "description": "What the Part 5 exploration chose (pipeline.generated.merge): mode, defect, notes",
+      "properties": {
+        "mode": {
+          "enum": [
+            "defect",
+            "improvement"
+          ]
+        },
+        "defect": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "allow": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "R91: regexes for parts of a permission prompt the runner may approve in any live wait of this step list (on top of each step's action.allow). Each match is removed from the prompt first; anything still RISKY stops the take."
+    },
+    "browser": {
+      "enum": [
+        "workshop",
+        "quicksight"
+      ],
+      "default": "workshop",
+      "description": "R113: the Edge profile the take records in (pipeline.config.BROWSERS); the workshop's by default"
+    },
+    "run_prefix": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+$",
+      "default": "dashboard",
+      "description": "The run folder's prefix: runs/<run_prefix>_<date>_<tag>_takeNN"
+    },
+    "about": {
+      "type": "string",
+      "description": "What this step list is for (free text)"
+    },
+    "voice_file": {
+      "type": "string",
+      "default": "voice.json",
+      "description": "The voice settings file in the exercise folder (voice_clone.json: David's clone, R94)"
+    },
+    "excerpt": {
+      "type": "boolean",
+      "description": "R98: a few steps of a longer take; the plan starts just before them"
+    },
+    "opens_on_graphic": {
+      "type": "boolean",
+      "description": "R100: the first line waits for the intro's dissolve"
+    }
+  },
+  "$defs": {
+    "step": {
+      "type": "object",
+      "required": [
+        "id",
+        "part",
+        "segment",
+        "action",
+        "expect",
+        "narration"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^p[0-9]\\.[0-9]{2}([a-z][0-9]?)?$",
+          "description": "p<part>.<sequence><split letter>; the sequence is the pipeline's, manual_step holds the docx number; a digit after the letter adds a line-only step after it (p2.10a2)"
+        },
+        "manual_step": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "Step number in the docx, null for pipeline-only steps"
+        },
+        "part": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9
+        },
+        "segment": {
+          "enum": [
+            "scripted",
+            "live",
+            "generated"
+          ]
+        },
+        "action": {
+          "$ref": "#/$defs/action"
+        },
+        "expect": {
+          "$ref": "#/$defs/expect"
+        },
+        "narration": {
+          "$ref": "#/$defs/narration"
+        },
+        "dwell": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "min_s": {
+              "type": "number",
+              "minimum": 0
+            },
+            "reading_words": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Words the viewer must read on screen; adds reading time (§6.3)"
+            }
+          }
+        },
+        "highlights": {
+          "type": "array",
+          "description": "Text on screen lit up as the narration names it (§7.4)",
+          "items": {
+            "type": "object",
+            "required": [
+              "match",
+              "cue_word"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "match": {
+                "type": "string",
+                "description": "Exact text on screen, e.g. SUM(Profit)"
+              },
+              "occurrence": {
+                "type": "integer",
+                "minimum": 1,
+                "default": 1
+              },
+              "cue_word": {
+                "type": "string",
+                "description": "Word in narration.text at which the highlight appears"
+              },
+              "style": {
+                "enum": [
+                  "marker",
+                  "outline"
+                ],
+                "default": "marker"
+              }
+            }
+          }
+        },
+        "zoom": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "mode": {
+              "enum": [
+                "auto",
+                "none",
+                "manual"
+              ],
+              "description": "auto = region-dwell rule (§7.2); none = never zoom this step; manual = use region_css"
+            },
+            "max": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 3
+            },
+            "region_css": {
+              "$ref": "#/$defs/box"
+            },
+            "on": {
+              "type": "object",
+              "required": [
+                "box"
+              ],
+              "additionalProperties": false,
+              "description": "R156: what a tight step's shot is on, where the run log has no box (a typed field): a beat at the line's start (pipeline.edit.plan)",
+              "properties": {
+                "box": {
+                  "$ref": "#/$defs/mark/properties/target/properties/box"
+                },
+                "apart": {
+                  "type": "boolean",
+                  "description": "Framed on its own, even inside a dialog framed whole (the beat isn't joined to the whole's box)"
+                }
+              }
+            }
+          }
+        },
+        "timelapse": {
+          "type": "object",
+          "description": "live steps only",
+          "additionalProperties": false,
+          "properties": {
+            "mode": {
+              "enum": [
+                "auto",
+                "realtime",
+                "timelapse",
+                "title_card"
+              ]
+            },
+            "keep_events": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "prompt_seen",
+                  "prompt_approved",
+                  "error_fixed",
+                  "file_created"
+                ]
+              }
+            },
+            "card_text": {
+              "type": "string",
+              "description": "The title card over a wait longer than timelapse.card_above_s (R39); {minutes} is filled in"
+            },
+            "realtime_max_s": {
+              "type": "number",
+              "minimum": 0,
+              "description": "This step's threshold for a time-lapse instead of the edit_settings default (a wait whose activity should be seen, p2.10f)"
+            },
+            "before_card_s": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Footage at 1x after the send before the title card, so what is on screen then (a skill loading) can be named and marked"
+            }
+          }
+        },
+        "privacy_mask": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Locators whose boxes are always blurred"
+        },
+        "on_fail": {
+          "enum": [
+            "stop_take",
+            "retry_once"
+          ],
+          "default": "stop_take"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "only_if": {
+          "type": "object",
+          "required": [
+            "locator",
+            "state"
+          ],
+          "additionalProperties": false,
+          "description": "Run the step only when this holds. otherwise: skip (logged step_skipped; the edit drops the step and its line) or stop_take (a precondition)",
+          "properties": {
+            "tab": {
+              "enum": [
+                "github",
+                "ide",
+                "dashboard",
+                "quicksight"
+              ]
+            },
+            "locator": {
+              "type": "string"
+            },
+            "state": {
+              "enum": [
+                "visible",
+                "hidden"
+              ]
+            },
+            "timeout_s": {
+              "type": "number",
+              "minimum": 0
+            },
+            "otherwise": {
+              "enum": [
+                "skip",
+                "stop_take"
+              ],
+              "default": "skip"
+            },
+            "frame": {
+              "enum": [
+                "main",
+                "claude_panel"
+              ],
+              "description": "Where the locator lives (default main)"
+            },
+            "eval": {
+              "type": "string",
+              "description": "A JS expression evaluated in the page of `tab` (else the current tab); the step runs only when it is true and the locator holds. R70: a second feedback round runs only while the defect still shows"
+            },
+            "same_as": {
+              "type": "string",
+              "description": "Use the outcome of this earlier step's only_if (a group of steps decided once: R70's second feedback round)"
+            }
+          }
+        },
+        "marks": {
+          "type": "array",
+          "description": "Attention marks drawn in the edit (SPEC §7.4): rect, arrow or highlight, landing on at_word",
+          "items": {
+            "$ref": "#/$defs/mark"
+          }
+        },
+        "still": {
+          "type": "string",
+          "description": "File name in the run folder: the runner saves a screenshot of the page once the step's result has settled (the dashboard still under the opening and recap, R69)"
+        },
+        "after": {
+          "type": "string",
+          "description": "A line-only step (action none) that rides on the footage after this step's result: the runner skips it, the edit places its line after the previous one (R25) and lets the next step's bridge show the picture under it (S7: p4.12b)"
+        },
+        "overlay": {
+          "type": "object",
+          "required": [
+            "id",
+            "layout"
+          ],
+          "additionalProperties": false,
+          "description": "An overlay card in David's BulletPanel look (R77, R79), up from this step's line start to the end of until_step's line. text: the whole text (a long prompt); marks whose target names this overlay become highlights on it. list: items that appear on their at_word",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "layout": {
+              "enum": [
+                "text",
+                "list"
+              ]
+            },
+            "title": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "text",
+                  "at_word"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "at_word": {
+                    "type": "string"
+                  },
+                  "occurrence": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                }
+              }
+            },
+            "edge": {
+              "enum": [
+                "left",
+                "right"
+              ],
+              "default": "left"
+            },
+            "until_step": {
+              "type": "string",
+              "description": "The overlay leaves at the end of this step's line (default: this step's)"
+            }
+          }
+        },
+        "during": {
+          "type": "boolean",
+          "description": "With after: the line plays over its step's action (a typing gap, R25), not after its result"
+        },
+        "whole": {
+          "type": "object",
+          "required": [
+            "target"
+          ],
+          "additionalProperties": false,
+          "description": "R123, R125: what this step's line refers to is shown whole by the camera (a dialog, panel or menu), inside title-safe, at the rest level when it fits there; when it doesn't, fit says what happens",
+          "properties": {
+            "what": {
+              "type": "string",
+              "description": "What it is, for the plan's notes"
+            },
+            "target": {
+              "description": "\"appears\": what this step's action opens, measured from the take's frames (pipeline.edit.appear), shown from its result until until_step acts; or a target found like a mark's (box in frame px, OCR match), shown through the line",
+              "oneOf": [
+                {
+                  "const": "appears"
+                },
+                {
+                  "$ref": "#/$defs/mark/properties/target"
+                }
+              ]
+            },
+            "until_step": {
+              "type": "string",
+              "description": "The step whose click closes it (default: the next step for appears, this step's line otherwise)"
+            },
+            "pad_px": {
+              "type": "number",
+              "minimum": 0,
+              "default": 8
+            },
+            "fit": {
+              "type": "string",
+              "enum": [
+                "own",
+                "pan",
+                "zoom"
+              ],
+              "default": "pan",
+              "description": "R125, for a whole that doesn't fit at the rest level: \"own\" frames it at its own size, the box filling the frame (the Windows Open dialog, about 1.1x); \"pan\" (default) keeps the rest level and pans to what the lines name inside it (the Create dataset box); \"zoom\" (R157) zooms out until the whole box is inside title-safe, full frame at most (both charts after Fit to width, the dashboard as it opens)"
+            },
+            "align": {
+              "enum": [
+                "left"
+              ],
+              "description": "R157: the box against the left of title-safe, not centred, so a caption has room on the right (default: centred)"
+            },
+            "from": {
+              "enum": [
+                "result"
+              ],
+              "description": "A target other than appears: shown from the step's result (what its action brings up, R157), not from its line's start (the default)"
+            }
+          }
+        },
+        "drop": {
+          "type": "array",
+          "description": "Footage to leave out (a hard cut over it), what the take recorded but the viewer shouldn't see (a loading box that flashes the screen dark; a browser's autofill flickering over typed text, R183). Each span runs from one of the step's logged times to another, plus offsets; one over the step's own click or result, or starting before its action, is refused (pipeline.edit.plan)",
+          "items": {
+            "type": "object",
+            "required": [
+              "from",
+              "to"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "from": {
+                "$ref": "#/$defs/logged_time"
+              },
+              "from_s": {
+                "type": "number",
+                "default": 0,
+                "description": "Seconds added to from's time (negative: earlier)"
+              },
+              "to": {
+                "$ref": "#/$defs/logged_time"
+              },
+              "to_s": {
+                "type": "number",
+                "default": 0,
+                "description": "Seconds added to to's time (negative: earlier)"
+              },
+              "why": {
+                "type": "string",
+                "description": "For the plan's notes: what is left out and why"
+              }
+            }
+          }
+        },
+        "not_pointed": {
+          "type": "object",
+          "description": "R186: a thing the line names that is left unmarked on purpose, by its term as the check reports it, with the reason; the named check lists it apart instead of as a finding (pipeline.edit.checks)",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "logged_time": {
+      "enum": [
+        "start",
+        "move",
+        "click_move",
+        "arrive",
+        "drop",
+        "act",
+        "result",
+        "end",
+        "type0",
+        "type1"
+      ],
+      "description": "One of a step's times in the run log, as pipeline.edit.plan.beats reads them: start (step_start), move (the first cursor move), click_move (the move to the click), arrive (the last arrival), drop (a drag's release), act (the action), result (expect met), end (step_end), type0 and type1 (a typing step's first and last key)"
+    },
+    "action": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": [
+            "navigate",
+            "click",
+            "hover",
+            "type",
+            "key",
+            "scroll",
+            "switch_tab",
+            "wait_claude",
+            "approve_prompt",
+            "wait",
+            "none",
+            "drag"
+          ]
+        },
+        "target": {
+          "$ref": "#/$defs/target"
+        },
+        "text": {
+          "type": "string",
+          "description": "For type: the text; \\n is sent as Shift+Enter in the Claude panel"
+        },
+        "typing_mode": {
+          "enum": [
+            "full",
+            "paste"
+          ],
+          "description": "full: typed at natural speed; a long prompt is sped up or cut in the edit (R67). paste: appears at once"
+        },
+        "key": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "max_wait_s": {
+          "type": "number"
+        },
+        "allow": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "wait_claude: regexes for permission prompts the autopilot's RISKY list would stop on but this step allows (p6.20: a push to the take's own repo)"
+        },
+        "to": {
+          "$ref": "#/$defs/target",
+          "description": "drag: where the button is released (the target's point)"
+        },
+        "by": {
+          "type": "object",
+          "required": [
+            "x",
+            "y"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            }
+          },
+          "description": "drag: the release point as a CSS px offset from the press point (instead of to)"
+        },
+        "select_all": {
+          "type": "boolean",
+          "description": "type: Control+A before typing; click: Control+A after the click (a type step follows)"
+        },
+        "submit": {
+          "type": "string",
+          "description": "type: a key pressed after typing (Enter)"
+        },
+        "os": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "window"
+          ],
+          "description": "click: a target in a Windows dialog the page opened (R112: the upload's Open dialog), found and clicked through UI Automation; the real pointer never moves (R15)",
+          "properties": {
+            "window": {
+              "type": "string",
+              "description": "The dialog's title, e.g. Open"
+            },
+            "item": {
+              "type": "string",
+              "description": "A list item's name to select (a file name); {variables} allowed"
+            },
+            "button": {
+              "type": "string",
+              "description": "A button's name to invoke, e.g. Open"
+            },
+            "folder": {
+              "type": "string",
+              "description": "The folder the dialog must show (its address), checked before the click"
+            },
+            "point": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              },
+              "description": "Click point as a fraction of the element's box"
+            },
+            "timeout_s": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "oneOf": [
+            {
+              "required": [
+                "item"
+              ],
+              "not": {
+                "required": [
+                  "button"
+                ]
+              }
+            },
+            {
+              "required": [
+                "button"
+              ],
+              "not": {
+                "required": [
+                  "item"
+                ]
+              }
+            }
+          ]
+        },
+        "focused": {
+          "type": "boolean",
+          "description": "type: into the box a click step left active; no move, no click"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "drag"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "required": [
+              "target"
+            ],
+            "anyOf": [
+              {
+                "required": [
+                  "to"
+                ]
+              },
+              {
+                "required": [
+                  "by"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "target": {
+      "type": "object",
+      "required": [
+        "tab",
+        "frame",
+        "locator"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "tab": {
+          "enum": [
+            "github",
+            "ide",
+            "dashboard",
+            "quicksight"
+          ],
+          "description": "ide = {codespace_name}.github.dev exactly; dashboard = -8050.app.github.dev"
+        },
+        "frame": {
+          "enum": [
+            "main",
+            "claude_panel"
+          ],
+          "description": "claude_panel = the Claude Code webview, found with frame_with()"
+        },
+        "locator": {
+          "type": "string",
+          "description": "Playwright selector, or role=<role>[name=\"...\"]"
+        },
+        "fallback": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "point": {
+          "type": "object",
+          "description": "Click point as a fraction of the box (Plotly bars: x 0.6)",
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            }
+          }
+        },
+        "scroll": {
+          "enum": [
+            "jump",
+            "smooth"
+          ],
+          "default": "jump",
+          "description": "How the target is brought into view: Playwright's centring jump, or an eased scroll of the nearest scrolling panel, just far enough (on camera)"
+        }
+      }
+    },
+    "expect": {
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "visible",
+            "hidden",
+            "url_contains",
+            "text_in_frame",
+            "claude_idle",
+            "new_tab",
+            "none"
+          ]
+        },
+        "tab": {
+          "enum": [
+            "github",
+            "ide",
+            "dashboard",
+            "quicksight"
+          ]
+        },
+        "frame": {
+          "enum": [
+            "main",
+            "claude_panel"
+          ]
+        },
+        "locator": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "timeout_s": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "narration": {
+      "type": "object",
+      "required": [
+        "line_id",
+        "status",
+        "source"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "line_id": {
+          "type": "string"
+        },
+        "text": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Display text, which is also the caption text. null until written for live steps."
+        },
+        "spoken": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "One-off override of the spoken text; normally null, and the respelling table builds it (§5.5)"
+        },
+        "cue_word": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Word in text at which the pointer starts moving: the start of the phrase that says where (announce, then act; SPEC 7.1)"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "approved",
+            "pending_post_run"
+          ]
+        },
+        "source": {
+          "enum": [
+            "clone",
+            "live"
+          ]
+        },
+        "click_word": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Word in text that names the target; the click lands CLICK_AFTER_NAME (0.35 s) after it starts. null: click on arrival plus the pause"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "On-screen labels named in text (exact display substrings). The spoken text gets the voice's label_pause before each, so the label is heard as a name (captions unchanged)"
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Live and generated lines: what the line written after the run (or the exploration) must cover if it happens on screen. David approves the points before the take and the wording after it (R33)"
+        },
+        "variants": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Approved alternate texts, used instead of text in the case named by the key. improvement: Part 5 found no visible defect and asks for an improvement (R71)"
+        }
+      }
+    },
+    "box": {
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        }
+      }
+    },
+    "mark": {
+      "type": "object",
+      "required": [
+        "kind",
+        "at_word",
+        "target"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "rect",
+            "arrow",
+            "highlight"
+          ],
+          "description": "highlight (R142): a large region (a pane, a card) lit while everything else is dimmed, placed by the edit"
+        },
+        "note": {
+          "type": "string",
+          "description": "Why the mark is as it is (the rule, David's note, the round): for people; the pipeline doesn't read it"
+        },
+        "style": {
+          "enum": [
+            "draw",
+            "fade"
+          ],
+          "default": "draw",
+          "description": "draw: drawn by the cursor as a live gesture (in the flow); fade: an edit layer that fades in and out (overview moments)"
+        },
+        "at_word": {
+          "type": "string",
+          "description": "Word or phrase in narration.text that names the target; {variables} allowed"
+        },
+        "occurrence": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1
+        },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "chrome": {
+              "enum": [
+                "address_bar",
+                "tab_strip"
+              ],
+              "description": "Browser chrome outside the page: found by OCR in the frame"
+            },
+            "tab": {
+              "enum": [
+                "github",
+                "ide",
+                "dashboard",
+                "quicksight"
+              ]
+            },
+            "frame": {
+              "enum": [
+                "main",
+                "claude_panel"
+              ]
+            },
+            "locator": {
+              "type": "string"
+            },
+            "match": {
+              "type": "string",
+              "description": "Text inside the element to box; {variables} allowed"
+            },
+            "pick": {
+              "enum": [
+                "first",
+                "topmost"
+              ],
+              "default": "first"
+            },
+            "ocr_band": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "description": "OCR fallback: search only this slice of the frame height (fractions), when the text appears more than once"
+            },
+            "of": {
+              "enum": [
+                "action",
+                "subject"
+              ],
+              "description": "A mark on the step's own click target (action) or on the element its only_if found (subject). The runner draws it live, before the click (Epic Pen: draw, hold, release, then click)"
+            },
+            "match_to": {
+              "type": "string",
+              "description": "A second text found by OCR: the box spans from match to match_to (a form, a tab strip)"
+            },
+            "whole_line": {
+              "type": "boolean",
+              "description": "R84: box the whole OCR text line the match is in, so a statement is framed whole and the box never cuts a neighbouring word"
+            },
+            "include": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "R84: more texts found by OCR that the box takes in (the question form's own tab row)"
+            },
+            "overlay": {
+              "type": "string",
+              "description": "The mark is a highlight of match on this overlay card (R77) instead of a mark on the screen"
+            },
+            "whole_element": {
+              "type": "boolean",
+              "description": "Box the element itself, not its text (an overview mark on a region: a card, a chart)"
+            },
+            "ocr_xband": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "description": "(x0, x1) as fractions of the frame width: the match's centre must fall in it (the Explorer, not the same word in Claude's panel)"
+            },
+            "box": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 4,
+              "maxItems": 4,
+              "description": "A fixed box in frame px (x0, y0, x1, y1): an element the take measured at another step and that hasn't moved since, when OCR can't read it"
+            }
+          }
+        },
+        "then": {
+          "type": "array",
+          "description": "Overview arrows (style fade) only: further stops. The arrow travels to each as its word is spoken and rests only on stops named while it is up; a stop named after its release is where it heads as it fades (R63)",
+          "items": {
+            "type": "object",
+            "required": [
+              "at_word",
+              "target"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "at_word": {
+                "type": "string"
+              },
+              "occurrence": {
+                "type": "integer",
+                "minimum": 1,
+                "default": 1
+              },
+              "target": {
+                "$ref": "#/$defs/mark/properties/target"
+              }
+            }
+          }
+        },
+        "until_word": {
+          "type": "string",
+          "description": "The mark holds until this word has been spoken (default: the end of the sentence that names it), then fades"
+        },
+        "kind_locked": {
+          "type": "boolean",
+          "description": "R121: keep this kind; the planner's choice by target size (marks.kind_auto) doesn't change it"
+        }
+      }
+    }
+  }
+}

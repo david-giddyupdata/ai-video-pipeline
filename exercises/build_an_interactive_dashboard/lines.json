@@ -1,0 +1,1557 @@
+{
+  "dash.p1.01": {
+    "key": "35948a13403ed8ddcb1a",
+    "status": "approved",
+    "text": "I'll start at github.com/codespaces. A codespace is a complete development workspace that runs in your browser, so there's nothing to install.",
+    "spoken": "I'll start at GitHub dot com slash codespaces. A code space is a complete development workspace that runs in your browser, so there's nothing to install.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 11.064,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 0.691,
+        "release_s": 3.559
+      }
+    ]
+  },
+  "dash.p1.02": {
+    "key": "ab14e862bb3c437bf238",
+    "status": "approved",
+    "text": "On the left, under By repository, I'll click my repository, my-agentic-workshop. As you can see, the list narrows to that repository's codespaces.",
+    "spoken": "On the left, under - By repository, I'll click my repository, my agentic workshop. As you can see, the list narrows to that repository's codespaces.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 11.88,
+    "cue_word": "click",
+    "cue_offset_s": 3.471,
+    "click_word": "my-agentic-workshop",
+    "click_offset_s": 5.132,
+    "marks": [
+      {
+        "at_s": 5.132,
+        "release_s": 6.559
+      }
+    ]
+  },
+  "dash.p1.03": {
+    "key": "9c5a05fa6f71a06e364d",
+    "status": "draft",
+    "text": "Then I'll click my codespace. GitHub gives every codespace a random name. This one is called <CODESPACE_DISPLAY_NAME>. Yours will have a different name.",
+    "spoken": "Then I'll click my code space. GitHub gives every code space a random name. This one is called <CODESPACE_DISPLAY_NAME>. Yours will have a different name.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 10.632,
+    "cue_word": "click",
+    "cue_offset_s": 0.353,
+    "click_word": "codespace",
+    "click_offset_s": 0.735,
+    "marks": [
+      {
+        "at_s": 0.735,
+        "release_s": 1.662
+      },
+      {
+        "at_s": 7.191,
+        "release_s": 10.191
+      }
+    ]
+  },
+  "dash.p1.04": {
+    "key": "645290fac3bb9e789296",
+    "status": "approved",
+    "text": "A box asks whether I trust the authors of the files in this folder. It's my own repository, so I'll click Trust Folder & Continue.",
+    "spoken": "A box asks whether I trust the authors of the files in this folder. It's my own repository, so I'll click - Trust Folder and Continue.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 9.864,
+    "cue_word": "click",
+    "cue_offset_s": 6.838,
+    "click_word": "Trust",
+    "click_offset_s": 7.632,
+    "marks": []
+  },
+  "dash.p1.05": {
+    "key": "affb8c3eb36418b64517",
+    "status": "approved",
+    "text": "The file list isn't showing, so I'll click the Explorer icon at the top of the bar on the far left.",
+    "spoken": "The file list isn't showing, so I'll click the Explorer icon at the top of the bar on the far left.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 6.36,
+    "cue_word": "click",
+    "cue_offset_s": 2.397,
+    "click_word": "Explorer",
+    "click_offset_s": 2.779,
+    "marks": []
+  },
+  "dash.p1.06a": {
+    "key": "9caa174ab45aa1094cff",
+    "status": "approved",
+    "text": "The Explorer, on the left, lists the files in the repository. I'll open the data folder,",
+    "spoken": "The Explorer, on the left, lists the files in the repository. I'll open the data folder,",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 6.672,
+    "cue_word": "open",
+    "cue_offset_s": 5.118,
+    "click_word": "data",
+    "click_offset_s": 5.456,
+    "marks": []
+  },
+  "dash.p1.06b": {
+    "key": "dbea7bef717429a8fefd",
+    "status": "approved",
+    "text": "and select monthlysummary.csv. The first line lists the columns, from location and airport code to delays, cancellations and taxi times. Each row after that is one airport in one month, about twenty-four thousand rows in all.",
+    "spoken": "and select monthly summary dot C S V. The first line lists the columns, from location and airport code to delays, cancellations and taxi times. Each row after that is one airport in one month, about twenty-four thousand rows in all.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 18.048,
+    "cue_word": "select",
+    "cue_offset_s": 0.221,
+    "click_word": "monthlysummary.csv",
+    "click_offset_s": 0.676,
+    "marks": [
+      {
+        "at_s": 3.721,
+        "release_s": 11.544
+      }
+    ]
+  },
+  "dash.p1.06c": {
+    "key": "4b1d3b39147466c29caf",
+    "status": "approved",
+    "text": "A notice offers to install the Rainbow CSV extension. We won't need it, so I'll close it with the X.",
+    "spoken": "A notice offers to install the Rainbow CSV extension. We won't need it, so I'll close it with the X.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 7.416,
+    "cue_word": "close",
+    "cue_offset_s": 5.735,
+    "click_word": "X",
+    "click_offset_s": 6.441,
+    "marks": [
+      {
+        "at_s": 0.162,
+        "release_s": 3.735
+      }
+    ]
+  },
+  "dash.p0.01": {
+    "key": "d8ea8d0bff8280bc6edb",
+    "status": "approved",
+    "text": "In this video, we'll build an interactive dashboard from a file of U.S. flight data, using Claude Code in a GitHub codespace. We won't write any code ourselves.",
+    "spoken": "In this video, we'll build an interactive dashboard from a file of U.S. flight data, using Claude Code in a GitHub code space. We won't write any code ourselves.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 11.688,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p0.02": {
+    "key": "1006613d0218e21e7991",
+    "status": "approved",
+    "text": "Claude Code can discover the data, propose options, and build the whole solution. That's powerful, but it's also easy to get a result you didn't want if you don't know how to direct it.",
+    "spoken": "Claude Code can discover the data, propose options, and build the whole solution. That's powerful, but it's also easy to get a result you didn't want if you don't know how to direct it.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 11.808,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p0.03": {
+    "key": "1e506a552c06b41f4f2d",
+    "status": "approved",
+    "text": "This exercise uses a direction prompt. A direction prompt describes the goal, the audience, and the quality you expect, and leaves the technical decisions to the AI. It's how a manager gives direction to an analyst.",
+    "spoken": "This exercise uses a direction prompt. A direction prompt describes the goal, the audience, and the quality you expect, and leaves the technical decisions to the AI. It's how a manager gives direction to an analyst.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 15.192,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p0.04": {
+    "key": "f5d3c01c0e354b769509",
+    "status": "approved",
+    "text": "A construction prompt is the opposite. It spells out exactly what to build, such as a bar chart of flights by region, using matplotlib. Use a construction prompt when you know exactly what you want. Use a direction prompt when you know the goal, but not the path.",
+    "spoken": "A construction prompt is the opposite. It spells out exactly what to build, such as a bar chart of flights by region, using mat plot lib... Use a construction prompt when you know exactly what you want. Use a direction prompt when you know the goal, but not the path.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 17.76,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p0.05": {
+    "key": "959e2082bcaef18c7e19",
+    "status": "approved",
+    "text": "We'll work through the exercise in order. First, we'll find the data and open Claude Code. Then we'll ask for the dashboard, choose from Claude's options, and let it build. Finally, we'll explore the dashboard, request a fix, and save our work to GitHub.",
+    "spoken": "We'll work through the exercise in order. First, we'll find the data and open Claude Code. Then we'll ask for the dashboard, choose from Claude's options, and let it build. Finally, we'll explore the dashboard, request a fix, and save our work to GitHub.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 17.616,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p0.06": {
+    "key": "860ee2ce3212d588d1cc",
+    "status": "approved",
+    "text": "To follow along, you'll need a codespace with the starter files and your Anthropic API key. The Setup video covers that, and you can access it via the description. Plan on about thirty minutes. So, let's get started.",
+    "spoken": "To follow along, you'll need a code space with the starter files and your Anthropic API key. The Setup video covers that, and you can access it via the description. Plan on about thirty minutes. So, let's get started.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 15.216,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p7.01": {
+    "key": "d0093a94583d2c346f76",
+    "status": "approved",
+    "text": "We used flight data to teach the mechanics, but the pattern maps directly to your own work. Set the goal, the audience, and the quality bar. Make the decisions that matter, and check the result yourself, because Claude can't see what it built.",
+    "spoken": "We used flight data to teach the mechanics, but the pattern maps directly to your own work. Set the goal, the audience, and the quality bar. Make the decisions that matter, and check the result yourself, because Claude can't see what it built.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 16.656,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p7.02": {
+    "key": "a79c9543acbcb3a448f0",
+    "status": "approved",
+    "text": "Let's recap. We found the flight data and opened Claude Code. We gave Claude two standing rules and a direction prompt, chose Plotly Dash from its options, and let it build. We explored the dashboard and asked Claude to fix a problem only we could see. And we saved our work to GitHub.",
+    "spoken": "Let's recap. We found the flight data and opened Claude Code. We gave Claude two standing rules and a direction prompt, chose Plot-lee Dash from its options, and let it build. We explored the dashboard and asked Claude to fix a problem only we could see. And we saved our work to GitHub.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 20.592,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p2.07a": {
+    "key": "b97059e1775c77a0a0e6",
+    "status": "approved",
+    "text": "Claude Code lives in the panel on the right-hand side of the screen. I'll click the Claude Code tab.",
+    "spoken": "Claude Code lives in the panel on the right-hand side of the screen. I'll click the Claude Code tab.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 6.312,
+    "cue_word": "click",
+    "cue_offset_s": 4.515,
+    "click_word": "tab",
+    "click_offset_s": 5.529,
+    "marks": []
+  },
+  "dash.p2.07b": {
+    "key": "4e7fe9f58ff282c2e24b",
+    "status": "approved",
+    "text": "Claude Code lives in the panel on the right-hand side of the screen. As of this writing, a new codespace doesn't show a Claude Code tab, so I'll click the three dots next to Chat,",
+    "spoken": "Claude Code lives in the panel on the right-hand side of the screen. As of this writing, a new code space doesn't show a Claude Code tab, so I'll click the three dots next to - Chat,",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 12.192,
+    "cue_word": "click",
+    "cue_offset_s": 9.632,
+    "click_word": "three",
+    "click_offset_s": 10.044,
+    "marks": [
+      {
+        "at_s": 10.044,
+        "release_s": 11.765
+      }
+    ]
+  },
+  "dash.p2.07c": {
+    "key": "26f411771841d94961fb",
+    "status": "approved",
+    "text": "and choose Claude Code. Notice that the Chat tab next to it is GitHub Copilot, a different assistant. We're using Claude Code in this video.",
+    "spoken": "and choose Claude Code. Notice that the - Chat tab next to it is GitHub Copilot, a different assistant. We're using Claude Code in this video.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 10.08,
+    "cue_word": "choose",
+    "cue_offset_s": 0.25,
+    "click_word": "Claude",
+    "click_offset_s": 0.588,
+    "marks": []
+  },
+  "dash.p2.07d": {
+    "key": "66c0c7a95ca9cefb7bda",
+    "status": "approved",
+    "text": "Claude Code opens with two welcome cards. We won't need them, so I'll close Learn Claude Code with its X,",
+    "spoken": "Claude Code opens with two welcome cards. We won't need them, so I'll close - Learn Claude Code with its X,",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 7.968,
+    "cue_word": "close",
+    "cue_offset_s": 4.882,
+    "click_word": "X",
+    "click_offset_s": 7.059,
+    "marks": []
+  },
+  "dash.p2.07e": {
+    "key": "3ed36d469ca336c26cb8",
+    "status": "approved",
+    "text": "and then Auto mode.",
+    "spoken": "and then - Auto mode.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 1.992,
+    "cue_word": "then",
+    "cue_offset_s": 0.25,
+    "click_word": "Auto",
+    "click_offset_s": 0.882,
+    "marks": []
+  },
+  "dash.p2.08a": {
+    "key": "6217108399ec980b311d",
+    "status": "approved",
+    "text": "Before we build anything, I'll give Claude two standing rules. I'll enter this prompt. Every prompt in this video is available via the description.",
+    "spoken": "Before we build anything, I'll give Claude two standing rules. I'll enter this prompt. Every prompt in this video is available via the description.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 10.224,
+    "cue_word": "enter",
+    "cue_offset_s": 4.618,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p2.08b": {
+    "key": "7cf7891f73cfdea747dc",
+    "status": "approved",
+    "text": "These rules go in CLAUDE.md, a file that Claude reads at the start of every session, so they apply from now on.",
+    "spoken": "These rules go in Claude dot M D, a file that Claude reads at the start of every session, so they apply from now on.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 8.4,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 1.25,
+        "release_s": 7.971
+      }
+    ]
+  },
+  "dash.p2.08c": {
+    "key": "f1cab1f7ac85fe211697",
+    "status": "approved",
+    "text": "The first rule keeps that file short. On a long project, notes pile up, and Claude would read all of them every time.",
+    "spoken": "The first rule keeps that file short. On a long project, notes pile up, and Claude would read all of them every time.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 8.928,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 1.647,
+        "release_s": 2.118
+      }
+    ]
+  },
+  "dash.p2.08d": {
+    "key": "a8b8b29212e033972b8b",
+    "status": "approved",
+    "text": "The second rule keeps our work on the main branch, which GitHub shows on the repository's front page. Without it, Claude may save the work on a separate branch.",
+    "spoken": "The second rule keeps our work on the main branch, which GitHub shows on the repository's front page. Without it, Claude may save the work on a separate branch.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 10.872,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 2.132,
+        "release_s": 6.544
+      }
+    ]
+  },
+  "dash.p2.08e": {
+    "key": "c797de645978a3e26587",
+    "status": "approved",
+    "text": "I'll click the send arrow. As you can see, the prompt moves into the conversation.",
+    "spoken": "I'll click the send arrow. As you can see, the prompt moves into the conversation.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 5.88,
+    "cue_word": "click",
+    "cue_offset_s": 0.265,
+    "click_word": "send",
+    "click_offset_s": 0.632,
+    "marks": []
+  },
+  "dash.p2.10a": {
+    "key": "655f9f16379748140c47",
+    "status": "approved",
+    "text": "Now let's ask for the dashboard. I'll enter the dashboard prompt.",
+    "spoken": "Now let's ask for the dashboard. I'll enter the dashboard prompt.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 4.344,
+    "cue_word": "enter",
+    "cue_offset_s": 2.456,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p2.10b": {
+    "key": "f6f48c47ab8e5951b54b",
+    "status": "approved",
+    "text": "Notice what the prompt describes: the audience, an aviation operations team, and the quality bar, data visualization best practices.",
+    "spoken": "Notice what the prompt describes: the audience, an aviation operations team, and the quality bar, data visualization best practices.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 10.032,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 3.632,
+        "release_s": 5.485
+      },
+      {
+        "at_s": 7.235,
+        "release_s": 9.603
+      }
+    ]
+  },
+  "dash.p2.10c": {
+    "key": "2d74a7a0f45fc4389237",
+    "status": "approved",
+    "text": "It doesn't name a chart type, a column, or a framework. It also tells Claude to look beyond the data, and apply what it knows about the airline industry.",
+    "spoken": "It doesn't name a chart type, a column, or a framework. It also tells Claude to look beyond the data, and apply what it knows about the airline industry.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 10.704,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 6.0,
+        "release_s": 10.279
+      }
+    ]
+  },
+  "dash.p2.10d": {
+    "key": "8722f633b6bc7917d6ca",
+    "status": "approved",
+    "text": "Note that we ask for options before Claude builds anything. This is a best practice. Claude lays out the choices, and we make the decisions that matter.",
+    "spoken": "Note that we ask for options before Claude builds anything. This is a best practice. Claude lays out the choices, and we make the decisions that matter.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 10.128,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 1.162,
+        "release_s": 3.441
+      }
+    ]
+  },
+  "dash.p2.10e": {
+    "key": "a068c0e05f3a21b215e4",
+    "status": "approved",
+    "text": "I'll click the send arrow. Claude starts by reading the data.",
+    "spoken": "I'll click the send arrow. Claude starts by reading the data.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 4.08,
+    "cue_word": "click",
+    "cue_offset_s": 0.265,
+    "click_word": "send",
+    "click_offset_s": 0.632,
+    "marks": []
+  },
+  "dash.p3.11b": {
+    "key": "907c2772ede5f53b5a23",
+    "status": "approved",
+    "text": "In the box at the bottom, I'll type my answer. We'll use Plotly Dash, a Python framework for interactive web dashboards, and let Claude go with its defaults for everything else.",
+    "spoken": "In the box at the bottom, I'll type my answer. We'll use Plot-lee Dash, a Python framework for interactive web dashboards, and let Claude go with its defaults for everything else.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 12.312,
+    "cue_word": "In",
+    "cue_offset_s": 0.118,
+    "click_word": "box",
+    "click_offset_s": 0.309,
+    "marks": []
+  },
+  "dash.p3.11c": {
+    "key": "6c19f6c86b40af771552",
+    "status": "approved",
+    "text": "I'll click the send arrow, and Claude starts building.",
+    "spoken": "I'll click the send arrow, and Claude starts building.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 3.552,
+    "cue_word": "click",
+    "cue_offset_s": 0.265,
+    "click_word": "send",
+    "click_offset_s": 0.647,
+    "marks": []
+  },
+  "dash.p3.11d": {
+    "key": "2362ecc942cf5eca37f3",
+    "status": "approved",
+    "text": "That's the direction prompt at work. We set the goal and made the decision that mattered most, and Claude handles the implementation.",
+    "spoken": "That's the direction prompt at work. We set the goal and made the decision that mattered most, and Claude handles the implementation.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 8.928,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p4.13a": {
+    "key": "97f942c025012631b4d4",
+    "status": "approved",
+    "text": "If it looks like Claude is done and you don't see the dashboard, check the browser tabs. If it isn't there, it's still running inside the codespace, on port 8050, and you can open it from the panel below the editor. Next to Terminal, I'll click the Ports tab.",
+    "spoken": "If it looks like Claude is done and you don't see the dashboard, check the browser tabs. If it isn't there, it's still running inside the code space, on port eighty fifty, and you can open it from the panel below the editor. Next to Terminal, I'll click the - Ports tab.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 17.784,
+    "cue_word": "Next",
+    "cue_offset_s": 14.544,
+    "click_word": "Ports",
+    "click_offset_s": 16.588,
+    "marks": [
+      {
+        "at_s": 4.25,
+        "release_s": 5.25
+      }
+    ]
+  },
+  "dash.p4.13b": {
+    "key": "3b7ee9f79a1177cc9a25",
+    "status": "approved",
+    "text": "Port 8050 is listed here. I'll hover over its row,",
+    "spoken": "Port eighty fifty is listed here. I'll hover over its row,",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 4.704,
+    "cue_word": "hover",
+    "cue_offset_s": 3.0,
+    "click_word": "row",
+    "click_offset_s": 3.868,
+    "marks": []
+  },
+  "dash.p4.13c": {
+    "key": "885931ab68b38ec4f935",
+    "status": "approved",
+    "text": "and click the globe icon. As you can see, the dashboard opens in a new tab.",
+    "spoken": "and click the globe icon. As you can see, the dashboard opens in a new tab.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 5.688,
+    "cue_word": "click",
+    "cue_offset_s": 0.221,
+    "click_word": "globe",
+    "click_offset_s": 0.603,
+    "marks": [
+      {
+        "at_s": 0.603,
+        "release_s": 1.5
+      }
+    ]
+  },
+  "dash.p4.13d": {
+    "key": "afcf45d1fe7eccbd90a7",
+    "status": "approved",
+    "text": "Note the address, which ends in 8050.app.github.dev. Codespaces checks that you're signed in to GitHub before it shows the page, so by default, only you can open it.",
+    "spoken": "Note the address, which ends in eighty fifty dot app dot GitHub dot dev... Code spaces checks that you're signed in to GitHub before it shows the page, so by default, only you can open it.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 13.392,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 2.176,
+        "release_s": 5.309
+      }
+    ]
+  },
+  "dash.p2.09": {
+    "key": "a94de8d3b2ca6bf49d7b",
+    "status": "draft",
+    "text": "Claude reads CLAUDE.md, then edits it. In this run, it adds both rules under a new Rules heading, and says it hasn't committed the change.",
+    "spoken": "Claude reads Claude dot M D, then edits it. In this run, it adds both rules under a new - Rules heading, and says it hasn't committed the change.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 10.728,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 0.426,
+        "release_s": 3.044
+      },
+      {
+        "at_s": 5.059,
+        "release_s": 10.294
+      }
+    ]
+  },
+  "dash.p2.10f": {
+    "key": "b91d49712e465acd5b3e",
+    "status": "approved",
+    "text": "In this case, it counts the rows, reads the columns, and checks the other files in the data folder before it proposes anything. Then it writes up what it found.",
+    "spoken": "In this case, it counts the rows, reads the columns, and checks the other files in the data folder before it proposes anything. Then it writes up what it found.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 10.728,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p3.11a": {
+    "key": "31e4ff04d47395720ecf",
+    "status": "draft",
+    "text": "Claude lays out its findings, and what it could build. In this run, it offers three layouts, and recommends an executive overview. The overview puts key numbers across the top, then a map, a trend line with events marked, and a ranking. For the technology, it recommends Plotly Dash, which is already installed. It also notes what the data can't answer, such as which airline or route a flight was. Treat findings like these as things to check, not facts. Another run may suggest different charts, but the shape of the reply is what to expect: findings, options, and questions.",
+    "spoken": "Claude lays out its findings, and what it could build. In this run, it offers three layouts, and recommends an executive overview. The overview puts key numbers across the top, then a map, a trend line with events marked, and a ranking. For the technology, it recommends Plot-lee Dash, which is already installed. It also notes what the data can't answer, such as which airline or route a flight was. Treat findings like these as things to check, not facts. Another run may suggest different charts, but the shape of the reply is what to expect: findings, options, and questions.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 41.208,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p4.12": {
+    "key": "68218c766cc2d63344c5",
+    "status": "draft",
+    "text": "Claude starts the build. From here, Claude may load skills, install tools, or write and run code, to do its work. We don't tell it how; it decides what the task needs. Each row in the panel is one step it takes. This build took about six minutes, so we'll speed through it. Keep an eye on the Explorer, on the left.",
+    "spoken": "Claude starts the build. From here, Claude may load skills, install tools, or write and run code, to do its work. We don't tell it how; it decides what the task needs. Each row in the panel is one step it takes. This build took about six minutes, so we'll speed through it. Keep an eye on the Explorer, on the left.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 22.632,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p3.11e": {
+    "key": "45c72903f091cb15e719",
+    "status": "approved",
+    "text": "This time, Claude asks its questions in a form, starting with the layout. I could answer each one here, but instead I'll press Escape to close the form, and answer in my own words.",
+    "spoken": "This time, Claude asks its questions in a form, starting with the layout. I could answer each one here, but instead I'll press Escape to close the form, and answer in my own words.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 12.624,
+    "cue_word": "Escape",
+    "cue_offset_s": 8.471,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 2.897,
+        "release_s": 4.941
+      }
+    ]
+  },
+  "dash.p2.07f": {
+    "key": "e38ad40132813997a50c",
+    "status": "draft",
+    "text": "This codespace already has an earlier conversation, so I'll click New session to start fresh.",
+    "spoken": "This code space already has an earlier conversation, so I'll click New session to start fresh.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 6.624,
+    "cue_word": "click",
+    "cue_offset_s": 4.059,
+    "click_word": "New",
+    "click_offset_s": 4.338,
+    "marks": []
+  },
+  "dash.p4.12b": {
+    "key": "0bfd51fefe6ad266edd2",
+    "status": "draft",
+    "text": "When Claude is done, two new folders appear in the Explorer: dashboard, which holds the program, and docs, which holds its notes. The dot means they contain new files, not yet saved to GitHub. The M beside CLAUDE.md means Claude modified it. But in our case, the dashboard didn't open in the browser.",
+    "spoken": "When Claude is done, two new folders appear in the Explorer: dashboard, which holds the program, and docs, which holds its notes. The dot means they contain new files, not yet saved to GitHub. The M beside Claude dot M D means Claude modified it. But in our case, the dashboard didn't open in the browser.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 22.944,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 4.588,
+        "release_s": 7.956
+      },
+      {
+        "at_s": 7.382,
+        "release_s": 9.485
+      },
+      {
+        "at_s": 14.721,
+        "release_s": 18.471
+      }
+    ]
+  },
+  "dash.p5.14a": {
+    "key": "aaf06a56d7207f56a36b",
+    "status": "approved",
+    "text": "Now let's explore the dashboard Claude built. Your dashboard won't look exactly like this one, because Claude makes different choices each time.",
+    "spoken": "Now let's explore the dashboard Claude built. Your dashboard won't look exactly like this one, because Claude makes different choices each time.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 9.792,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p5.15b": {
+    "key": "aa351e0dea55de45dfb6",
+    "status": "approved",
+    "text": "I'll switch back to the codespace tab,",
+    "spoken": "I'll switch back to the code space tab,",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 2.496,
+    "cue_word": "switch",
+    "cue_offset_s": 0.25,
+    "click_word": "codespace",
+    "click_offset_s": 1.088,
+    "marks": []
+  },
+  "dash.p5.15c": {
+    "key": "f1075e46a14b90646430",
+    "status": "approved",
+    "text": "and describe the problem in the message box: what I clicked, what I saw, and what I expected. The more precisely we describe a problem, the faster Claude can fix it.",
+    "spoken": "and describe the problem in the message box: what I clicked, what I saw, and what I expected. The more precisely we describe a problem, the faster Claude can fix it.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 11.208,
+    "cue_word": "describe",
+    "cue_offset_s": 0.206,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 2.941,
+        "release_s": 5.838
+      },
+      {
+        "at_s": 4.0,
+        "release_s": 5.838
+      },
+      {
+        "at_s": 5.162,
+        "release_s": 5.838
+      }
+    ]
+  },
+  "dash.p5.15d": {
+    "key": "fa4ef0a5559c26958a56",
+    "status": "approved",
+    "text": "I'll click the send arrow.",
+    "spoken": "I'll click the send arrow.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 1.872,
+    "cue_word": "click",
+    "cue_offset_s": 0.265,
+    "click_word": "send",
+    "click_offset_s": 0.632,
+    "marks": []
+  },
+  "dash.p5.15f": {
+    "key": "7e72b87785def0174ab7",
+    "status": "draft",
+    "text": "I'll switch back to the dashboard tab,",
+    "spoken": "I'll switch back to the dashboard tab,",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 2.52,
+    "cue_word": "switch",
+    "cue_offset_s": 0.265,
+    "click_word": "dashboard",
+    "click_offset_s": 1.162,
+    "marks": []
+  },
+  "dash.p5.15g": {
+    "key": "fdaae362857d32da5d3c",
+    "status": "approved",
+    "text": "and reload the page to load the new version.",
+    "spoken": "and reload the page to load the new version.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 3.144,
+    "cue_word": "reload",
+    "cue_offset_s": 0.294,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p5.16a": {
+    "key": "30f4c40d8fa145246d55",
+    "status": "approved",
+    "text": "When you finish exploring, it's good practice to stop the dashboard. I'll switch back to the codespace tab,",
+    "spoken": "When you finish exploring, it's good practice to stop the dashboard. I'll switch back to the code space tab,",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 6.912,
+    "cue_word": "switch",
+    "cue_offset_s": 4.647,
+    "click_word": "codespace",
+    "click_offset_s": 5.485,
+    "marks": []
+  },
+  "dash.p5.16b": {
+    "key": "eebb09f05a2a063b786c",
+    "status": "approved",
+    "text": "and ask Claude to stop the dashboard. The dashboard is a running program, so it keeps running until something stops it.",
+    "spoken": "and ask Claude to stop the dashboard. The dashboard is a running program, so it keeps running until something stops it.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 8.256,
+    "cue_word": "ask",
+    "cue_offset_s": 0.279,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p5.16c": {
+    "key": "fa4ef0a5559c26958a56",
+    "status": "approved",
+    "text": "I'll click the send arrow.",
+    "spoken": "I'll click the send arrow.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 1.872,
+    "cue_word": "click",
+    "cue_offset_s": 0.265,
+    "click_word": "send",
+    "click_offset_s": 0.632,
+    "marks": []
+  },
+  "dash.p5.16e": {
+    "key": "42839191e4d5bf627bc4",
+    "status": "approved",
+    "text": "In the Ports tab, notice that the dot next to port 8050 is now hollow. That means the dashboard has stopped.",
+    "spoken": "In the Ports tab, notice that the dot next to port eighty fifty is now hollow. That means the dashboard has stopped.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 8.184,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 2.088,
+        "release_s": 5.279
+      }
+    ]
+  },
+  "dash.p6.17a": {
+    "key": "809d50a805f6c1b808b7",
+    "status": "approved",
+    "text": "Before we finish, I'll ask Claude to wrap up. I'll enter the wrap-up prompt.",
+    "spoken": "Before we finish, I'll ask Claude to wrap up. I'll enter the wrap-up prompt.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 5.496,
+    "cue_word": "enter",
+    "cue_offset_s": 3.706,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p6.17b": {
+    "key": "3216217ae5d0b98fbc10",
+    "status": "approved",
+    "text": "The prompt asks Claude to write notes about the dashboard in docs/dashboard.md, and to add a one-line pointer to them in CLAUDE.md. That's our first standing rule at work.",
+    "spoken": "The prompt asks Claude to write notes about the dashboard in docs slash dashboard dot M D, and to add a one-line pointer to them in Claude dot M D. That's our first standing rule at work.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 12.528,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 3.5,
+        "release_s": 7.441
+      },
+      {
+        "at_s": 6.809,
+        "release_s": 9.559
+      }
+    ]
+  },
+  "dash.p6.17c": {
+    "key": "435cd62b4141e7dc460b",
+    "status": "approved",
+    "text": "End every working session this way. Claude starts each session with no memory of the last one. It reads CLAUDE.md first, and the pointer leads it to the notes.",
+    "spoken": "End every working session this way. Claude starts each session with no memory of the last one. It reads Claude dot M D first, and the pointer leads it to the notes.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 12.432,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p6.17d": {
+    "key": "fa4ef0a5559c26958a56",
+    "status": "approved",
+    "text": "I'll click the send arrow.",
+    "spoken": "I'll click the send arrow.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 1.872,
+    "cue_word": "click",
+    "cue_offset_s": 0.265,
+    "click_word": "send",
+    "click_offset_s": 0.632,
+    "marks": []
+  },
+  "dash.p6.19a": {
+    "key": "f0b1a05ce61513fa2b52",
+    "status": "approved",
+    "text": "Now let's save our work to GitHub. I'll enter the commit prompt.",
+    "spoken": "Now let's save our work to GitHub. I'll enter the commit prompt.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 4.296,
+    "cue_word": "enter",
+    "cue_offset_s": 2.632,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p6.19b": {
+    "key": "1bb04c9241bf2efa789c",
+    "status": "approved",
+    "text": "Notice that the prompt names the main branch, which matches our second rule. You can also commit the changes yourself with the Source Control icon on the left edge. I won't do that here, but will instead let Claude handle it.",
+    "spoken": "Notice that the prompt names the main branch, which matches our second rule. You can also commit the changes yourself with the - Source Control icon on the left edge. I won't do that here, but will instead let Claude handle it.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 15.072,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 7.735,
+        "release_s": 10.456
+      },
+      {
+        "at_s": 1.882,
+        "release_s": 4.647
+      }
+    ]
+  },
+  "dash.p6.19c": {
+    "key": "fa4ef0a5559c26958a56",
+    "status": "approved",
+    "text": "I'll click the send arrow.",
+    "spoken": "I'll click the send arrow.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 1.872,
+    "cue_word": "click",
+    "cue_offset_s": 0.265,
+    "click_word": "send",
+    "click_offset_s": 0.632,
+    "marks": []
+  },
+  "dash.p5.14b": {
+    "key": "177a954fc86f1743cb0e",
+    "status": "draft",
+    "text": "At the top are the date range and the filters. Below them are five summary tiles. The Ops strain index is a calculated field Claude added. It combines delays, cancellations, and taxi times into one score, so it isn't in the raw data. The trend chart also labels industry events, such as the CrowdStrike outage. Those come from Claude's general knowledge, not from our data file.",
+    "spoken": "At the top are the date range and the filters. Below them are five summary tiles. The - Ops strain index is a calculated field Claude added. It combines delays, cancellations, and taxi times into one score, so it isn't in the raw data. The trend chart also labels industry events, such as the CrowdStrike outage. Those come from Claude's general knowledge, not from our data file.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 27.576,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 0.926,
+        "release_s": 2.897
+      },
+      {
+        "at_s": 4.926,
+        "release_s": 5.485
+      },
+      {
+        "at_s": 6.221,
+        "release_s": 9.691
+      },
+      {
+        "at_s": 21.544,
+        "release_s": 22.853
+      }
+    ]
+  },
+  "dash.p5.14c": {
+    "key": "8ae6e52d1891d8cb52f2",
+    "status": "draft",
+    "text": "First, a filter. Under Date range, I'll click Last 24 mo. The range now runs from October 2023 to September 2025, and the tiles and the trend update.",
+    "spoken": "First, a filter. Under - Date range, I'll click - Last 24 months. The range now runs from October 2023 to September 2025, and the tiles and the trend update.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 14.616,
+    "cue_word": "Under",
+    "cue_offset_s": 1.794,
+    "click_word": "Last",
+    "click_offset_s": 4.559,
+    "marks": [
+      {
+        "at_s": 7.912,
+        "release_s": 14.176
+      }
+    ]
+  },
+  "dash.p5.14d": {
+    "key": "896e6f903492b775a9de",
+    "status": "draft",
+    "text": "Next, a parameter. Under Metric, I'll open the list,",
+    "spoken": "Next, a parameter. Under - Metric, I'll open the list,",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 4.992,
+    "cue_word": "Under",
+    "cue_offset_s": 1.853,
+    "click_word": "list",
+    "click_offset_s": 4.059,
+    "marks": []
+  },
+  "dash.p5.14f": {
+    "key": "2d7cc1302b8bd0f2a4ce",
+    "status": "draft",
+    "text": "and choose Cancellation rate. The trend chart now shows the cancellation rate over time, instead of the delay.",
+    "spoken": "and choose - Cancellation rate. The trend chart now shows the cancellation rate over time, instead of the delay.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 8.328,
+    "cue_word": "choose",
+    "cue_offset_s": 0.279,
+    "click_word": "Cancellation",
+    "click_offset_s": 1.118,
+    "marks": [
+      {
+        "at_s": 2.765,
+        "release_s": 7.897
+      }
+    ]
+  },
+  "dash.p5.14e": {
+    "key": "2677c7aacf5cf7f1d9a7",
+    "status": "draft",
+    "text": "Now let's focus on one airport. Under Airport focus, I'll open the list,",
+    "spoken": "Now let's focus on one airport. Under - Airport focus, I'll open the list,",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 5.88,
+    "cue_word": "Under",
+    "cue_offset_s": 2.338,
+    "click_word": "list",
+    "click_offset_s": 4.941,
+    "marks": []
+  },
+  "dash.p5.15a": {
+    "key": "a4024a5270835a90d7d9",
+    "status": "draft",
+    "text": "But notice the two boxes at the ends of the date slider. After I clicked Last 24 mo, they read 45 and 68, not dates. Claude tested its code, but it can't see the page, so we need to tell it.",
+    "spoken": "But notice the two boxes at the ends of the date slider. After I clicked - Last 24 months, they read 45 and 68, not dates. Claude tested its code, but it can't see the page, so we need to tell it.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 15.96,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 7.338,
+        "release_s": 9.206
+      },
+      {
+        "at_s": 8.353,
+        "release_s": 10.426
+      }
+    ]
+  },
+  "dash.p5.15h": {
+    "key": "153a37f47eca20fcdc9b",
+    "status": "draft",
+    "text": "I'll click Last 24 mo again. Now the handles show dates, but the two boxes still read 45 and 68.",
+    "spoken": "I'll click - Last 24 months again. Now the handles show dates, but the two boxes still read 45 and 68.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 9.432,
+    "cue_word": "click",
+    "cue_offset_s": 0.279,
+    "click_word": "Last",
+    "click_offset_s": 1.044,
+    "marks": [
+      {
+        "at_s": 4.176,
+        "release_s": 6.132
+      },
+      {
+        "at_s": 6.897,
+        "release_s": 9.015
+      }
+    ]
+  },
+  "dash.p5.15i": {
+    "key": "ed5c39a938ecb3cd50b3",
+    "status": "draft",
+    "text": "The boxes still show numbers, so let's tell Claude again. I'll switch back to the codespace tab,",
+    "spoken": "The boxes still show numbers, so let's tell Claude again. I'll switch back to the code space tab,",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 6.456,
+    "cue_word": "switch",
+    "cue_offset_s": 4.191,
+    "click_word": "codespace",
+    "click_offset_s": 5.029,
+    "marks": []
+  },
+  "dash.p5.15j": {
+    "key": "0b8dcb393b03e3e7dd1b",
+    "status": "draft",
+    "text": "and describe what I still see: the boxes still show 45 and 68, instead of dates.",
+    "spoken": "and describe what I still see: the boxes still show 45 and 68, instead of dates.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 7.248,
+    "cue_word": "describe",
+    "cue_offset_s": 0.206,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p5.15k": {
+    "key": "fa4ef0a5559c26958a56",
+    "status": "draft",
+    "text": "I'll click the send arrow.",
+    "spoken": "I'll click the send arrow.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 1.872,
+    "cue_word": "click",
+    "cue_offset_s": 0.265,
+    "click_word": "send",
+    "click_offset_s": 0.632,
+    "marks": []
+  },
+  "dash.p5.15m": {
+    "key": "7e72b87785def0174ab7",
+    "status": "draft",
+    "text": "I'll switch back to the dashboard tab,",
+    "spoken": "I'll switch back to the dashboard tab,",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 2.52,
+    "cue_word": "switch",
+    "cue_offset_s": 0.265,
+    "click_word": "dashboard",
+    "click_offset_s": 1.162,
+    "marks": []
+  },
+  "dash.p5.15n": {
+    "key": "b524da3cfc2c369b8039",
+    "status": "draft",
+    "text": "and reload the page.",
+    "spoken": "and reload the page.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 1.872,
+    "cue_word": "reload",
+    "cue_offset_s": 0.294,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p5.15o": {
+    "key": "c5347a3e0b95389a83d6",
+    "status": "draft",
+    "text": "I'll click Last 24 mo again. Now the boxes are gone, and the handles show the dates, from October 2023 to September 2025. Each round of feedback refines the dashboard.",
+    "spoken": "I'll click - Last 24 months again. Now the boxes are gone, and the handles show the dates, from October 2023 to September 2025. Each round of feedback refines the dashboard.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 14.448,
+    "cue_word": "click",
+    "cue_offset_s": 0.279,
+    "click_word": "Last",
+    "click_offset_s": 1.044,
+    "marks": [
+      {
+        "at_s": 6.044,
+        "release_s": 10.75
+      }
+    ]
+  },
+  "dash.p5.15e": {
+    "key": "7d4df6103f8067c6fb28",
+    "status": "draft",
+    "text": "Claude works on the fix. It asks before it runs a command that writes the change, and I allow it. Then, as we asked, it restarts the dashboard, so the page can load the new version.",
+    "spoken": "Claude works on the fix. It asks before it runs a command that writes the change, and I allow it. Then, as we asked, it restarts the dashboard, so the page can load the new version.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 13.2,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p5.15l": {
+    "key": "db793ff8a8ad5a738fc5",
+    "status": "draft",
+    "text": "Claude asks twice: once to change the slider, and once to stop the running dashboard so it can restart it. Each time, the prompt shows the exact command, so you can check it before you allow it. Then it checks that the dashboard is running again, and writes up what it changed.",
+    "spoken": "Claude asks twice: once to change the slider, and once to stop the running dashboard so it can restart it. Each time, the prompt shows the exact command, so you can check it before you allow it. Then it checks that the dashboard is running again, and writes up what it changed.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 18.528,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p5.16d": {
+    "key": "5d8450daf60cf5526a65",
+    "status": "draft",
+    "text": "Claude asks before it stops the dashboard, and I allow it. Its reply says how to start it again, if you need to.",
+    "spoken": "Claude asks before it stops the dashboard, and I allow it. Its reply says how to start it again, if you need to.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 7.656,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "dash.p5.16f": {
+    "key": "6765dc5c073de2b31c6f",
+    "status": "draft",
+    "text": "Claude also points out that nothing is committed yet. The dashboard, its notes, and the CLAUDE.md changes exist only in this codespace, until we save them to GitHub.",
+    "spoken": "Claude also points out that nothing is committed yet. The dashboard, its notes, and the Claude dot M D changes exist only in this code space, until we save them to GitHub.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 12.432,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 2.235,
+        "release_s": 3.088
+      }
+    ]
+  },
+  "dash.p6.18": {
+    "key": "15845976271188ddaf90",
+    "status": "draft",
+    "text": "Claude writes the notes to docs/dashboard.md, and points to them from CLAUDE.md with one line. In this case, it had already written a shorter notes file during the build, so it replaced that one, to keep a single copy.",
+    "spoken": "Claude writes the notes to docs slash dashboard dot M D, and points to them from Claude dot M D with one line. In this case, it had already written a shorter notes file during the build, so it replaced that one, to keep a single copy.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 16.56,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 4.735,
+        "release_s": 7.941
+      }
+    ]
+  },
+  "dash.p6.20": {
+    "key": "8a027ae29bdb65e21dec",
+    "status": "draft",
+    "text": "Claude commits the five files to the main branch, and pushes them to GitHub. In the Explorer, the dots and the M are gone: the files are in the repository now. Committing means the dashboard survives even if the codespace is deleted.",
+    "spoken": "Claude commits the five files to the main branch, and pushes them to GitHub. In the Explorer, the dots and the M are gone: the files are in the repository now. Committing means the dashboard survives even if the code space is deleted.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 16.992,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 6.956,
+        "release_s": 11.074
+      }
+    ]
+  },
+  "dash.p5.14g": {
+    "key": "ce1e9a63dbd72763aa64",
+    "status": "draft",
+    "text": "and choose Albuquerque. The tiles now show just that airport, and the trend adds its line. As the label says, clicking an airport in the charts further down does the same. Each choice goes to the Python program, which filters the data and redraws the charts.",
+    "spoken": "and choose Albuquerque. The tiles now show just that airport, and the trend adds its line. As the label says, clicking an airport in the charts further down does the same. Each choice goes to the Python program, which filters the data and redraws the charts.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 18.432,
+    "cue_word": "choose",
+    "cue_offset_s": 0.25,
+    "click_word": "Albuquerque",
+    "click_offset_s": 0.618,
+    "marks": [
+      {
+        "at_s": 1.926,
+        "release_s": 6.338
+      }
+    ]
+  },
+  "dash.p5.15p": {
+    "key": "5cf56cae9b810bc9090a",
+    "status": "draft",
+    "text": "In this run, Claude reports that the boxes now show month names, and asks me to reload the page to check.",
+    "spoken": "In this run, Claude reports that the boxes now show month names, and asks me to reload the page to check.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 8.04,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 3.75,
+        "release_s": 4.779
+      },
+      {
+        "at_s": 5.971,
+        "release_s": 7.618
+      }
+    ]
+  },
+  "dash.p5.15q": {
+    "key": "e8b37057ea21f4ba22a0",
+    "status": "draft",
+    "text": "This time, it finds what it missed. This version of Dash adds a number box at each end of every slider. Its first fix changed only the labels on the handles. So it turns the boxes off for the date slider.",
+    "spoken": "This time, it finds what it missed. This version of Dash adds a number box at each end of every slider. Its first fix changed only the labels on the handles. So it turns the boxes off for the date slider.",
+    "engine": "edge-tts",
+    "voice": "en-US-AndrewNeural",
+    "length_s": 14.904,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 3.471,
+        "release_s": 8.426
+      },
+      {
+        "at_s": 13.088,
+        "release_s": 14.471
+      }
+    ]
+  },
+  "csc13.intro": {
+    "key": "e2438333040fde21034d",
+    "status": "draft",
+    "text": "Hi, I'm David Baldwin with GiddyUp Data. Let's give Claude Code one prompt for a flight dashboard, and see why it works.",
+    "spoken": "Hi, I'm David Baldwin with GiddyUp Data... Let's give Claude Code one prompt for a flight dashboard, and see why it works.",
+    "engine": "elevenlabs",
+    "voice": "<ELEVENLABS_VOICE_ID>",
+    "length_s": 7.43,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "csc13.outro": {
+    "key": "4502b71946682c764991",
+    "status": "draft",
+    "text": "That's the direction prompt: set the goal and the audience, and let Claude propose the build. Thanks for watching.",
+    "spoken": "That's the direction prompt: set the goal and the audience, and let Claude propose the build. Thanks for watching.",
+    "engine": "elevenlabs",
+    "voice": "<ELEVENLABS_VOICE_ID>",
+    "length_s": 7.477,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "csc13.p2.10a": {
+    "key": "487d650c57b5f6969718",
+    "status": "approved",
+    "text": "Now let's ask for the dashboard. I'll enter the dashboard prompt.",
+    "spoken": "Now let's ask for the dashboard. I'll enter the dashboard prompt.",
+    "engine": "elevenlabs",
+    "voice": "<ELEVENLABS_VOICE_ID>",
+    "length_s": 5.248,
+    "cue_word": "enter",
+    "cue_offset_s": 2.856,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "csc13.p2.10b": {
+    "key": "00d56796c86c6e390c84",
+    "status": "approved",
+    "text": "Notice what the prompt describes: the audience, an aviation operations team, and the quality bar, data visualization best practices.",
+    "spoken": "Notice what the prompt describes: the audience, an aviation operations team, and the quality bar, data visualization best practices.",
+    "engine": "elevenlabs",
+    "voice": "<ELEVENLABS_VOICE_ID>",
+    "length_s": 10.635,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 3.796,
+        "release_s": 5.584
+      },
+      {
+        "at_s": 7.512,
+        "release_s": 10.635
+      }
+    ]
+  },
+  "csc13.p2.10c": {
+    "key": "3b1c556497e93a28f9d2",
+    "status": "approved",
+    "text": "It doesn't name a chart type, a column, or a framework. It also tells Claude to look beyond the data, and apply what it knows about the airline industry.",
+    "spoken": "It doesn't name a chart type, a column, or a framework. It also tells Claude to look beyond the data, and apply what it knows about the airline industry.",
+    "engine": "elevenlabs",
+    "voice": "<ELEVENLABS_VOICE_ID>",
+    "length_s": 11.378,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 6.478,
+        "release_s": 11.378
+      }
+    ]
+  },
+  "csc13.p2.10d": {
+    "key": "e09711de42d290d87fd6",
+    "status": "approved",
+    "text": "Note that we ask for options before Claude builds anything. This is a best practice. Claude lays out the choices, and we make the decisions that matter.",
+    "spoken": "Note that we ask for options before Claude builds anything. This is a best practice. Claude lays out the choices, and we make the decisions that matter.",
+    "engine": "elevenlabs",
+    "voice": "<ELEVENLABS_VOICE_ID>",
+    "length_s": 11.471,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": [
+      {
+        "at_s": 1.312,
+        "release_s": 3.843
+      }
+    ]
+  },
+  "csc13.p2.10e": {
+    "key": "babd89fd62a1e9ffa2cb",
+    "status": "approved",
+    "text": "I'll click the send arrow. Claude starts by reading the data.",
+    "spoken": "I'll click the send arrow. Claude starts by reading the data.",
+    "engine": "elevenlabs",
+    "voice": "<ELEVENLABS_VOICE_ID>",
+    "length_s": 5.062,
+    "cue_word": "click",
+    "cue_offset_s": 0.279,
+    "click_word": "send",
+    "click_offset_s": 0.743,
+    "marks": []
+  },
+  "csc13.p2.10f": {
+    "key": "a5fceb03de056e7ddeab",
+    "status": "approved",
+    "text": "In this case, it counts the rows, reads the columns, and checks the other files in the data folder before it proposes anything. Then it writes up what it found.",
+    "spoken": "In this case, it counts the rows, reads the columns, and checks the other files in the data folder before it proposes anything. Then it writes up what it found.",
+    "engine": "elevenlabs",
+    "voice": "<ELEVENLABS_VOICE_ID>",
+    "length_s": 10.774,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  },
+  "csc13.p2.10a2": {
+    "key": "9bccd59cd2694161c0a2",
+    "status": "draft",
+    "text": "Let's study this prompt in an overlay, so we can see the important instructions clearly.",
+    "spoken": "Let's study this prompt in an overlay, so we can see the important instructions clearly.",
+    "engine": "elevenlabs",
+    "voice": "<ELEVENLABS_VOICE_ID>",
+    "length_s": 6.409,
+    "cue_word": null,
+    "cue_offset_s": null,
+    "click_word": null,
+    "click_offset_s": null,
+    "marks": []
+  }
+}

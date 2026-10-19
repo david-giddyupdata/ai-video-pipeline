@@ -1,0 +1,105 @@
+{
+  "exercise": "build_an_interactive_dashboard",
+  "version": 1,
+  "source_doc": "<CLIENT>_Workshop_Manual.docx > Build an Interactive Dashboard > Instructions, Part 1 steps 1-3",
+  "audience": "public",
+  "variables": {
+    "repo": "<YOUR_GITHUB_ACCOUNT>/my-agentic-workshop",
+    "codespace_name": "<CODESPACE_NAME>",
+    "codespace_display": "<CODESPACE_DISPLAY_NAME>"
+  },
+  "steps": [
+    {
+      "id": "p1.01",
+      "manual_step": 1,
+      "part": 1,
+      "segment": "scripted",
+      "action": {
+        "type": "navigate",
+        "url": "https://github.com/codespaces"
+      },
+      "expect": {
+        "kind": "visible",
+        "tab": "github",
+        "frame": "main",
+        "locator": "text=Your codespaces",
+        "timeout_s": 20
+      },
+      "narration": {
+        "line_id": "dash.p1.01",
+        "text": "Start at github.com/codespaces. A codespace is a complete development workspace that runs in your browser, so there's nothing to install.",
+        "cue_word": null,
+        "status": "draft",
+        "source": "clone"
+      },
+      "dwell": {
+        "min_s": 2.0
+      }
+    },
+    {
+      "id": "p1.02",
+      "manual_step": 2,
+      "part": 1,
+      "segment": "scripted",
+      "action": {
+        "type": "click",
+        "target": {
+          "tab": "github",
+          "frame": "main",
+          "locator": "a[href^='/codespaces?repository_id=']",
+          "fallback": [
+            "a:has-text('{repo}')"
+          ]
+        }
+      },
+      "expect": {
+        "kind": "url_contains",
+        "tab": "github",
+        "value": "repository_id=",
+        "timeout_s": 15
+      },
+      "narration": {
+        "line_id": "dash.p1.02",
+        "text": "On the left, under By repository, click your repository, my-agentic-workshop.",
+        "cue_word": "click",
+        "click_word": "my-agentic-workshop",
+        "status": "draft",
+        "source": "clone"
+      }
+    },
+    {
+      "id": "p1.03",
+      "manual_step": 3,
+      "part": 1,
+      "segment": "scripted",
+      "action": {
+        "type": "click",
+        "target": {
+          "tab": "github",
+          "frame": "main",
+          "locator": "a[href='/codespaces/{codespace_name}']"
+        }
+      },
+      "expect": {
+        "kind": "visible",
+        "tab": "ide",
+        "frame": "main",
+        "locator": ".explorer-folders-view .monaco-list-row[aria-label='data']",
+        "timeout_s": 90
+      },
+      "narration": {
+        "line_id": "dash.p1.03",
+        "text": "Then click your codespace. GitHub gives every codespace a random two-word name. This one is called {codespace_display}. Yours will have a different name, something like jubilant waffle.",
+        "cue_word": "click",
+        "click_word": "codespace",
+        "status": "draft",
+        "source": "clone"
+      },
+      "dwell": {
+        "min_s": 3.0
+      },
+      "notes": "Opens in a new tab (the link has target=_blank). Codespaces occasionally stalls on 'Setting up your codespace'; the runner reloads once after 90 s. A stopped codespace takes about a minute to start; that wait is cut in the edit.",
+      "on_fail": "retry_once"
+    }
+  ]
+}

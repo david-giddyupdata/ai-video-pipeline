@@ -1,0 +1,366 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "runlog.schema.json",
+  "title": "Run log record",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/header"
+    },
+    {
+      "$ref": "#/$defs/event"
+    }
+  ],
+  "$defs": {
+    "header": {
+      "type": "object",
+      "required": [
+        "record",
+        "run_id",
+        "exercise",
+        "steps_version",
+        "steps_sha256",
+        "started_wall",
+        "variables",
+        "browser",
+        "captures",
+        "tools"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "const": "header"
+        },
+        "run_id": {
+          "type": "string",
+          "description": "<exercise>_<yyyymmdd>_take<NN>"
+        },
+        "exercise": {
+          "type": "string"
+        },
+        "steps_version": {
+          "type": "integer"
+        },
+        "steps_sha256": {
+          "type": "string"
+        },
+        "started_wall": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "variables": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "machine": {
+          "type": "object",
+          "properties": {
+            "windows_scaling_pct": {
+              "type": "integer"
+            },
+            "capture_monitor": {
+              "type": "string"
+            },
+            "monitor_px": {
+              "$ref": "#/$defs/size"
+            }
+          }
+        },
+        "browser": {
+          "type": "object",
+          "required": [
+            "channel",
+            "version",
+            "viewport_css",
+            "device_scale_factor"
+          ],
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "viewport_css": {
+              "$ref": "#/$defs/size"
+            },
+            "device_scale_factor": {
+              "type": "number"
+            },
+            "browser_zoom_pct": {
+              "type": "integer"
+            },
+            "tab_layout": {
+              "enum": [
+                "top",
+                "vertical",
+                "none"
+              ],
+              "description": "Where browser tabs sit; changes the page's position in the frame"
+            }
+          }
+        },
+        "captures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "method",
+              "file",
+              "source",
+              "geometry"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "method": {
+                "enum": [
+                  "obs",
+                  "page_screencast",
+                  "cli_video",
+                  "record_video",
+                  "trace"
+                ]
+              },
+              "file": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string",
+                "description": "'screen:<monitor>' or 'tab:<github|ide|dashboard>'"
+              },
+              "geometry": {
+                "type": "object",
+                "required": [
+                  "viewport_origin_px",
+                  "px_per_css",
+                  "calibration"
+                ],
+                "description": "Maps CSS boxes to video pixels: video = origin + css * px_per_css",
+                "properties": {
+                  "calibration": {
+                    "enum": [
+                      "sync_marker",
+                      "computed"
+                    ],
+                    "description": "sync_marker = measured from the flash rectangle in the video (preferred); computed = from browser metrics (cross-check, or until the marker is detected)"
+                  },
+                  "viewport_origin_px": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "px_per_css": {
+                    "type": "number"
+                  },
+                  "video_px": {
+                    "$ref": "#/$defs/size"
+                  },
+                  "fps": {
+                    "type": "number"
+                  }
+                }
+              },
+              "sync": {
+                "type": "object",
+                "description": "t_mono when the sync markers were shown; their video times are found by detection",
+                "properties": {
+                  "start_marker_t_mono": {
+                    "type": "number"
+                  },
+                  "end_marker_t_mono": {
+                    "type": "number"
+                  },
+                  "start_marker_video_s": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "end_marker_video_s": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tools": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Exact versions: python, playwright, playwright_cli, obs, obs_websocket, recast, node, remotion, edge"
+        },
+        "narration_profile": {
+          "type": "string",
+          "description": "Hash of voice/model/settings/dictionary (§5.4)"
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": [
+        "record",
+        "t_mono",
+        "t_wall",
+        "step_id",
+        "phase"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "const": "event"
+        },
+        "t_mono": {
+          "type": "number"
+        },
+        "t_wall": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "step_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phase": {
+          "enum": [
+            "step_start",
+            "cursor_move_start",
+            "cursor_arrive",
+            "action",
+            "type_start",
+            "type_end",
+            "expect_met",
+            "dwell_end",
+            "step_end",
+            "step_skipped",
+            "tab_switch",
+            "claude_state",
+            "prompt_seen",
+            "prompt_approved",
+            "sync_marker",
+            "still",
+            "text_box",
+            "dom_privacy_hit",
+            "claude_question",
+            "scroll_start",
+            "scroll_end",
+            "error",
+            "recording_joined"
+          ]
+        },
+        "action": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tab": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url_host": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Host only; never the full URL query"
+        },
+        "target_css_box": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/box"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "frame_chain": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Frames from main to target, e.g. main > iframe.webview > iframe#active-frame"
+        },
+        "line_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "result": {
+          "enum": [
+            "ok",
+            "fail",
+            "timeout",
+            null
+          ]
+        },
+        "detail": {
+          "type": [
+            "string",
+            "object",
+            "null"
+          ]
+        }
+      }
+    },
+    "box": {
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        }
+      }
+    },
+    "size": {
+      "type": "object",
+      "required": [
+        "w",
+        "h"
+      ],
+      "properties": {
+        "w": {
+          "type": "number"
+        },
+        "h": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}
