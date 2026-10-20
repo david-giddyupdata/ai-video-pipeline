@@ -521,13 +521,13 @@ def decisions(props, files, finds, out):
     d = [f"**The file list:** approve the {len(files)} staged files (section 1), or name what to add or drop.",
          f"**Docs:** in: {', '.join(inc_docs)}; out: {', '.join(out_docs)}. From research/, in: "
          f"{', '.join(research) or 'nothing'} (section 2 has the reasons).",
-         "**pipeline/vendor/** was copied from the <CLIENT> workshop's automation folder (R1). If that workshop "
-         "material belongs to the client or was made under contract, it can't go public as is: keep it (with its "
-         "headers), rewrite it, or drop it (s1, runner, prepare, preflight and explore import it, so dropping breaks "
-         "capture). The same question covers exercises/: the narration and step lists follow the workshop's exercise "
-         "doc."]
+         "**pipeline/vendor/** was copied from workshop material (R1). If your workshop material belongs to a "
+         "client or was made under contract, check before it goes public: keep it (with its headers), rewrite it, "
+         "or drop it (s1, runner, prepare, preflight and explore import it, so dropping breaks capture). The same "
+         "question covers exercises/ if its narration and step lists follow a client's exercise doc."]
     cfg = out / "pipeline" / "config.py"
-    if cfg.is_file() and "giddyup_secrets" in cfg.read_text(encoding="utf-8"):
+    cfg_text = cfg.read_text(encoding="utf-8") if cfg.is_file() else ""
+    if "giddyup_secrets" in cfg_text and "AIDV_SECRETS_FILE" not in cfg_text:
         d.append("**Secrets for a public user:** `pipeline/config.py` loads keys through a private helper "
                  "(`giddyup_secrets`) from a OneDrive folder, so a placeholder path alone leaves the keyed steps "
                  "(OBS, ElevenLabs, HeyGen, YouTube) unrunnable. Propose: fall back to environment variables when the "
@@ -550,13 +550,16 @@ def decisions(props, files, finds, out):
                  f"assets outside the repo ({', '.join(sorted({PurePosixPath(p).name for p in ext}))}): none can "
                  "ship as is (brand, music licence, Adobe's and Microsoft's files), so each becomes a setting with a "
                  "placeholder (section 4). The rest are the R1 workshop folder, the secrets helper and doc mentions.")
-    d.append("**.gitignore:** the copy has only AIDrivenVideo's own .gitignore. The media rules (*.mp4, *.wav, *.png, "
-             "*.prproj, *.mogrt) came from the parent repo (the video workspace) and are missing, and its "
-             "`!remotion/*.ts` lines only exist because the parent ignores *.ts. Add the media rules before the first "
-             "commit.")
-    d.append("**LICENSE and README:** the copy has neither. Pick a licence; the README can start from CLAUDE.md. "
-             "Remotion has its own licence (free for individuals and very small companies; larger companies need a "
-             "company licence): worth a line in the README.")
+    gitignore = out / ".gitignore"
+    if not (gitignore.is_file() and "*.mp4" in gitignore.read_text(encoding="utf-8")):
+        d.append("**.gitignore:** the copy has only AIDrivenVideo's own .gitignore. The media rules (*.mp4, "
+                 "*.wav, *.png, *.prproj, *.mogrt) came from the parent repo (the video workspace) and are "
+                 "missing, and its `!remotion/*.ts` lines only exist because the parent ignores *.ts. Add the "
+                 "media rules before the first commit.")
+    if not ((out / "LICENSE").is_file() and (out / "README.md").is_file()):
+        d.append("**LICENSE and README:** the copy lacks one or both. Pick a licence; the README can start from "
+                 "CLAUDE.md. Remotion has its own licence (free for individuals and very small companies; larger "
+                 "companies need a company licence): worth a line in the README.")
     old = [p for p in files if re.match(r"exercises/.*/steps_(s\d|p5_take\d+)\.json$", p)]
     if old:
         d.append(f"**Old step lists:** {len(old)} test-slice step lists ({', '.join(PurePosixPath(p).name for p in old)}) "

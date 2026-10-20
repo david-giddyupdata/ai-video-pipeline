@@ -4,10 +4,9 @@ import {AbsoluteFill, Img, staticFile, useCurrentFrame, useVideoConfig} from 're
 import CTA from './data/cta.json';
 import {ACCENT, FONT, prog, TOKENS} from './kit';
 
-// SubscribeCta (R242): the call to action's subscribe animation rebuilt in code, in four variations for David to pick,
-// replacing the Motion Array clip his Quick Series used (02.Youtube SubscribesV2.mov, R232; R131: away from Motion
-// Array). Measured from that clip (30 fps, 7.5 s, placed full frame in QuickArch03 at 00:07:21; research/backgrounds/
-// refs_ep03/ep03_cta.json):
+// SubscribeCta (R242): the call to action's subscribe animation rebuilt in code, in four variations for David to pick
+// (R232, R131). It re-creates the look of a Motion Array card David licensed; no Motion Array file is included
+// (THIRD_PARTY.md). Measured from the original (30 fps, 7.5 s, placed full frame in QuickArch03 at 00:07:21):
 //   * lower left: a bell (143 px, with its two sound arcs) and a thumbs-up (159 x 136), a red bar (13 x 183,
 //     #cc2221 at the top to #780f0f) at x 509, and "Thanks for Watching!" (a geometric bold, cap height 50) from x 559;
 //   * the bar grows from its middle (0.13 to 0.43 s), the bell slides out left from behind it (0.43 to 0.8), then the

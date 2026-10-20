@@ -1,5 +1,8 @@
 # AIDrivenVideo: automated training-video pipeline
 
+> **Public copy:** `SESSION_HANDOFF.md`, `PLAN.md` and `docs/` are not published; this file is kept as an example
+> of the agent's brief.
+
 Turns a browser-based exercise into a narrated YouTube tutorial. Test case: *Build an Interactive Dashboard*
 (<CLIENT> workshop).
 
@@ -14,7 +17,7 @@ Turns a browser-based exercise into a narrated YouTube tutorial. Test case: *Bui
 | `SPEC.md` | Design and file formats. |
 | `PLAN.md` | Phase and slice status, and what's next. `docs/SLICE_LOG.md` has the slice results. |
 | `research/style_study/` | David's measured style (`STYLE_PROFILE.md`) and narration (`NARRATION.md`). |
-| `D:\Videos\Global Assets\VIDEO_RULES.md` | The one rulebook for every video (R188): each rule, its numbers, its R numbers, how it's checked. Briefs and reviews read it. |
+| `VIDEO_RULES.md` (in the workspace: `D:\Videos\Global Assets\VIDEO_RULES.md`) | The one rulebook for every video (R188): each rule, its numbers, its R numbers, how it's checked. Briefs and reviews read it. |
 | `D:\Videos\Global Assets\motion-library\CATALOG.md` | Every overlay asset and paid run: where it is, what made it, what it cost (R153, R154). |
 | `docs/OVERLAY_BUILD_PLAN_qs1a.md` | The overlay build (R149 to R154): the swarm, the review project, the budget. |
 
@@ -33,7 +36,7 @@ Turns a browser-based exercise into a narrated YouTube tutorial. Test case: *Bui
 python -m pipeline.preflight                       # monitor, taskbar, topmost window, Edge window, zoom
 python -m pipeline.capture.screen [clear|restore]  # R89: other windows off the capture monitor and back (s1 does it)
 python -m pipeline.capture.obs                     # OBS dry check: switch to AIDV, report, switch back
-python -m pipeline.s1 [--dry] [--steps=steps_s4.json]   # record a take (silent, logged); --dry records nothing
+python -m pipeline.s1 [--dry] [--steps=steps_csc13.json]   # record a take (silent, logged); --dry records nothing
                                                    # a step list with a `pause` stops before Part 5 (R70), tabs kept open
 python -m pipeline.s1 --rehearse --steps=<ex>/steps_full.json [--to=<step id>] [--fast]   # every step off camera, no
                                                    # OBS: runs/_rehearse/<prefix>_<date>_NN/rehearse.json, a still a step

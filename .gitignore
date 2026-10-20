@@ -29,10 +29,6 @@ remotion/build/
 remotion/dist/
 remotion/review/
 
-# Web-app page dumps and screenshots (they hold account emails and billing)
-research/heygen_plan/
-research/abacus/
-
 # Media and editor projects: this repository ships none
 *.mp4
 *.mov

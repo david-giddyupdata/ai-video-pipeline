@@ -14,7 +14,7 @@ generated.json:
 Fields given for a step replace the step's own (narration is merged key by key, so status and source stay unless
 given). Every feedback prompt (a variable named feedback_prompt...) ends with FEEDBACK_END (R87): Claude won't restart a
 server it didn't start, and the reload must show the new version. The result goes beside the exercise's other step lists (the line check and the read-back find it by name)
-as steps_<tag>.json, where <tag> is the run's (dashboard_20261007_p5_take01 -> steps_p5_take01.json).
+as steps_<tag>.json, where <tag> is the run's (dashboard_20261007_p5 -> steps_p5.json).
 """
 import copy
 import json

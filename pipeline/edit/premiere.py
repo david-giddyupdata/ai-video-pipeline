@@ -1087,7 +1087,7 @@ def export(run_dir, test_overview=False, do_render=True, out=None):
 # Premiere imports a caption file as a clip whose in point is its first cue, so wherever it is dropped becomes the
 # first cue's time (take 05's captions ran 1.05 s early from a drop at 0:00). Both files therefore open with a
 # one-frame anchor cue at 0:00: dropped at 0:00, every cue lands on its words (R54); David deletes the anchor.
-ANCHOR = " "
+ANCHOR = "\u00a0"   # a no-break space
 # Premiere treats every TTML region as full-screen and keeps only its alignment, which is its own 3x3 caption grid:
 # displayAlign gives the row, textAlign the column (R53).
 GRID_ALIGN = {"top": "before", "middle": "center", "bottom": "after"}

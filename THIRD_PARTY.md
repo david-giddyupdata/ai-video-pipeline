@@ -1,12 +1,12 @@
 # Third-party material
 
-Everything in this repository was written by GiddyUp Data LLC and is under the MIT licence in `LICENSE`, except the
-items in the first table, which keep their own licences. The other tables list tools the pipeline uses that you
-install and license yourself.
+Everything in this repository was written or exported by GiddyUp Data LLC and is under the MIT license in
+`LICENSE`, except the items in the first table, which keep their own licenses. The other tables list tools the
+pipeline uses that you install and license yourself.
 
 ## Included in this repository
 
-| What | Where | Licence |
+| What | Where | License |
 |---|---|---|
 | remocn components (animated charts, icons, ink marks, number wheels) | `remotion/src/overlays/vendor/remocn/` | MIT (`LICENSE` beside them), from github.com/Remocn/remocn |
 | Lucide icon shapes used by those components | `remotion/src/overlays/vendor/remocn/` | ISC (`LICENSE-lucide` beside them) |
@@ -21,14 +21,14 @@ say where from and what changed.
 
 The overlays and edit layers are drawn with [Remotion](https://www.remotion.dev) (4.0.487), installed from npm by
 `remotion/package.json`, not included here. **Remotion is not MIT.** It is free for individuals and for companies of
-up to 3 people; companies of 4 or more need a paid company licence. Read
+up to 3 people; companies of 4 or more need a paid company license. Read
 [remotion.dev/license](https://www.remotion.dev/license) before you use it at work. React (MIT) and TypeScript
 (Apache-2.0) come with it. `skills-lock.json` names Remotion's official agent skills (`remotion-dev/skills`), which you
 install yourself.
 
 ## Used, not included (you install them)
 
-| Tool | Licence | Notes |
+| Tool | License | Notes |
 |---|---|---|
 | Playwright (Python) | Apache-2.0 | Drives the browser the lesson is recorded in |
 | OBS Studio, obs-websocket, obsws-python | GPL-2.0 (OBS); see each package | Recording |
@@ -38,7 +38,7 @@ install yourself.
 | Qwen3-ForcedAligner-0.6B | Apache-2.0 (check the model card) | Word timings; downloaded, not included |
 | rembg (BiRefNet), onnxruntime | MIT, MIT | Cuts generated art out of its background |
 | RapidOCR | Apache-2.0 | Second OCR reader |
-| PyMuPDF | AGPL-3.0 (or a commercial licence) | Renders an Illustrator arrow to a still in `pipeline/edit/premiere.py`. If you distribute software that bundles it, or offer it as a network service, the AGPL applies to you |
+| PyMuPDF | AGPL-3.0 (or a commercial license) | Renders an Illustrator arrow to a still in `pipeline/edit/premiere.py`. If you distribute software that bundles it, or offer it as a network service, the AGPL applies to you |
 | edge-tts, jsonschema, lxml, comtypes, pywin32, google-api-python-client, boto3 | See each package | Free placeholder voice, schema checks, XML, Windows automation, YouTube, AWS |
 
 ## Services and software you license yourself

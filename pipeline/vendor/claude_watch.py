@@ -19,6 +19,8 @@ from pipeline.config import GH_DIR
 
 ATTENTION = ("Allow this", "Do you want to", "Esc to cancel")
 YES_BUTTON = r"role=button[name=/^\s*1?\s*Yes\b/]"
+# Public copy: <S3_BUCKET> below is a placeholder, so the s3 rm lookahead never matches a real bucket and every
+# `s3 rm` counts as RISKY (stricter than the original). Put your own bucket back to allow its student- prefix.
 RISKY = re.compile(
     r"git\s+push|datasets/|aws\s+iam|--profile|rm\s+-rf\s+/(?!workspaces|tmp/)|"
     r"s3\s+rm\s+s3://(?!<S3_BUCKET>/student-)|sudo|curl[^|]*\|\s*(ba)?sh",

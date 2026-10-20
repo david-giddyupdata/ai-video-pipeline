@@ -7,7 +7,7 @@ the conflicts still open for David.
 
 Numbers are never reused or renumbered; a new rule takes the next free number in whichever group fits.
 Each entry: **rule**, then *who and when*, then *enforced by*. "Not built" means the rule stands but no code does it
-yet.
+yet. David's words in quotes are verbatim, typos included.
 
 ## Hard limits
 
@@ -55,7 +55,8 @@ yet.
 - **R12 The audience is the public, standalone viewer,** not the workshop cohort. No "class key" or "your
   instructor"; say "your Anthropic API key" and point to a separate Setup video. *David, 2026-10-05.*
 - **R58 The test account's GitHub CLI sign-in is kept** after the workshop for video work
-  (`%USERPROFILE%\.<CLIENT>\gh`), overriding the workshop's post-workshop cleanup. *David, 2026-10-05.*
+  (`%USERPROFILE%\.workshop\gh`, `GH_DIR` in `pipeline/config.py`), overriding the workshop's post-workshop
+  cleanup. *David, 2026-10-05.*
 
 ## Capture and takes
 
@@ -767,11 +768,10 @@ yet.
   **Moot in round 6's layout** (`stage_review_r6c`; Claude's reading of R232's call to action placed as in
   QuickArch03): the avatar is full frame through the call to action, so the gap is the avatar talking, with nothing
   added. The rule stands if a later layout brings the empty side back.
-- **R217 Image generation goes through Abacus.ai first while its credits last; OpenRouter only where Abacus can't.**
-  David's Abacus credits lapse in about a week; R150's Studio session (Edge on CDP 9337, his signed-in profile)
-  makes the images. OpenRouter (`tools/gen_image.py`) stays for what Abacus can't do. *David, 2026-10-16* ("Please
-  use abacus.ai. I have many credits there that are going away in a week or so. DON'T use openrouter if you CAN use
-  abacus.ai."). *Enforced by:* the session plan; Abacus's own cost shown before each Generate (GOTCHAS).
+- **R217 Image generation goes through Abacus.ai first; OpenRouter only where Abacus can't.** R150's Studio
+  session makes the images. OpenRouter (`tools/gen_image.py`) stays for what Abacus can't do. *David, 2026-10-16*
+  ("Please use abacus.ai. [...] DON'T use openrouter if you CAN use abacus.ai."). *Enforced by:* the session plan;
+  Abacus's own cost shown before each Generate (GOTCHAS).
 - **R218 The avatar's background: an openly artificial brand stage, chosen after the neon logo.** David leans to
   the Brand Stage look (`research/backgrounds/review_r1/s4_brand_stage_code_sign.png`): a background that is
   plainly graphic avoids a room that looks fake. First the GiddyUp logo as a real-looking neon sign (from
@@ -847,9 +847,9 @@ yet.
   *David, 2026-10-16* ("B1: GPT Image 2.5", and "Yes" to keeping the sign upper left). *Enforced by:* the next stage
   build. **Superseded by R232:** the background is the Quick Series cityscape, held still behind the avatar, and the
   oval shows it too; the teal wall with the neon sign is set aside (built in round 5, `stage_review_r5b`).
-- **R226 David has a HeyGen subscription; Claude may use its web app; the API work goes on as before.** Plan-credit
-  renders (Avatar IV and V) are possible through the web app, which Claude may drive; R221's Avatar III through the API
-  is unchanged. *David, 2026-10-16* ("I've subscribed to HeyGen. You can access via the UI. Doesn't impact our API
+- **R226 David has a HeyGen subscription: renders made in the HeyGen web app on plan credits; the API work goes on
+  as before.** Plan-credit renders (Avatar IV and V) are made in the HeyGen web app; R221's Avatar III through the
+  API is unchanged. *David, 2026-10-16* ("I've subscribed to HeyGen. You can access via the UI. Doesn't impact our API
   work."). *Enforced by:* the session plan.
 - **R227 Word timing comes from the Qwen3 forced aligner and art cutouts from BiRefNet; the new OCR reads beside
   Windows OCR.** The aligner replaces the TTS engines' logged word ends and Vosk (0.06 s off on average against
@@ -872,7 +872,7 @@ yet.
   the Avatar IV renders on plan credits. Any test render before that spends the API wallet on Avatar III. *David,
   2026-10-16* ("I got pro. For now use up the API credits using Avatar III if we need further testing. Remember, we're
   just using a pic for our first line of testing in Premiere. When we're satisfied with look and feel, we'll use the UI
-  for Avatar IV."). *Enforced by:* the session plan; a HeyGen Edge window (its own profile, CDP) for the web app.
+  for Avatar IV."). *Enforced by:* the session plan; renders made in the HeyGen web app on plan credits.
   Built for the box: `pipeline.edit.pip` (the review on a still, `pip_review_r2e`).
 - **R230 Claude may restart a stuck Premiere.** When the bridge stops answering (a hang or a dialog nobody can see),
   Claude may quit and restart Premiere, or end its process if it is hung, as long as no project of David's is open
@@ -972,7 +972,7 @@ yet.
   oval size. Everything else in the main body stays the still picture until David approves the sample; the intro and
   outro are rendered whole (V and IV) only once everything else is as good as can be known. *David, 2026-10-17*
   ("start with just that one sample, work out the kinks before we do any of the intro outro recording"; "let's go
-  ahead and test that on the photo look"). *Enforced by:* the session plan; the HeyGen Edge window (R226).
+  ahead and test that on the photo look"). *Enforced by:* the session plan; the HeyGen web app (R226).
 - **R239 The picture-in-picture and the Quick Series stage hold for every video; this video first, then the
   blueprint (its 2026-10-20 date stands).** R231's picture-in-picture through the main body and R232's stage
   (cityscape, left third, original call to action) apply to every video, not Section A alone. The blueprint stays on
@@ -990,7 +990,7 @@ yet.
   time); the Photo Look's motion can only be calmed by HeyGen's "Custom motion", which doubles its price to about the
   normal look's. The main body renders on this look at R237's P55 budget (about 291 credits a video). *David,
   2026-10-17* ("Let's just run the normal avatar look. Do not rerun the photo look."; "Yes", to "is this look good
-  enough to approve for the main body?"). *Enforced by:* `pipeline/edit/pip_render.py` (the look 79e700d1...),
+  enough to approve for the main body?"). *Enforced by:* `pipeline/edit/pip_render.py` (the look `<HEYGEN_LOOK_ID>`),
   `research/heygen_plan/SAMPLE_PHOTOLOOK_r1.md` (both tests).
 - **R242 Round 7 approved; the main body's renders go ahead; the series card and the subscribe animation rebuilt in
   Remotion.** The intro and outro design of `stage_review_r7` is approved. The main body's Avatar IV renders (R237,
@@ -1001,8 +1001,8 @@ yet.
   animation is rebuilt in Remotion in 3 or 4 variations for David to pick (replacing the Motion Array original of
   R232); the url write-on stays David's own `url.mov`. The outside frame review (Gemini 4 Argon, about $5.40) runs
   once on the finished video, after asking. *David, 2026-10-17* (ticks on each; "Your e.g. is fine."; "3 or 4
-  Remotion variations please"). *Enforced by:* `pipeline/edit/pip_render.py`, the HeyGen web-app script
-  (`research/heygen_plan/photo_look/heygen_ui.py`), Remotion compositions to build.
+  Remotion variations please"). *Enforced by:* `pipeline/edit/pip_render.py`, renders made in the HeyGen
+  web app on plan credits, Remotion compositions to build.
 - **R243 The series card reads "Amazon Quick Series" / "QS Journey 1: First dashboard"; the subscribe animation is
   the brand-colour Remotion variation.** The shorter second line lets the card grow (labels at the rulebook's size)
   and move as the room allows. Of the four subscribe variations, the brand-colour one (`remotion_ctas_r1/
@@ -1179,19 +1179,19 @@ yet.
   of its project). A few full-size stills for David this round. *David, 2026-10-18.*
   **Round 5 approved, and the narrator chosen:** the Presenter card reads "David's avatar / Position changes as
   needed"; the rest of round 5 stands (the dissolve into Capture included). The narrator's avatar is HeyGen's stock
-  **Meilin** (avatar ID de146f2985544c3a80e2e2aceec3310d), lip-synced to Emma's audio, transparent, in the
+  **Meilin** (avatar ID <HEYGEN_STOCK_SEATED_ID>), lip-synced to Emma's audio, transparent, in the
   placeholder's slot; the render goes ahead. *David, 2026-10-18* ("It seems like we're close. Are we ready to call to
-  HeyGen?"; "Meilin - de146f2985544c3a80e2e2aceec3310d").
+  HeyGen?"; "Meilin - <HEYGEN_STOCK_SEATED_ID>").
   **The look:** that ID was Meilin's seated look 07, which floats once its chair and table are cut out; David chose her
-  standing look **01** instead (rust blouse; look ID f7af57d29abd4254a1e43441ec16ce40, avatar ID
-  958a42efa3fa4248baac91baa5bf14cf), on Avatar IV. *David, 2026-10-18* ("01").
+  standing look **01** instead (rust blouse; look ID <HEYGEN_STOCK_LOOK_ID>, avatar ID
+  <HEYGEN_STOCK_AVATAR_ID>), on Avatar IV. *David, 2026-10-18* ("01").
   **Her voice, not Emma's:** Meilin speaks in the voice HeyGen gives her, from the script's text; the reel's whole
   narration moves to that voice so the narrator sounds the same on and off camera (off-camera lines from the same
   voice by the cheapest faithful route, priced for David first if it costs more than her four segments). *David,
   2026-10-18* ("Not emma's voice!"; "She comes with her own voice. Let's use that.").
   **The voice, settled:** her shipped voice (HeyGen's "Claire Lawson Uplifting") is HeyGen's private copy, out of
   reach off camera, and HeyGen credits go only to her four on-camera segments; so the whole narration is ElevenLabs'
-  **Constance Lee** (voice ID <ELEVENLABS_VOICE_ID>), and HeyGen lip-syncs her segments to that audio. *David,
+  **Constance Lee** (voice ID <ELEVENLABS_STOCK_VOICE_ID>), and HeyGen lip-syncs her segments to that audio. *David,
   2026-10-18* ("whatever allows us to save those credits best is what works for me"; "02 Constance Lee works for
   me.").
   **Round 6 notes (this reel only):** David's own framing of Meilin (Scale 182%, Position 0.1927, 0.6778) is the
@@ -1232,10 +1232,12 @@ yet.
   published is a clean copy, not this repo's history, without `runs/`, `audio_cache/` or study frames. It is scanned
   first for secrets, account IDs, and codespace and test-account names. David approves the file list before anything
   is pushed. It goes to a new public GitHub repo and must be live by 2026-10-20. *David, 2026-10-12.* *Enforced by:*
-  not built (PLAN, Blueprint). R4 already keeps secrets out of the code. **On hold (R210).**
+  not built (PLAN, Blueprint). R4 already keeps secrets out of the code. **Hold lifted 2026-10-19 (R210 amended).**
 - **R210 The blueprint is on hold.** No work on it until David says. *David, 2026-10-16* ("We're not ready for the
-  blueprint yet. Hold off on that."). Open: whether R95's 2026-10-20 date still stands for the talk.
-  *Enforced by:* the session plan.
+  blueprint yet. Hold off on that."). *Enforced by:* the session plan. **Amended 2026-10-19:** the hold is lifted.
+  David released the pipeline for publication on 2026-10-19, as the public repo `ai-video-pipeline`, one of three
+  behind giddyupdata.com/blueprints.html for the CSC13 talk. R95 still governs: a clean, scanned copy whose file list
+  David approves. *David, 2026-10-19.*
 - **R98 The CSC13 test cut is short:** the avatar intro, steps p2.10a to p2.10f of full_take02 (the dashboard prompt,
   with its overlay and the four highlights drawn on it, plus David's line p2.10a2 over the typing, R25) in the clone
   (R94), the avatar outro, and the logo outro (R96). It's built in a new folder, `runs/csc13_test_20261012/`, with its
@@ -1356,7 +1358,7 @@ read-only like the workshop folder (R1). Its code copies go in `pipeline/vendor/
   drag a chart's bottom-right corner to resize it." was unnecessary wording. p2.43's cue word is "On" again ("I'll"
   made the click land 1.5 s after "East"; David had no opinion on the word itself). *David, 2026-10-14, on round 2.*
   *Enforced by:* `steps_full.json`; R121 for the arrow.
-- **R127 The account name is blurred for the whole video:** `giddyupdata-2026sep` in the Quick Sight header (every
+- **R127 The account name is blurred for the whole video:** `<QUICKSIGHT_ACCOUNT_NAME>` in the Quick Sight header (every
   frame) and in the address bar (wherever the browser bar shows), as standing masks in the Premiere export (R116).
   *David, 2026-10-14* ("Agreed. Blur it."). *Enforced by:* `privacy.patterns` in Section A's `edit_settings.json`
   (the name as a regex that survives OCR's spacing, with the standing decision `blur` and a 4 s merge gap, so two
@@ -1491,14 +1493,13 @@ read-only like the workshop folder (R1). Its code copies go in `pipeline/vendor/
   important in many cases"; "I want to swarm this. This will actually be good for the talks"; "$25 seems wise";
   "NPM installs are fine"; "Testing first is good"; on the twenty spots: "Didn't we say to move forward with all of
   them?"). *Enforced by:* the build plan, `docs/OVERLAY_BUILD_PLAN_qs1a.md` (not built yet).
-- **R150 Claude makes Abacus video in the Studio, through David's signed-in browser.** Abacus has no video API
-  (checked 2026-10-15: the Studio runs on private web calls, the Python SDK has no generate call, and RouteLLM lists
-  no video endpoint), so Claude drives the Abacus Studio in a separate Edge window (CDP port 9337, profile
-  `~\.abacus-probe\edge-profile`), which stays signed in for later use. David accepts that Abacus's
-  terms may not allow automated use of its web app. Claude never touches the sign-in (R4) and never enables API
-  metering or buys credits without asking. The plan is Pro: 30,000 credits a month, refreshed on the 22nd. *David,
-  2026-10-15* (offered by hand or by Claude: "(b)"; "I'll leave the Abacus sign-in open so that we can use it as
-  needed moving forward"). *Enforced by:* the build plan.
+- **R150 Abacus video is made in the Studio, in a browser profile David signed in to himself.** Abacus has no
+  video API (checked 2026-10-15: the Studio runs on private web calls, the Python SDK has no generate call, and
+  RouteLLM lists no video endpoint), so the Studio is used through a separate, dedicated browser profile that
+  David signed in to himself, and David confirms each paid step. Claude never touches the sign-in (R4) and never
+  enables API metering or buys credits without asking. *David, 2026-10-15* (offered by hand or by Claude: "(b)";
+  "I'll leave the Abacus sign-in open so that we can use it as needed moving forward"). *Enforced by:* the build
+  plan.
 - **R151 The build plan is reviewed before the swarm runs, by Fable 5.1 and Gemini 4 Argon.** A Fable subagent and
   one non-Claude critic, Gemini 4 Argon (the newest Gemini; DeepThink still defaults to gemini-3.1-pro-preview), poke
   holes in the plan and offer alternatives before anything is built. Outside models for this work are each vendor's
@@ -1825,5 +1826,4 @@ shape, the call to action's timing, the oval's inset, how often the box moves) a
    R130 and R147 still give the date.
 
 **Still open (not a conflict):** the default browser zoom (100% now; SPEC said 125% for VS Code) waits for David's
-phone check. R232 (newer) wins over R131's "away from Motion Array" for the subscribe animation; whether that
-element's licence covers a new video, if the Motion Array plan has lapsed, is worth David's check.
+phone check. R232 (newer) wins over R131's "away from Motion Array" for the subscribe animation.

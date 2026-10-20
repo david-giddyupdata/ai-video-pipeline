@@ -1,5 +1,7 @@
 # David's editing style, as pipeline rules (Quick Series ep02–ep04)
 
+*Public copy: the sources below are not published; this file is the conclusion.*
+
 Built 2026-10-06 from three sources that were cross-checked against each other:
 - **Pixels:** `interface/`, `architecture/`, `knowledge_bases/` `REVIEW.md` (frame timing against word timings).
 - **Premiere:** `premiere_reconciled/SUMMARY.md`. Two independent parses of `AmazonQuick.prproj`, with every
@@ -72,7 +74,7 @@ uses are in `edit_settings.json`.
 
 ## 7. Episode frame and sound
 
-- Title card ("Card 09" template) over the intro. Outro: Subscribe 7.5 s, url 5.3 s, a **hard cut to black**, then
+- Title card (a licensed template) over the intro. Outro: Subscribe 7.5 s, url 5.3 s, a **hard cut to black**, then
   the logo fades in over 0.67 s and plays for 6 s.
 - **Music only in the outro** (William Tell, about −7 dB, 2.5 s fade at the end). No music bed under the narration,
   almost no sound effects.

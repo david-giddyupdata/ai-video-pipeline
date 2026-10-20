@@ -1,6 +1,6 @@
 """Record a take of a step list, silently, with the run log and sync flashes (slices S1 to S5).
 
-    python -m pipeline.s1 [--steps=steps_s4.json]   # record a new take, then build the report (default steps_s1.json)
+    python -m pipeline.s1 [--steps=steps_csc13.json]   # record a new take, then build the report (default steps_full.json)
     python -m pipeline.s1 --dry [--steps=...]       # pre-flight, the off-camera prepare, OBS setup; nothing is recorded
     python -m pipeline.s1 --resume=runs/<run_id>    # after the Part 5 pause: record the rest of the take (R70)
     python -m pipeline.s1 --steps=qs1_section_a/steps_full.json   # another exercise's step list (its own folder)
@@ -20,7 +20,7 @@ the dashboard off camera (pipeline.generated.explore), writes runs/<run_id>/gene
 which merges the generated steps (pipeline.generated.merge), voices their draft lines, reloads the dashboard, records
 the rest in the same codespace and joins the two recordings (pipeline.post.join).
 
-The run folder is named after the steps file: steps_s4.json -> runs/dashboard_<date>_s4_takeNN (a step list's
+The run folder is named after the steps file: steps_csc13.json -> runs/dashboard_<date>_csc13_takeNN (a step list's
 `run_prefix` replaces "dashboard"). A --steps path with a folder is read from that exercise folder; a bare name, from
 the dashboard exercise's.
 
@@ -213,7 +213,7 @@ def close_take_pages(ctx, before):
                 pass
 
 
-def main(dry=False, steps_name="steps_s1.json"):
+def main(dry=False, steps_name="steps_full.json"):
     steps_path = steps_file(steps_name)
     doc = load_steps(steps_path)
     prof = browser.use(doc.get("browser", "workshop"))   # before anything connects (R113)
@@ -687,7 +687,7 @@ def rehearse(steps_name, to=None, fast=False):
 
 
 def cli(args):
-    steps = next((a.split("=", 1)[1] for a in args if a.startswith("--steps=")), "steps_s1.json")
+    steps = next((a.split("=", 1)[1] for a in args if a.startswith("--steps=")), "steps_full.json")
     resumed = next((a.split("=", 1)[1] for a in args if a.startswith("--resume=")), None)
     if "--rehearse" in args:
         if resumed or "--dry" in args:

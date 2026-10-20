@@ -4,9 +4,10 @@
 
 If you find something here that shouldn't be public (a key, a password, an email address, an account number, a
 private name, a voice or avatar ID) or a script that does something unsafe, please report it privately: open this
-repository's **Security** tab and choose **Report a vulnerability**. Please don't open a public issue for these.
+repository's **Security** tab and choose **Report a vulnerability**, or use the contact form at
+https://giddyupdata.com/contact.html. Please don't open a public issue for these.
 
-I'm one person. I aim to reply within a week; when I'm teaching or travelling it can take longer. There is no bug
+I'm one person. I aim to reply within a week; when I'm teaching or traveling it can take longer. There is no bug
 bounty.
 
 ## In scope

@@ -1,4 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "include": ["src", "review", "remotion-env.d.ts"]
-}

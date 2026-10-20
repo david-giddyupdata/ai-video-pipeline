@@ -1,8 +1,8 @@
 # AI-Driven Training Video Pipeline: Specification
 
 Design and file formats. Behaviour David decided lives in `RULES.md` and is cited here as R#; numbers live in
-`exercises/<ex>/edit_settings.json`. Status and next steps are in `PLAN.md`. Restructured 2026-10-06: section numbers
-are unchanged because the code cites them.
+`exercises/<ex>/edit_settings.json`. Status and next steps are in `PLAN.md` (not published). Restructured
+2026-10-06: section numbers are unchanged because the code cites them.
 
 ## 1. Purpose and scope
 
@@ -563,7 +563,7 @@ Pre-flight writes `preflight.json`, and any failure blocks the run.
 | VS Code | Do Not Disturb is on (bell); theme and font size are fixed. These are set before capture starts, off camera | Yes (command palette, off camera) |
 | Account | Signed in as **<YOUR_GITHUB_ACCOUNT>** only; the take repo was created fresh from the template; the codespace has been created and the trust prompt not yet answered | Yes (`gh` with the test account's config dir) |
 | Secrets | `ANTHROPIC_API_KEY` Codespace secret reaches the take repo, by a per-take tick or by being scoped to all repositories (David decides before S6). David does any tick (R4). | Checked (the secret's name only) |
-| Claude log | `gh codespace ssh` works through `%USERPROFILE%\.<CLIENT>\gh` | Yes |
+| Claude log | `gh codespace ssh` works through `%USERPROFILE%\.workshop\gh` | Yes |
 | Narration | Every `scripted` and `generated` line is `approved` and present in the cache under its current key | Yes |
 | Tools | Pinned versions match the lock file; ffmpeg on PATH; OBS is running with the pipeline's profile and scene | Yes |
 | Disk | At least 20 GB free on the drive holding `runs/` | Yes |
@@ -589,11 +589,9 @@ because it needs no install. It uses the same patterns.
 
 - **Built (2026-10-06):** `pipeline/privacy/winocr.ps1` OCRs a folder of frames and returns word boxes.
   `pipeline/privacy/blur.py` blurs boxes over time spans in a finished video and never overwrites its input.
-- **Where the AWS account ID showed up in David's published Quick Series:**
-  - The Quick account dropdown, where the "Username" is the ID.
-  - The S3 knowledge-base wizard: "Quick Suite instance account (ID)".
-  - The AWS console header: "My-AWS-Account (ID)".
-  Steps that open these screens should expect a finding.
+- **Where Quick Sight shows an AWS account ID on screen:** the account dropdown (its "Username" can be the ID),
+  the S3 knowledge-base wizard's instance-account field, and the AWS console header. Steps that open these screens
+  should expect a finding.
 
 **The report** (`privacy_report.json`, also shown as markers on `timeline.html`):
 
@@ -629,6 +627,10 @@ Read-only (R1): files are copied into `pipeline/vendor/` with a provenance heade
 Workshop lessons that carry over are in `GOTCHAS.md`.
 
 ## 12. Folder layout
+
+This is the private project's layout as planned on 2026-10-05, kept as written. The published copy differs: it
+adds `pipeline/ml/`, `pipeline/generated/`, `pipeline/publish/` and `tools/`, and has none of `author/`, `intro/`,
+`brand/`, `docs/`, `SESSION_HANDOFF.md`, `PLAN.md`, `schemas/edit_plan.schema.json` or `.claude/skills/`.
 
 `./` is a subfolder of the VideoProduction workspace (`D:\Videos`), so it already inherits that
 workspace's hooks and steering. It needs no `projects.json` entry.

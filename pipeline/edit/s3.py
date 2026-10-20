@@ -3,7 +3,7 @@
     python -m pipeline.edit.s3 runs/<run_id> <steps file> [--gap cut|swipe|speed|all]
 
 Voices any changed lines (pipeline.narration.build), plans the edit (pipeline.edit.plan), then renders
-proxy_<tag>_<gap>.mp4 into the run folder, where <tag> comes from the steps file (steps_s4.json -> s4). Change exercises/<ex>/edit_settings.json and run it again for a new proxy.
+proxy_<tag>_<gap>.mp4 into the run folder, where <tag> comes from the steps file (steps_csc13.json -> csc13). Change exercises/<ex>/edit_settings.json and run it again for a new proxy.
 """
 import shutil
 import subprocess

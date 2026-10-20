@@ -6,7 +6,7 @@
    "bellS": 1.9,
    "thumbS": 2.867,
    "lengthS": 7.52,
-   "note": "the Motion Array clip's own moments (research/backgrounds/refs_ep03/ep03_cta.json): it starts 1.32 s before 'subscribe', its bell is clicked 1.9 s in (as the word ends), its thumb 2.867 s in, it lasts 7.52 s"
+   "note": "the licensed original card's own moments, measured: it starts 1.32 s before 'subscribe', its bell is clicked 1.9 s in (as the word ends), its thumb 2.867 s in, it lasts 7.52 s"
   },
   "thumbAfterWordS": 0.14,
   "minBellToThumbS": 0.75,

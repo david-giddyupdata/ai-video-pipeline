@@ -3,10 +3,9 @@ import {AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame, useVideoCon
 import CTA from './data/cta.json';
 import {Box, prog} from './kit';
 
-// SeriesCard (R242): the "Amazon Quick Series" card of David's Quick Series, rebuilt in code to replace the Motion
-// Array "Unique Cards" Card 09 he used (R131: away from Motion Array). Measured from 03-QuickArch03.mp4 (25 fps; the
-// card's nest starts at 00:00:00:13) and its source clips (Card 09 C1/C2.mov, the nest "02Card 09-Arch" in
-// AmazonQuick.prproj, read from a copy):
+// SeriesCard (R242): the "Amazon Quick Series" card of David's Quick Series, rebuilt in code (R131). It re-creates
+// the look of a Motion Array card David licensed; no Motion Array file is included (THIRD_PARTY.md). Measured from
+// his published episode QuickArch03 (25 fps; the card's nest starts at 00:00:00:13) and the card's source clips:
 //   * the look: a rounded card, black with a curved band low on it, magenta into orange into pale gold towards the
 //     bottom right (an ellipse centred above the card's left third: GRAD), a thin light outline, the series name in
 //     Berlin Sans FB Demi bold, white, and the episode's title in a darker see-through inner panel;

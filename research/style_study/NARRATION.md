@@ -1,5 +1,7 @@
 # How David writes narration (from the Quick Series, episodes 02–04)
 
+*Public copy: the sources below are not published; this file is the conclusion.*
+
 Sources: `02-QuickInterface01_narration.txt`, `03-QuickArch03_updated.srt`, `04CreateKnowledgeBaseScript.txt`, and the
 measured audio (`pacing.json`). Quotes are verbatim. This guide is for drafting pipeline narration (`steps.json`) that
 sounds like David, and for checking drafts before he reviews them.
@@ -103,7 +105,7 @@ the line ends, the click, then a page load. Close them in the narration with a c
 ## 7. Spoken text is written for the ear
 
 He respells literal values for the voice in the script itself:
-- "s3 colon slash slash quicksweet, hyphen, class, hyphen 4 3 2 1"
+- "s3 colon slash slash my, hyphen, demo, hyphen, bucket" (a made-up bucket in this copy)
 - "I'll enter 'QS, S3, Connection.'" (commas slow the voice between tokens)
 - "financial_documents slash, directory"
 

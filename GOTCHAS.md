@@ -362,7 +362,8 @@ behave.
 - **CEP still runs** (CEP 12, `CSXS.12`); an unsigned panel needs `PlayerDebugMode` = "1" under
   `HKCU\Software\Adobe\CSXS.12` (set 2026-10-13). A hidden `Custom` extension with `StartOn` `applicationActivate`
   starts with Premiere. `ScriptPath` didn't load `aidv.jsx` the first time (a syntax error: the Write tool had turned
-  ` ` in the regex into a real line separator, which ends an ES3 line); the bridge now `$.evalFile`s it itself.
+  the escape `\u2028` (U+2028) in the regex into a real line separator, which ends an ES3 line);
+  the bridge now `$.evalFile`s it itself.
 - **Premiere 26 lists "Page Peel (Obsolete)" and a new "Page Peel"** (QE `getVideoTransitionList`, 157
   transitions). The XML import maps ours to the old one, hence the dissolves (R83). R105 adds the new one after
   the import: QE `trackItem.addTransition(qe.project.getVideoTransitionByName("Page Peel"), false, "00:00:01:00",
@@ -567,12 +568,11 @@ behave.
   Motion Engine defaults to Avatar V for a twin's look: set Avatar IV by hand each time. Avatar IV renders come back
   at 25 fps, so place them by time, never by frame count. A Photo Look moves with generic head motion and hand
   gestures; only "Custom motion" restrains it, at double the price, so a calm Photo Look costs what the normal look
-  does (`research/heygen_plan/SAMPLE_PHOTOLOOK_r1.md`). The web app's page text holds the account email: keep its
-  dumps in the git-ignored `research/heygen_plan/photo_look/ui/`.
+  does (`research/heygen_plan/SAMPLE_PHOTOLOOK_r1.md`).
 - **The web app's "WebM (transparent background)" works for the normal look on Avatar V and IV at 1080p** (2026-10-17,
   the intro and outro), despite the help article's "one scene, avatar at 4K" condition: Generate > Format offers it
-  (the watermark row goes away; Resolution 720p, 1080p, 2K marked "2x", 4k), the coins badge doesn't change, and the
-  matte, placement and length match the API's Avatar III WebM. The studio's Avatar Background > Remove (free) was
+  (the dialog shows no watermark option for WebM; Resolution 720p, 1080p, 2K marked "2x", 4k), the coins badge
+  doesn't change, and the matte, placement and length match the API's Avatar III WebM. The studio's Avatar Background > Remove (free) was
   applied first; whether WebM needs it is untested. Two traps: its edge colour is **premultiplied twice** (colour about
   alpha squared times the subject; the API's WebM once), so `alpha.fix_edges` alone leaves a dark outline round the
   head (8 times the dark edge pixels): divide the alpha out once more first (`stage_edge_fix.py` `fix2` in
@@ -588,11 +588,9 @@ behave.
   the same matte as its transparent WebM, so the same edge fringe shows; it is rejected with `output_format` "webm".
   A look recorded on a virtual background leaves that picture in the matte's edge; putting the avatar back on the same
   picture (the cityscape, R232) hides it.
-- **Abacus Studio image mode:** the composer makes its file input only after the paperclip click; long option menus
-  scroll, and a click on an item below the visible part lands on the showcase gallery underneath, whose cards carry
-  the same labels ("16:9", "GPT Image 2.5") and open a panel that blocks every later click. Pick options only among
-  elements new since the menu opened, scrolled into view and checked on top. Each job opens its own chat, so a paid
-  image whose download failed can be recovered (`research/backgrounds/abacus_image.py`, `recover`).
+- **Abacus Studio's price is the confirmation card's.** The estimate under the prompt bar leaves out the video
+  overhead; only the card shown after Send carries the true price, so read that figure before you confirm. A second
+  upload of an identical file is silently dropped: make a repeated input differ by a byte.
 
 ## A round's frames from Premiere's exports (R233, 2026-10-17, `pipeline.edit.ppro.exports`)
 

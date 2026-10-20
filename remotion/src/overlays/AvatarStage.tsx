@@ -333,8 +333,9 @@ const RoadCard: React.FC<{c: StageCard; t: number}> = ({c, t}) => {
   );
 };
 
-// The subscribe card (R209), rebuilt from David's Motion Array card: a vertical bar, the bell and the thumbs-up, and
-// "Thanks for watching!" sliding out from behind the bar; a hand clicks the bell on "subscribe" and the thumb on
+// The subscribe card (R209): it re-creates the look of a Motion Array card David licensed; no Motion Array file is
+// included (THIRD_PARTY.md). A vertical bar, the bell and the thumbs-up, and "Thanks for watching!" sliding out
+// from behind the bar; a hand clicks the bell on "subscribe" and the thumb on
 // "thumbs". On an opaque panel (G7), so its text keeps 7:1 over any background. 'red': the old card's YouTube red
 // bar on YouTube's dark grey; 'brand': the brand brown with the gold, the bar in the one accent (a shape, G9).
 const SUB_TEXT = 64;            // a heading (G3: 60 at least); the card keeps inside title-safe (G15)
